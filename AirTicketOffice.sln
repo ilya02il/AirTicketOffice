@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketOffice.UI", "AirTicketOffice\AirTicketOffice.UI.csproj", "{E3F9155D-F44B-49E4-87ED-E391934C1CC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketOffice.DAL", "AirTicketOffice.DAL\AirTicketOffice.DAL.csproj", "{4F3C444B-510E-4414-8F30-4563116DB468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketOffice.Model", "Model\AirTicketOffice.Model.csproj", "{256E8F26-4DB8-4AC3-8E78-2920719D7923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketOffice.Presentations", "AirTicketOffice.Presentations\AirTicketOffice.Presentations.csproj", "{FBAF617C-2FEB-40AB-9F52-863952DCAD5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketOffice.Adapters", "AirTicketOffice.Adapters\AirTicketOffice.Adapters.csproj", "{ADF90284-7B29-443A-97F8-205DF54161B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hasher\Hashing.csproj", "{9CBAD2BB-91EC-4BC6-9A1E-EE6102364FB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reCaptcha", "reCaptcha\reCaptcha.csproj", "{5B82513A-4000-489A-90C2-0461EDEBFF92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3F9155D-F44B-49E4-87ED-E391934C1CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F9155D-F44B-49E4-87ED-E391934C1CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F9155D-F44B-49E4-87ED-E391934C1CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F9155D-F44B-49E4-87ED-E391934C1CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3C444B-510E-4414-8F30-4563116DB468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3C444B-510E-4414-8F30-4563116DB468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3C444B-510E-4414-8F30-4563116DB468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3C444B-510E-4414-8F30-4563116DB468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256E8F26-4DB8-4AC3-8E78-2920719D7923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256E8F26-4DB8-4AC3-8E78-2920719D7923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256E8F26-4DB8-4AC3-8E78-2920719D7923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256E8F26-4DB8-4AC3-8E78-2920719D7923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBAF617C-2FEB-40AB-9F52-863952DCAD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBAF617C-2FEB-40AB-9F52-863952DCAD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBAF617C-2FEB-40AB-9F52-863952DCAD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBAF617C-2FEB-40AB-9F52-863952DCAD5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF90284-7B29-443A-97F8-205DF54161B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF90284-7B29-443A-97F8-205DF54161B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF90284-7B29-443A-97F8-205DF54161B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF90284-7B29-443A-97F8-205DF54161B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CBAD2BB-91EC-4BC6-9A1E-EE6102364FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CBAD2BB-91EC-4BC6-9A1E-EE6102364FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CBAD2BB-91EC-4BC6-9A1E-EE6102364FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CBAD2BB-91EC-4BC6-9A1E-EE6102364FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B82513A-4000-489A-90C2-0461EDEBFF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B82513A-4000-489A-90C2-0461EDEBFF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B82513A-4000-489A-90C2-0461EDEBFF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B82513A-4000-489A-90C2-0461EDEBFF92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D93C1EBC-D542-40BB-99CE-C569BE7DE3AC}
+	EndGlobalSection
+EndGlobal
