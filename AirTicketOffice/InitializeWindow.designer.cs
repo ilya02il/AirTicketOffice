@@ -44,7 +44,7 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Image = global::AirTicketOffice.Properties.Resources.klipartz_com;
+			this.pictureBox1.Image = global::AirTicketOffice.Properties.Resources.init_logo_0_5x;
 			this.pictureBox1.Location = new System.Drawing.Point(72, 22);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(256, 256);

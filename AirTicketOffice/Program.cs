@@ -26,12 +26,14 @@ namespace AirTicketOffice
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			Controller.AddTransient<ILoginView, AuthorizationWindow>();
-			Controller.AddTransient<IMainView, MainWindow>();
+			Controller.AddTransient<ICaptchaView, CaptchaWindow>();
+			//Controller.AddTransient<IMainView, MainWindow>();
 			Controller.AddTransient<IInitializationView, InitializeWindow>();
 			Controller.AddTransient<IRegistrationView, RegistrationWindow>();
 			Controller.AddScoped<DataContext>();
 			Controller.AddTransient<IDbRepository, DbRepository>();
 			Controller.AddScoped<ILoginService, LoginService>();
+			Controller.AddScoped<ICaptchaService, CaptchaService>();
 			Controller.AddScoped<IRegistrationService, RegistrationService>();
 			Controller.AddSingleton(new ApplicationContext());
 

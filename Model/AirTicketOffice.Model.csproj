@@ -50,11 +50,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICaptchaService.cs" />
     <Compile Include="Contracts\IContainer.cs" />
+    <Compile Include="Contracts\ICrewMemberService.cs" />
+    <Compile Include="Contracts\IFlightService.cs" />
     <Compile Include="Contracts\ILoginService.cs" />
+    <Compile Include="Contracts\IOrderService.cs" />
+    <Compile Include="Contracts\IPlaneService.cs" />
     <Compile Include="Contracts\IRegistrationService.cs" />
+    <Compile Include="Contracts\IRouteService.cs" />
+    <Compile Include="Contracts\ITicketService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="Implementations\CaptchaService.cs" />
+    <Compile Include="Implementations\CrewMemberService.cs" />
+    <Compile Include="Implementations\FlightService.cs" />
     <Compile Include="Implementations\LoginService.cs" />
+    <Compile Include="Implementations\OrderService.cs" />
+    <Compile Include="Implementations\PlaneService.cs" />
     <Compile Include="Implementations\RegistrationService.cs" />
+    <Compile Include="Implementations\RouteService.cs" />
+    <Compile Include="Implementations\TicketService.cs" />
+    <Compile Include="Implementations\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

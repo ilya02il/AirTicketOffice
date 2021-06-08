@@ -29,144 +29,211 @@ namespace AirTicketOffice
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.loginLabel = new System.Windows.Forms.Label();
-			this.loginTextBox = new System.Windows.Forms.TextBox();
-			this.passwordTextBox = new System.Windows.Forms.TextBox();
-			this.passwordLabel = new System.Windows.Forms.Label();
-			this.signInButton = new System.Windows.Forms.Button();
-			this.captchaPictureBox = new System.Windows.Forms.PictureBox();
-			this.captchaTextBox = new System.Windows.Forms.TextBox();
-			this.captchaLabel = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.registrationLinkLabel = new System.Windows.Forms.LinkLabel();
-			((System.ComponentModel.ISupportInitialize)(this.captchaPictureBox)).BeginInit();
+			this.signInButton = new MaterialSkin.Controls.MaterialButton();
+			this.singUpButton = new MaterialSkin.Controls.MaterialButton();
+			this.pictureBox = new System.Windows.Forms.PictureBox();
+			this.loginTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.loginLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.passwordLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.label = new MaterialSkin.Controls.MaterialLabel();
+			this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+			this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// loginLabel
+			// signInButton
 			// 
-			this.loginLabel.AutoSize = true;
-			this.loginLabel.Location = new System.Drawing.Point(12, 15);
-			this.loginLabel.Name = "loginLabel";
-			this.loginLabel.Size = new System.Drawing.Size(44, 13);
-			this.loginLabel.TabIndex = 0;
-			this.loginLabel.Text = "Логин: ";
+			this.signInButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.signInButton.AutoSize = false;
+			this.signInButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.signInButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.signInButton.Depth = 0;
+			this.signInButton.HighEmphasis = true;
+			this.signInButton.Icon = null;
+			this.signInButton.Location = new System.Drawing.Point(43, 504);
+			this.signInButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.signInButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.signInButton.Name = "signInButton";
+			this.signInButton.Size = new System.Drawing.Size(366, 42);
+			this.signInButton.TabIndex = 10;
+			this.signInButton.Text = "Войти";
+			this.signInButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.signInButton.UseAccentColor = false;
+			this.signInButton.UseVisualStyleBackColor = true;
+			// 
+			// singUpButton
+			// 
+			this.singUpButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.singUpButton.AutoSize = false;
+			this.singUpButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.singUpButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.singUpButton.Depth = 0;
+			this.singUpButton.HighEmphasis = true;
+			this.singUpButton.Icon = null;
+			this.singUpButton.Location = new System.Drawing.Point(43, 587);
+			this.singUpButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.singUpButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.singUpButton.Name = "singUpButton";
+			this.singUpButton.Size = new System.Drawing.Size(366, 42);
+			this.singUpButton.TabIndex = 15;
+			this.singUpButton.Text = "Зарегистрироваться";
+			this.singUpButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.singUpButton.UseAccentColor = false;
+			this.singUpButton.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox
+			// 
+			this.pictureBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pictureBox.Image = global::AirTicketOffice.Properties.Resources.user_picture_0_5x;
+			this.pictureBox.Location = new System.Drawing.Point(123, 90);
+			this.pictureBox.Name = "pictureBox";
+			this.pictureBox.Size = new System.Drawing.Size(200, 200);
+			this.pictureBox.TabIndex = 8;
+			this.pictureBox.TabStop = false;
 			// 
 			// loginTextBox
 			// 
-			this.loginTextBox.Location = new System.Drawing.Point(69, 12);
+			this.loginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.loginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.loginTextBox.Depth = 0;
+			this.loginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.loginTextBox.LeadingIcon = null;
+			this.loginTextBox.Location = new System.Drawing.Point(43, 337);
+			this.loginTextBox.MaxLength = 50;
+			this.loginTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.loginTextBox.Multiline = false;
 			this.loginTextBox.Name = "loginTextBox";
-			this.loginTextBox.Size = new System.Drawing.Size(179, 20);
-			this.loginTextBox.TabIndex = 1;
+			this.loginTextBox.Size = new System.Drawing.Size(366, 50);
+			this.loginTextBox.TabIndex = 9;
+			this.loginTextBox.Text = "";
+			this.loginTextBox.TrailingIcon = null;
 			this.loginTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginTextBox_KeyDown);
 			// 
 			// passwordTextBox
 			// 
-			this.passwordTextBox.Location = new System.Drawing.Point(69, 38);
+			this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.passwordTextBox.Depth = 0;
+			this.passwordTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.passwordTextBox.LeadingIcon = null;
+			this.passwordTextBox.Location = new System.Drawing.Point(43, 423);
+			this.passwordTextBox.MaxLength = 50;
+			this.passwordTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.passwordTextBox.Multiline = false;
 			this.passwordTextBox.Name = "passwordTextBox";
-			this.passwordTextBox.Size = new System.Drawing.Size(179, 20);
-			this.passwordTextBox.TabIndex = 3;
-			this.passwordTextBox.UseSystemPasswordChar = true;
+			this.passwordTextBox.Password = true;
+			this.passwordTextBox.Size = new System.Drawing.Size(366, 50);
+			this.passwordTextBox.TabIndex = 11;
+			this.passwordTextBox.Text = "";
+			this.passwordTextBox.TrailingIcon = null;
 			this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
+			// 
+			// loginLabel
+			// 
+			this.loginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.loginLabel.AutoSize = true;
+			this.loginLabel.Depth = 0;
+			this.loginLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.loginLabel.Location = new System.Drawing.Point(35, 315);
+			this.loginLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.loginLabel.Name = "loginLabel";
+			this.loginLabel.Size = new System.Drawing.Size(46, 19);
+			this.loginLabel.TabIndex = 12;
+			this.loginLabel.Text = "Логин";
 			// 
 			// passwordLabel
 			// 
+			this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.passwordLabel.AutoSize = true;
-			this.passwordLabel.Location = new System.Drawing.Point(12, 41);
+			this.passwordLabel.Depth = 0;
+			this.passwordLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.passwordLabel.Location = new System.Drawing.Point(35, 400);
+			this.passwordLabel.MouseState = MaterialSkin.MouseState.HOVER;
 			this.passwordLabel.Name = "passwordLabel";
-			this.passwordLabel.Size = new System.Drawing.Size(51, 13);
-			this.passwordLabel.TabIndex = 2;
-			this.passwordLabel.Text = "Пароль: ";
+			this.passwordLabel.Size = new System.Drawing.Size(57, 19);
+			this.passwordLabel.TabIndex = 13;
+			this.passwordLabel.Text = "Пароль";
 			// 
-			// signInButton
+			// label
 			// 
-			this.signInButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.signInButton.Location = new System.Drawing.Point(93, 207);
-			this.signInButton.Name = "signInButton";
-			this.signInButton.Size = new System.Drawing.Size(75, 23);
-			this.signInButton.TabIndex = 4;
-			this.signInButton.Text = "ОК";
-			this.signInButton.UseVisualStyleBackColor = true;
+			this.label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.label.AutoSize = true;
+			this.label.Depth = 0;
+			this.label.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.label.Location = new System.Drawing.Point(213, 557);
+			this.label.MouseState = MaterialSkin.MouseState.HOVER;
+			this.label.Name = "label";
+			this.label.Size = new System.Drawing.Size(28, 19);
+			this.label.TabIndex = 14;
+			this.label.Text = "или";
 			// 
-			// captchaPictureBox
+			// materialDivider1
 			// 
-			this.captchaPictureBox.Location = new System.Drawing.Point(15, 64);
-			this.captchaPictureBox.Name = "captchaPictureBox";
-			this.captchaPictureBox.Size = new System.Drawing.Size(233, 81);
-			this.captchaPictureBox.TabIndex = 5;
-			this.captchaPictureBox.TabStop = false;
+			this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider1.Depth = 0;
+			this.materialDivider1.Location = new System.Drawing.Point(43, 567);
+			this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialDivider1.Name = "materialDivider1";
+			this.materialDivider1.Size = new System.Drawing.Size(165, 1);
+			this.materialDivider1.TabIndex = 17;
+			this.materialDivider1.Text = "materialDivider1";
 			// 
-			// captchaTextBox
+			// materialDivider2
 			// 
-			this.captchaTextBox.Location = new System.Drawing.Point(93, 151);
-			this.captchaTextBox.Name = "captchaTextBox";
-			this.captchaTextBox.Size = new System.Drawing.Size(155, 20);
-			this.captchaTextBox.TabIndex = 7;
-			this.captchaTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.captchaTextBox_KeyDown);
-			// 
-			// captchaLabel
-			// 
-			this.captchaLabel.AutoSize = true;
-			this.captchaLabel.Location = new System.Drawing.Point(12, 154);
-			this.captchaLabel.Name = "captchaLabel";
-			this.captchaLabel.Size = new System.Drawing.Size(75, 13);
-			this.captchaLabel.TabIndex = 6;
-			this.captchaLabel.Text = "Текст капчи: ";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(59, 174);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(149, 13);
-			this.label2.TabIndex = 8;
-			this.label2.Text = "Еще не зарегистрированы?";
-			// 
-			// registrationLinkLabel
-			// 
-			this.registrationLinkLabel.AutoSize = true;
-			this.registrationLinkLabel.Location = new System.Drawing.Point(75, 187);
-			this.registrationLinkLabel.Name = "registrationLinkLabel";
-			this.registrationLinkLabel.Size = new System.Drawing.Size(113, 13);
-			this.registrationLinkLabel.TabIndex = 9;
-			this.registrationLinkLabel.TabStop = true;
-			this.registrationLinkLabel.Text = "Зарегистрироваться";
+			this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider2.Depth = 0;
+			this.materialDivider2.Location = new System.Drawing.Point(244, 567);
+			this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialDivider2.Name = "materialDivider2";
+			this.materialDivider2.Size = new System.Drawing.Size(165, 1);
+			this.materialDivider2.TabIndex = 18;
+			this.materialDivider2.Text = "materialDivider2";
 			// 
 			// AuthorizationWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(260, 242);
-			this.Controls.Add(this.registrationLinkLabel);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.captchaTextBox);
-			this.Controls.Add(this.captchaLabel);
-			this.Controls.Add(this.captchaPictureBox);
-			this.Controls.Add(this.signInButton);
-			this.Controls.Add(this.passwordTextBox);
+			this.ClientSize = new System.Drawing.Size(450, 670);
+			this.Controls.Add(this.materialDivider2);
+			this.Controls.Add(this.materialDivider1);
+			this.Controls.Add(this.singUpButton);
+			this.Controls.Add(this.label);
 			this.Controls.Add(this.passwordLabel);
-			this.Controls.Add(this.loginTextBox);
 			this.Controls.Add(this.loginLabel);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Controls.Add(this.passwordTextBox);
+			this.Controls.Add(this.signInButton);
+			this.Controls.Add(this.loginTextBox);
+			this.Controls.Add(this.pictureBox);
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(450, 670);
+			this.MinimumSize = new System.Drawing.Size(450, 670);
 			this.Name = "AuthorizationWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Авторизация";
-			((System.ComponentModel.ISupportInitialize)(this.captchaPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Label loginLabel;
-		private System.Windows.Forms.TextBox loginTextBox;
-		private System.Windows.Forms.TextBox passwordTextBox;
-		private System.Windows.Forms.Label passwordLabel;
-		private System.Windows.Forms.Button signInButton;
-		private System.Windows.Forms.PictureBox captchaPictureBox;
-		private System.Windows.Forms.TextBox captchaTextBox;
-		private System.Windows.Forms.Label captchaLabel;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.LinkLabel registrationLinkLabel;
+		private MaterialSkin.Controls.MaterialButton signInButton;
+		private MaterialSkin.Controls.MaterialButton singUpButton;
+		private System.Windows.Forms.PictureBox pictureBox;
+		private MaterialSkin.Controls.MaterialTextBox loginTextBox;
+		private MaterialSkin.Controls.MaterialTextBox passwordTextBox;
+		private MaterialSkin.Controls.MaterialLabel loginLabel;
+		private MaterialSkin.Controls.MaterialLabel passwordLabel;
+		private MaterialSkin.Controls.MaterialLabel label;
+		private MaterialSkin.Controls.MaterialDivider materialDivider1;
+		private MaterialSkin.Controls.MaterialDivider materialDivider2;
 	}
 }
+

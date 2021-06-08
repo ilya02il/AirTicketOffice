@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using AirTicketOffice.Presentations.Views;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace AirTicketOffice
 {
-	public partial class AuthorizationWindow : Form, ILoginView
+	public partial class AuthorizationWindow : MaterialForm, ILoginView
 	{
 		public event Action Login;
 		public event Action Register;
-		public event Action GetCaptcha;
 
 		private readonly ApplicationContext _context;
 
@@ -25,31 +25,31 @@ namespace AirTicketOffice
 			set => passwordTextBox.Text = value;
 		}
 
-		public string CaptchaText
-		{
-			get => captchaTextBox.Text;
-			set => captchaTextBox.Text = value;
-		}
-
-		public Bitmap CaptchaPicture
-		{
-			set => captchaPictureBox.Image = value;
-		}
-
 		public AuthorizationWindow(ApplicationContext context)
 		{
 			_context = context;
+
 			InitializeComponent();
+
+			var manager = MaterialSkinManager.Instance;
+			manager.EnforceBackcolorOnAllComponents = true;
+			manager.AddFormToManage(this);
+			manager.Theme = MaterialSkinManager.Themes.LIGHT;
+			manager.ColorScheme = new ColorScheme(
+				Primary.Indigo400,
+				Primary.Indigo500,
+				Primary.Indigo100,
+				Accent.Blue200,
+				TextShade.WHITE
+				);
 
 			signInButton.Click += (sender, args) =>
 			{
 				loginTextBox.Focus();
 				Login?.Invoke();
 			};
-
-			Shown += (sender, args) => GetCaptcha?.Invoke();
-			captchaPictureBox.Click += (sender, args) => GetCaptcha?.Invoke();
-			registrationLinkLabel.LinkClicked += (sender, args) => Register?.Invoke();
+			
+			singUpButton.Click += (sender, args) => Register?.Invoke();
 		}
 
 		public new void Show()
@@ -70,12 +70,12 @@ namespace AirTicketOffice
 
 		private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Enter) captchaTextBox.Focus();
+			if (e.KeyCode == Keys.Enter) signInButton.Focus();
 		}
 
 		private void captchaTextBox_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Enter) signInButton.Focus();
+			//if (e.KeyCode == Keys.Enter) signInButton.Focus();
 		}
 	}
 }

@@ -63,9 +63,9 @@ namespace AirTicketOffice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap klipartz_com {
+        internal static System.Drawing.Bitmap init_logo_0_5x {
             get {
-                object obj = ResourceManager.GetObject("klipartz_com", resourceCulture);
+                object obj = ResourceManager.GetObject("init_logo_0_5x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

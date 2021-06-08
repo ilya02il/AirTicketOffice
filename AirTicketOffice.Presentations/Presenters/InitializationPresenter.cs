@@ -8,10 +8,10 @@ namespace AirTicketOffice.Presentations.Presenters
 {
 	public class InitializationPresenter : BasePresenter<IInitializationView>
 	{
-		private readonly ILoginService _service;
-		public InitializationPresenter(IApplicationController controller, IInitializationView view, ILoginService service) : base(controller, view)
+		private readonly ILoginService _loginService;
+		public InitializationPresenter(IApplicationController controller, IInitializationView view, ILoginService loginService) : base(controller, view)
 		{
-			_service = service;
+			_loginService = loginService;
 
 			View.LoadUsers += LoadUsersAsync;
 		}
@@ -20,7 +20,7 @@ namespace AirTicketOffice.Presentations.Presenters
 		{
 			View.ChangeStatus(@"Идет загрузка базы данных пользователей...");
 
-			await Task.Run(() => _service.LoadUsers());
+			await Task.Run(() => _loginService.LoadUsers());
 
 			View.Close();
 		}
