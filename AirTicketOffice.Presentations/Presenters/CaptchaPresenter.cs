@@ -37,7 +37,20 @@ namespace AirTicketOffice.Presentations.Presenters
 		{
 			var random = new Random();
 
-			_captchaService.CaptchaText = random.Next(100000).ToString();
+			_captchaService.CaptchaText = string.Empty;
+
+			for (int i = 0; i < 6; i++)
+			{
+				var randomNum = random.Next(48, 104);
+
+				if (randomNum > 57 && randomNum < 65 || randomNum > 90 && randomNum < 97)
+				{
+					i--;
+					continue;
+				}
+
+				_captchaService.CaptchaText += (char)randomNum;
+			}
 
 			View.CaptchaPicture = Captcha.GenerateCaptcha(_captchaService.CaptchaText, 310, 100);
 		}

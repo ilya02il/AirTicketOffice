@@ -40,7 +40,7 @@ namespace AirTicketOffice
 			);
 
 			Shown += (sender, args) => GetCaptcha?.Invoke();
-			captchaPictureBox.Click += (sender, args) => GetCaptcha?.Invoke();
+			resetCaptchaButton.Click += (sender, args) => GetCaptcha?.Invoke();
 			acceptButton.Click += (sender, args) => CheckCaptcha?.Invoke();
 		}
 

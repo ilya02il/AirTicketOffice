@@ -33,6 +33,7 @@ namespace AirTicketOffice
 			this.captchaTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.acceptButton = new MaterialSkin.Controls.MaterialButton();
 			this.captchaPictureBox = new System.Windows.Forms.PictureBox();
+			this.resetCaptchaButton = new MaterialSkin.Controls.MaterialButton();
 			((System.ComponentModel.ISupportInitialize)(this.captchaPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -70,19 +71,18 @@ namespace AirTicketOffice
 			// acceptButton
 			// 
 			this.acceptButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.acceptButton.AutoSize = false;
 			this.acceptButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.acceptButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
 			this.acceptButton.Depth = 0;
 			this.acceptButton.HighEmphasis = true;
 			this.acceptButton.Icon = null;
-			this.acceptButton.Location = new System.Drawing.Point(145, 290);
+			this.acceptButton.Location = new System.Drawing.Point(223, 290);
 			this.acceptButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
 			this.acceptButton.MouseState = MaterialSkin.MouseState.HOVER;
 			this.acceptButton.Name = "acceptButton";
-			this.acceptButton.Size = new System.Drawing.Size(64, 36);
+			this.acceptButton.Size = new System.Drawing.Size(107, 36);
 			this.acceptButton.TabIndex = 3;
-			this.acceptButton.Text = "OK";
+			this.acceptButton.Text = "Проверить";
 			this.acceptButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
 			this.acceptButton.UseAccentColor = false;
 			this.acceptButton.UseVisualStyleBackColor = true;
@@ -96,12 +96,32 @@ namespace AirTicketOffice
 			this.captchaPictureBox.TabIndex = 0;
 			this.captchaPictureBox.TabStop = false;
 			// 
+			// resetCaptchaButton
+			// 
+			this.resetCaptchaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.resetCaptchaButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.resetCaptchaButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.resetCaptchaButton.Depth = 0;
+			this.resetCaptchaButton.HighEmphasis = true;
+			this.resetCaptchaButton.Icon = null;
+			this.resetCaptchaButton.Location = new System.Drawing.Point(23, 290);
+			this.resetCaptchaButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.resetCaptchaButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.resetCaptchaButton.Name = "resetCaptchaButton";
+			this.resetCaptchaButton.Size = new System.Drawing.Size(152, 36);
+			this.resetCaptchaButton.TabIndex = 4;
+			this.resetCaptchaButton.Text = "Обновить капчу";
+			this.resetCaptchaButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.resetCaptchaButton.UseAccentColor = false;
+			this.resetCaptchaButton.UseVisualStyleBackColor = true;
+			// 
 			// CaptchaWindow
 			// 
 			this.AcceptButton = this.acceptButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(350, 350);
+			this.Controls.Add(this.resetCaptchaButton);
 			this.Controls.Add(this.acceptButton);
 			this.Controls.Add(this.captchaTextBox);
 			this.Controls.Add(this.captchaLabel);
@@ -126,5 +146,6 @@ namespace AirTicketOffice
 		private MaterialSkin.Controls.MaterialLabel captchaLabel;
 		private MaterialSkin.Controls.MaterialTextBox captchaTextBox;
 		private MaterialSkin.Controls.MaterialButton acceptButton;
+		private MaterialSkin.Controls.MaterialButton resetCaptchaButton;
 	}
 }
