@@ -8,6 +8,7 @@ using Model.Contracts;
 using Model.Implementations;
 using System;
 using System.Windows.Forms;
+using MaterialSkin;
 
 namespace AirTicketOffice
 {
@@ -22,6 +23,17 @@ namespace AirTicketOffice
         [STAThread]
         private static void Main()
 		{
+			var manager = MaterialSkinManager.Instance;
+			manager.EnforceBackcolorOnAllComponents = true;
+			manager.Theme = MaterialSkinManager.Themes.LIGHT;
+			manager.ColorScheme = new ColorScheme(
+				Primary.Indigo400,
+				Primary.Indigo500,
+				Primary.Indigo100,
+				Accent.Blue100,
+				TextShade.WHITE
+			);
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
@@ -30,54 +42,17 @@ namespace AirTicketOffice
 			//Controller.AddTransient<IMainView, MainWindow>();
 			Controller.AddTransient<IInitializationView, InitializeWindow>();
 			Controller.AddTransient<IRegistrationView, RegistrationWindow>();
-			Controller.AddScoped<DataContext>();
+			Controller.AddTransient<IRegistrationStartView, RegistrationStartWindow>();
+			Controller.AddTransient<IRegistrationFinishView, RegistrationFinishWindow>();
 			Controller.AddTransient<IDbRepository, DbRepository>();
+			Controller.AddScoped<DataContext>();
 			Controller.AddScoped<ILoginService, LoginService>();
 			Controller.AddScoped<ICaptchaService, CaptchaService>();
 			Controller.AddScoped<IRegistrationService, RegistrationService>();
 			Controller.AddSingleton(new ApplicationContext());
+			Controller.AddSingleton(manager);
 
 			Controller.Run<LoginPresenter>();
-
-			//var dbContext = new DataContext();
-
-			//var salt1 = Hasher.GenerateSalt(20);
-
-			//var user1 = new UserEntity()
-			//{
-			//	Surname = "Ильиных",
-			//	Name = "Илья",
-			//	Patronymic = "Леонидович",
-			//	Login = "ilya02il",
-			//	HashedPassword = Hasher.HashPassword("admin", salt1),
-			//	Salt = salt1,
-			//	Proxy = true,
-			//	Gender = "Мужской",
-			//	PassportNumber = "0415 674345",
-			//	PhoneNumber = "89452342345"
-			//};
-
-			//dbContext.Users.Add(user1);
-
-			//var salt2 = Hasher.GenerateSalt(20);
-
-			//var user2 = new UserEntity()
-			//{
-			//	Surname = "Мишин",
-			//	Name = "Никита",
-			//	Patronymic = "Андреевич",
-			//	Login = "nikmixa",
-			//	HashedPassword = Hasher.HashPassword("passenger", salt2),
-			//	Salt = salt2,
-			//	Proxy = false,
-			//	Gender = "Мужской",
-			//	PassportNumber = "0415 775335",
-			//	PhoneNumber = "89452544355"
-			//};
-
-			//dbContext.Users.Add(user2);
-
-			//dbContext.SaveChanges();
 		}
     }
 }

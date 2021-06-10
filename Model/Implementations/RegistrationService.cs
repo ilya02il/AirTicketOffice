@@ -1,6 +1,7 @@
 ﻿using AirTicketOffice.DAL.Contracts;
 using AirTicketOffice.DAL.Entities;
 using Model.Contracts;
+using System.Linq;
 
 namespace Model.Implementations
 {
@@ -16,6 +17,13 @@ namespace Model.Implementations
 		public void Register(UserEntity user)
 		{
 			_dbRepository.Add(user);
+		}
+
+		public bool VerifyLogin(string login)
+		{
+			var registeredUser = _dbRepository.Get<UserEntity>(u => u.Login == login).ToList().Count;
+
+			return registeredUser == 0;
 		}
 	}
 }

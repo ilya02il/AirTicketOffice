@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using AirTicketOffice.Presentations.Views;
+﻿using AirTicketOffice.Presentations.Views;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System;
+using System.Windows.Forms;
 
 namespace AirTicketOffice
 {
@@ -25,23 +25,13 @@ namespace AirTicketOffice
 			set => passwordTextBox.Text = value;
 		}
 
-		public AuthorizationWindow(ApplicationContext context)
+		public AuthorizationWindow(ApplicationContext context, MaterialSkinManager manager)
 		{
 			_context = context;
 
 			InitializeComponent();
 
-			var manager = MaterialSkinManager.Instance;
-			manager.EnforceBackcolorOnAllComponents = true;
 			manager.AddFormToManage(this);
-			manager.Theme = MaterialSkinManager.Themes.LIGHT;
-			manager.ColorScheme = new ColorScheme(
-				Primary.Indigo400,
-				Primary.Indigo500,
-				Primary.Indigo100,
-				Accent.Blue200,
-				TextShade.WHITE
-				);
 
 			signInButton.Click += (sender, args) =>
 			{
@@ -55,7 +45,16 @@ namespace AirTicketOffice
 		public new void Show()
 		{
 			_context.MainForm = this;
-			Application.Run(_context);
+
+			if (Application.OpenForms.Count > 0)
+			{
+				base.Show();
+			}
+			else
+			{
+				Application.Run(_context);
+			}
+
 		}
 
 		public void ShowError(string errorMessage)
@@ -71,11 +70,6 @@ namespace AirTicketOffice
 		private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter) signInButton.Focus();
-		}
-
-		private void captchaTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			//if (e.KeyCode == Keys.Enter) signInButton.Focus();
 		}
 	}
 }

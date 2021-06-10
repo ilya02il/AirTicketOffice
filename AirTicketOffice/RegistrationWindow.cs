@@ -7,96 +7,57 @@ using MaterialSkin.Controls;
 
 namespace AirTicketOffice
 {
-	public partial class RegistrationWindow : MaterialForm, IRegistrationView
-	{
-		public event Action Register;
+    public partial class RegistrationWindow : MaterialForm, IRegistrationView
+    {
+	    public event Action Register;
+	    public event Action Back;
 
-		public UserEntity User
-		{
-			get
-			{
-				var user = new UserEntity()
-				{
-					Login = loginTextBox.Text,
-					HashedPassword = passwordTextBox.Text,
-					Surname = surnameTextBox.Text,
-					Name = nameTextBox.Text,
-					Patronymic = patronymicTextBox.Text,
-					Gender = genderComboBox.SelectedText,
-					PassportNumber = passportNumberTextBox.Text,
-					PhoneNumber = phoneNumberTextBox.Text
-				};
+	    private readonly ApplicationContext _context;
 
-				return user;
-			}
-		}
-		public RegistrationWindow()
-		{
+	    public UserEntity User
+	    {
+		    get => new UserEntity()
+		    {
+			    Surname = surnameTextBox.Text,
+                Name = nameTextBox.Text,
+                Patronymic = patronymicTextBox.Text,
+                Gender = genderComboBox.SelectedItem.ToString(),
+                PassportNumber = passportTextBox.Text,
+                PhoneNumber = phoneTextBox.Text
+		    };
+
+		    set
+		    {
+			    surnameTextBox.Text = value.Surname;
+			    nameTextBox.Text = value.Name;
+			    patronymicTextBox.Text = value.Patronymic;
+			    genderComboBox.SelectedItem = value.Gender;
+			    passportTextBox.Text = value.PassportNumber;
+			    phoneTextBox.Text = value.PhoneNumber;
+		    }
+	    }
+
+        public RegistrationWindow(ApplicationContext context, MaterialSkinManager manager)
+        {
+	        _context = context;
+
 			InitializeComponent();
+			
+            manager.AddFormToManage(this);
 
-			var manager = MaterialSkinManager.Instance;
-			manager.EnforceBackcolorOnAllComponents = true;
-			manager.AddFormToManage(this);
-			manager.Theme = MaterialSkinManager.Themes.LIGHT;
-			manager.ColorScheme = new ColorScheme(
-				Primary.Indigo400,
-				Primary.Indigo500,
-				Primary.Indigo100,
-				Accent.Blue200,
-				TextShade.WHITE
-			);
+            continueButton.Click += (sender, args) => Register?.Invoke();
+            backButton.Click += (sender, args) => Back?.Invoke();
+        }
 
-			signUpButton.Click += (sender, args) => Register?.Invoke();
-		}
+        public new void Show()
+        {
+	        _context.MainForm = this;
+	        base.Show();
+        }
 
-		public new void Show()
-		{
-			ShowDialog();
-		}
-
-		private void loginTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) passportNumberTextBox.Focus();
-		}
-
-		private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) repeatedPasswordTextBox.Focus();
-		}
-
-		private void repeatedPasswordTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) surnameTextBox.Focus();
-		}
-
-		private void surnameTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) nameTextBox.Focus();
-		}
-
-		private void nameTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) patronymicTextBox.Focus();
-		}
-
-		private void patronymicTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) genderComboBox.Focus();
-		}
-
-		private void passportNumberTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) phoneNumberTextBox.Focus();
-		}
-
-		private void phoneNumberTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter) signUpButton.Focus();
-		}
-
-		private void cancelButton_Click(object sender, EventArgs e)
-		{
-			Close();
-		}
-	}
+        public void GetMessage(string message)
+        {
+	        MessageBox.Show(message);
+        }
+    }
 }

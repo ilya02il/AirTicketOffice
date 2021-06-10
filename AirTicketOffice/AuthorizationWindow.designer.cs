@@ -34,8 +34,6 @@ namespace AirTicketOffice
 			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.loginTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox();
-			this.loginLabel = new MaterialSkin.Controls.MaterialLabel();
-			this.passwordLabel = new MaterialSkin.Controls.MaterialLabel();
 			this.label = new MaterialSkin.Controls.MaterialLabel();
 			this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
 			this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
@@ -44,15 +42,14 @@ namespace AirTicketOffice
 			// 
 			// signInButton
 			// 
-			this.signInButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.signInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.signInButton.AutoSize = false;
 			this.signInButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.signInButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
 			this.signInButton.Depth = 0;
 			this.signInButton.HighEmphasis = true;
 			this.signInButton.Icon = null;
-			this.signInButton.Location = new System.Drawing.Point(43, 504);
+			this.signInButton.Location = new System.Drawing.Point(43, 484);
 			this.signInButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
 			this.signInButton.MouseState = MaterialSkin.MouseState.HOVER;
 			this.signInButton.Name = "signInButton";
@@ -65,22 +62,21 @@ namespace AirTicketOffice
 			// 
 			// singUpButton
 			// 
-			this.singUpButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.singUpButton.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.singUpButton.AutoSize = false;
 			this.singUpButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.singUpButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
 			this.singUpButton.Depth = 0;
 			this.singUpButton.HighEmphasis = true;
 			this.singUpButton.Icon = null;
-			this.singUpButton.Location = new System.Drawing.Point(43, 587);
+			this.singUpButton.Location = new System.Drawing.Point(43, 567);
 			this.singUpButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
 			this.singUpButton.MouseState = MaterialSkin.MouseState.HOVER;
 			this.singUpButton.Name = "singUpButton";
 			this.singUpButton.Size = new System.Drawing.Size(366, 42);
 			this.singUpButton.TabIndex = 15;
 			this.singUpButton.Text = "Зарегистрироваться";
-			this.singUpButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.singUpButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
 			this.singUpButton.UseAccentColor = false;
 			this.singUpButton.UseVisualStyleBackColor = true;
 			// 
@@ -102,8 +98,9 @@ namespace AirTicketOffice
 			this.loginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.loginTextBox.Depth = 0;
 			this.loginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.loginTextBox.Hint = "Логин";
 			this.loginTextBox.LeadingIcon = null;
-			this.loginTextBox.Location = new System.Drawing.Point(43, 337);
+			this.loginTextBox.Location = new System.Drawing.Point(43, 327);
 			this.loginTextBox.MaxLength = 50;
 			this.loginTextBox.MouseState = MaterialSkin.MouseState.OUT;
 			this.loginTextBox.Multiline = false;
@@ -121,8 +118,9 @@ namespace AirTicketOffice
 			this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.passwordTextBox.Depth = 0;
 			this.passwordTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.passwordTextBox.Hint = "Пароль";
 			this.passwordTextBox.LeadingIcon = null;
-			this.passwordTextBox.Location = new System.Drawing.Point(43, 423);
+			this.passwordTextBox.Location = new System.Drawing.Point(43, 403);
 			this.passwordTextBox.MaxLength = 50;
 			this.passwordTextBox.MouseState = MaterialSkin.MouseState.OUT;
 			this.passwordTextBox.Multiline = false;
@@ -134,41 +132,13 @@ namespace AirTicketOffice
 			this.passwordTextBox.TrailingIcon = null;
 			this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
 			// 
-			// loginLabel
-			// 
-			this.loginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.loginLabel.AutoSize = true;
-			this.loginLabel.Depth = 0;
-			this.loginLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.loginLabel.Location = new System.Drawing.Point(35, 315);
-			this.loginLabel.MouseState = MaterialSkin.MouseState.HOVER;
-			this.loginLabel.Name = "loginLabel";
-			this.loginLabel.Size = new System.Drawing.Size(46, 19);
-			this.loginLabel.TabIndex = 12;
-			this.loginLabel.Text = "Логин";
-			// 
-			// passwordLabel
-			// 
-			this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.passwordLabel.AutoSize = true;
-			this.passwordLabel.Depth = 0;
-			this.passwordLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.passwordLabel.Location = new System.Drawing.Point(35, 400);
-			this.passwordLabel.MouseState = MaterialSkin.MouseState.HOVER;
-			this.passwordLabel.Name = "passwordLabel";
-			this.passwordLabel.Size = new System.Drawing.Size(57, 19);
-			this.passwordLabel.TabIndex = 13;
-			this.passwordLabel.Text = "Пароль";
-			// 
 			// label
 			// 
-			this.label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.label.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label.AutoSize = true;
 			this.label.Depth = 0;
 			this.label.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.label.Location = new System.Drawing.Point(213, 557);
+			this.label.Location = new System.Drawing.Point(213, 537);
 			this.label.MouseState = MaterialSkin.MouseState.HOVER;
 			this.label.Name = "label";
 			this.label.Size = new System.Drawing.Size(28, 19);
@@ -177,9 +147,10 @@ namespace AirTicketOffice
 			// 
 			// materialDivider1
 			// 
-			this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.materialDivider1.Depth = 0;
-			this.materialDivider1.Location = new System.Drawing.Point(43, 567);
+			this.materialDivider1.Location = new System.Drawing.Point(43, 547);
 			this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialDivider1.Name = "materialDivider1";
 			this.materialDivider1.Size = new System.Drawing.Size(165, 1);
@@ -188,9 +159,10 @@ namespace AirTicketOffice
 			// 
 			// materialDivider2
 			// 
-			this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.materialDivider2.Depth = 0;
-			this.materialDivider2.Location = new System.Drawing.Point(244, 567);
+			this.materialDivider2.Location = new System.Drawing.Point(244, 547);
 			this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialDivider2.Name = "materialDivider2";
 			this.materialDivider2.Size = new System.Drawing.Size(165, 1);
@@ -199,21 +171,18 @@ namespace AirTicketOffice
 			// 
 			// AuthorizationWindow
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.ClientSize = new System.Drawing.Size(450, 670);
+			this.ClientSize = new System.Drawing.Size(450, 650);
 			this.Controls.Add(this.materialDivider2);
 			this.Controls.Add(this.materialDivider1);
 			this.Controls.Add(this.singUpButton);
 			this.Controls.Add(this.label);
-			this.Controls.Add(this.passwordLabel);
-			this.Controls.Add(this.loginLabel);
 			this.Controls.Add(this.passwordTextBox);
 			this.Controls.Add(this.signInButton);
 			this.Controls.Add(this.loginTextBox);
 			this.Controls.Add(this.pictureBox);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(450, 670);
-			this.MinimumSize = new System.Drawing.Size(450, 670);
+			this.MaximumSize = new System.Drawing.Size(450, 650);
+			this.MinimumSize = new System.Drawing.Size(450, 650);
 			this.Name = "AuthorizationWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Авторизация";
@@ -229,8 +198,6 @@ namespace AirTicketOffice
 		private System.Windows.Forms.PictureBox pictureBox;
 		private MaterialSkin.Controls.MaterialTextBox loginTextBox;
 		private MaterialSkin.Controls.MaterialTextBox passwordTextBox;
-		private MaterialSkin.Controls.MaterialLabel loginLabel;
-		private MaterialSkin.Controls.MaterialLabel passwordLabel;
 		private MaterialSkin.Controls.MaterialLabel label;
 		private MaterialSkin.Controls.MaterialDivider materialDivider1;
 		private MaterialSkin.Controls.MaterialDivider materialDivider2;

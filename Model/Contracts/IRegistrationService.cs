@@ -5,5 +5,6 @@ namespace Model.Contracts
 	public interface IRegistrationService
 	{
 		void Register(UserEntity user);
+		bool VerifyLogin(string login);
 	}
 }

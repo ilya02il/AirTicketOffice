@@ -78,7 +78,8 @@ namespace AirTicketOffice.Presentations.Presenters
 
         public void Register()
         {
-            Controller.Run<RegistrationPresenter>();
+            Controller.Run<RegistrationStartPresenter, UserEntity>(new UserEntity());
+            View.Close();
         }
     }
 }
