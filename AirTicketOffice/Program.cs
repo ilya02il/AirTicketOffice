@@ -39,7 +39,7 @@ namespace AirTicketOffice
 
 			Controller.AddTransient<ILoginView, AuthorizationWindow>();
 			Controller.AddTransient<ICaptchaView, CaptchaWindow>();
-			//Controller.AddTransient<IMainView, MainWindow>();
+			Controller.AddTransient<IAdminMainView, AdminMainWindow>();
 			Controller.AddTransient<IInitializationView, InitializeWindow>();
 			Controller.AddTransient<IRegistrationView, RegistrationWindow>();
 			Controller.AddTransient<IRegistrationStartView, RegistrationStartWindow>();
@@ -49,6 +49,7 @@ namespace AirTicketOffice
 			Controller.AddScoped<ILoginService, LoginService>();
 			Controller.AddScoped<ICaptchaService, CaptchaService>();
 			Controller.AddScoped<IRegistrationService, RegistrationService>();
+			Controller.AddScoped<IUserService, UserService>();
 			Controller.AddSingleton(new ApplicationContext());
 			Controller.AddSingleton(manager);
 

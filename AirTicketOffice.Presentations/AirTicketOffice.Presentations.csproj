@@ -59,7 +59,7 @@
     <Compile Include="Presenters\CaptchaPresenter.cs" />
     <Compile Include="Presenters\InitializationPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
-    <Compile Include="Presenters\MainPresener.cs" />
+    <Compile Include="Presenters\AdminMainPresener.cs" />
     <Compile Include="Presenters\RegistrationFinishPresenter.cs" />
     <Compile Include="Presenters\RegistrationPresenter.cs" />
     <Compile Include="Presenters\RegistrationStartPresenter.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Views\ICaptchaView.cs" />
     <Compile Include="Views\IInitializationView.cs" />
     <Compile Include="Views\ILoginView.cs" />
-    <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IAdminMainView.cs" />
     <Compile Include="Views\IRegistrationFinishView.cs" />
     <Compile Include="Views\IRegistrationStartView.cs" />
     <Compile Include="Views\IRegistrationView.cs" />

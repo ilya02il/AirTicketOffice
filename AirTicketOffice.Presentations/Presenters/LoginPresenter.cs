@@ -65,7 +65,15 @@ namespace AirTicketOffice.Presentations.Presenters
 
 	            if (_captchaService.IsValid)
 	            {
-                    //Controller.Run<MainPresenter, UserEntity>(user);
+		            if (user.Proxy)
+		            {
+			            Controller.Run<AdminMainPresenter, UserEntity>(user);
+                    }
+		            else
+		            {
+			            //passenger main window presenter
+		            }
+
 		            View.Close();
                 }
             }

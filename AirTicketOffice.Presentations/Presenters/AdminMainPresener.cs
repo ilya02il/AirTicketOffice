@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Linq;
 using AirTicketOffice.DAL.Entities;
 using AirTicketOffice.Presentations.Common;
 using AirTicketOffice.Presentations.Views;
+using Model.Contracts;
 
 namespace AirTicketOffice.Presentations.Presenters
 {
-    public class MainPresenter : BasePresenter<IMainView, UserEntity>
+    public class AdminMainPresenter : BasePresenter<IAdminMainView, UserEntity>
     {
         private UserEntity _user;
+        private readonly IUserService _userService;
         
-        public MainPresenter(IApplicationController controller, IMainView view) : base(controller, view)
+        public AdminMainPresenter(IApplicationController controller, IAdminMainView view, IUserService userService) : base(controller, view)
         {
-            //View.ChangeUsername += ChangeUsername;
+	        _userService = userService;
+
+	        View.GetAllUsers += GetAllUsers;
         }
 
         public override void Run(UserEntity argument)
@@ -19,15 +24,6 @@ namespace AirTicketOffice.Presentations.Presenters
             _user = argument;
 
             View.Show();
-
-            if (_user.Proxy)
-            {
-	            View.InitializeAdminUi();
-            }
-            else
-            {
-	            View.InitializePassengerUi();
-            }
 
             Hello();
         }
@@ -38,7 +34,7 @@ namespace AirTicketOffice.Presentations.Presenters
             var name = _user.Name;
             var hours = DateTime.Now.Hour;
 
-            string dayTime, greating;
+            string dayTime, greeting;
 
             if (hours >= 6 && hours < 12)
             {
@@ -60,30 +56,29 @@ namespace AirTicketOffice.Presentations.Presenters
             switch (gender)
             {
 	            case "Мужской":
-		            greating = "уважаемый";
+		            greeting = "уважаемый";
 		            break;
 	            case "Женский":
-		            greating = "уважаемая";
+		            greeting = "уважаемая";
 		            break;
 	            default:
-		            greating = string.Empty;
+		            greeting = string.Empty;
 		            break;
             }
 
-            var helloMessage = $"{dayTime}, {greating} {name}.";
+            var helloMessage = $"{dayTime}, {greeting} {name}.";
 
             View.HelloMessage = helloMessage;
         }
 
-		//private void ChangeUsername()
-		//{
-		//    Controller.Run<ChangeUsernamePresenter, UserEntity>(_user);
-		//    UpdateUserInfo();
-		//}
+        public void GetAllUsers()
+        {
+	        View.SetUsers(_userService.GetAllUsers().ToList());
+        }
 
-		//private void UpdateUserInfo()
-		//{
-		//	View.SetUserInfo(_user.Name, new string('*', _user.HashedPassword.Length));
-		//}
+        public void GetAllEvents()
+        {
+
+        }
 	}
 }
