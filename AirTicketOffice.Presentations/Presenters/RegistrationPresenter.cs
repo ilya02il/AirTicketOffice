@@ -8,7 +8,7 @@ namespace AirTicketOffice.Presentations.Presenters
 {
 	public class RegistrationPresenter : BasePresenter<IRegistrationView, UserEntity>
 	{
-		private UserEntity _user;
+		private UserEntity _currentUser;
 		private readonly IRegistrationService _registrationService;
 
 		public RegistrationPresenter(IApplicationController controller, IRegistrationView view, IRegistrationService registrationService)
@@ -22,7 +22,7 @@ namespace AirTicketOffice.Presentations.Presenters
 
 		public override void Run(UserEntity argument)
 		{
-			_user = argument;
+			_currentUser = argument;
 			View.User = argument;
 			View.Show();
 		}
@@ -30,8 +30,8 @@ namespace AirTicketOffice.Presentations.Presenters
 		public void Back()
 		{
 			var user = View.User;
-			user.Login = _user.Login;
-			user.HashedPassword = _user.HashedPassword;
+			user.Login = _currentUser.Login;
+			user.HashedPassword = _currentUser.HashedPassword;
 
 			Controller.Run<RegistrationStartPresenter, UserEntity>(user);
 			View.Close();
@@ -39,8 +39,8 @@ namespace AirTicketOffice.Presentations.Presenters
 
 		public void Register(UserEntity user)
 		{
-			user.Login = _user.Login;
-			user.HashedPassword = _user.HashedPassword;
+			user.Login = _currentUser.Login;
+			user.HashedPassword = _currentUser.HashedPassword;
 
 			if (user.Surname == string.Empty)
 			{

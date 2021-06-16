@@ -1,11 +1,11 @@
-﻿using AirTicketOffice.DAL.Entities;
+﻿using AirTicketOffice.DAL.Contracts;
+using AirTicketOffice.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using AirTicketOffice.DAL.Contracts;
 
 namespace AirTicketOffice.DAL.Implementations
 {
@@ -31,7 +31,6 @@ namespace AirTicketOffice.DAL.Implementations
         public void Add<T>(T newEntity) where T : class, IEntity
         {
 	        _context.Set<T>().Add(newEntity);
-	        _context.SaveChanges();
         }
 
         public async Task AddRange<T>(IEnumerable<T> newEntities) where T : class, IEntity
@@ -59,13 +58,19 @@ namespace AirTicketOffice.DAL.Implementations
             await Task.Run(() => _context.Set<T>().RemoveRange(entities));
         }
 
-        public async Task Update<T>(T innerEntity) where T : class, IEntity
+        public async Task Update<T>(T entity) where T : class, IEntity
         {
-	        var entity = await _context.Set<T>().FindAsync(innerEntity.Id);
+	        var innerEntity = await _context.Set<T>().FindAsync(entity.Id);
 
-            if (entity == null) return;
+            if (innerEntity == null) return;
 
-            await Task.Run(() => _context.Entry(entity).CurrentValues.SetValues(innerEntity));
+            foreach (var property in entity.GetType().GetProperties())
+            {
+	            if (property.GetValue(entity) == null)
+                    property.SetValue(entity, property.GetValue(innerEntity));
+            }
+
+            await Task.Run(() => _context.Entry(innerEntity).CurrentValues.SetValues(entity));
         }
 
         public async Task<int> SaveChangesAsync()

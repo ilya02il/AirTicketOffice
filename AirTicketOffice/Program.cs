@@ -4,11 +4,11 @@ using AirTicketOffice.DAL.Implementations;
 using AirTicketOffice.Presentations.Common;
 using AirTicketOffice.Presentations.Presenters;
 using AirTicketOffice.Presentations.Views;
+using MaterialSkin;
 using Model.Contracts;
 using Model.Implementations;
 using System;
 using System.Windows.Forms;
-using MaterialSkin;
 
 namespace AirTicketOffice
 {
@@ -49,7 +49,7 @@ namespace AirTicketOffice
 			Controller.AddScoped<ILoginService, LoginService>();
 			Controller.AddScoped<ICaptchaService, CaptchaService>();
 			Controller.AddScoped<IRegistrationService, RegistrationService>();
-			Controller.AddScoped<IUserService, UserService>();
+			Controller.AddScoped<IAdminService, AdminService>();
 			Controller.AddSingleton(new ApplicationContext());
 			Controller.AddSingleton(manager);
 

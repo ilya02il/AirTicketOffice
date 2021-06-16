@@ -7,7 +7,7 @@ using System;
 namespace AirTicketOffice.Presentations.Presenters
 {
 	public class LoginPresenter : BasePresenter<ILoginView>
-    {
+	{
         private readonly ILoginService _loginService;
         private readonly ICaptchaService _captchaService;
         private int _counter;
@@ -47,7 +47,7 @@ namespace AirTicketOffice.Presentations.Presenters
 	            View.ShowError("Заполните поле с паролем.");
 	            return;
             }
-
+            
             var user = _loginService.Login(new UserEntity {Login = username, HashedPassword = password});
 
             if (user == null)
@@ -71,8 +71,9 @@ namespace AirTicketOffice.Presentations.Presenters
                     }
 		            else
 		            {
-			            //passenger main window presenter
-		            }
+                        //passenger main window presenter
+                        //Controller.Run<AdminMainPresenter, UserEntity>(user);
+                    }
 
 		            View.Close();
                 }

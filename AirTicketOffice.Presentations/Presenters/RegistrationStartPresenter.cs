@@ -6,7 +6,7 @@ namespace AirTicketOffice.Presentations.Presenters
 {
 	public class RegistrationStartPresenter : BasePresenter<IRegistrationStartView, UserEntity>
 	{
-		private UserEntity _user;
+		private UserEntity _currentUser;
 		public RegistrationStartPresenter(IApplicationController controller, IRegistrationStartView view)
 			: base(controller, view)
 		{
@@ -16,19 +16,19 @@ namespace AirTicketOffice.Presentations.Presenters
 
 		public override void Run(UserEntity argument)
 		{
-			_user = argument;
+			_currentUser = argument;
 			View.User = argument;
 			View.Show();
 		}
 
 		public void NextStep(UserEntity user)
 		{
-			user.Surname = _user.Surname;
-			user.Name = _user.Name;
-			user.Patronymic = _user.Patronymic;
-			user.Gender = _user.Gender;
-			user.PassportNumber = _user.PassportNumber;
-			user.PhoneNumber = _user.PhoneNumber;
+			user.Surname = _currentUser.Surname;
+			user.Name = _currentUser.Name;
+			user.Patronymic = _currentUser.Patronymic;
+			user.Gender = _currentUser.Gender;
+			user.PassportNumber = _currentUser.PassportNumber;
+			user.PhoneNumber = _currentUser.PhoneNumber;
 
 			if (user.Login == string.Empty)
 			{

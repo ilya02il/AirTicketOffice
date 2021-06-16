@@ -126,23 +126,33 @@ namespace AirTicketOffice
 			this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+			this.saveSingleToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.saveAllToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
 			this.profileTabPage = new System.Windows.Forms.TabPage();
-			this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-			this.materialTextBox7 = new MaterialSkin.Controls.MaterialTextBox();
-			this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox6 = new MaterialSkin.Controls.MaterialTextBox();
-			this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
-			this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
-			this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
-			this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.accountGenderComboBox = new MaterialSkin.Controls.MaterialComboBox();
 			this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+			this.accountPatronymicTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+			this.accountNameTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+			this.accountSurnameTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.changePasswordButton = new MaterialSkin.Controls.MaterialButton();
+			this.accountLoginTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+			this.accountPhoneTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+			this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+			this.accountPassportTextBox = new MaterialSkin.Controls.MaterialTextBox();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.leaveAccountButton = new MaterialSkin.Controls.MaterialButton();
+			this.saveAccountChangesButton = new MaterialSkin.Controls.MaterialButton();
 			this.searchTabPage = new System.Windows.Forms.TabPage();
 			this.searchTabControl = new MaterialSkin.Controls.MaterialTabControl();
 			this.searchPassengersTabPage = new System.Windows.Forms.TabPage();
@@ -176,12 +186,6 @@ namespace AirTicketOffice
 			this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
 			this.printTabPage = new System.Windows.Forms.TabPage();
 			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
-			this.miniToolStrip = new System.Windows.Forms.ToolStrip();
-			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.mainTabControl.SuspendLayout();
 			this.mainTabPage.SuspendLayout();
 			this.mainTabPageTabControl.SuspendLayout();
@@ -205,7 +209,10 @@ namespace AirTicketOffice
 			((System.ComponentModel.ISupportInitialize)(this.airportsDataGridView)).BeginInit();
 			this.toolStrip2.SuspendLayout();
 			this.profileTabPage.SuspendLayout();
-			this.materialCard1.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.panel5.SuspendLayout();
+			this.panel3.SuspendLayout();
 			this.searchTabPage.SuspendLayout();
 			this.searchTabControl.SuspendLayout();
 			this.searchPassengersTabPage.SuspendLayout();
@@ -216,7 +223,6 @@ namespace AirTicketOffice
 			this.filterTabPage.SuspendLayout();
 			this.materialTabControl1.SuspendLayout();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mainTabControlImageList
@@ -331,6 +337,7 @@ namespace AirTicketOffice
 			this.eventsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.eventsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.eventsDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.eventsDataGridView.MultiSelect = false;
 			this.eventsDataGridView.Name = "eventsDataGridView";
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -436,6 +443,7 @@ namespace AirTicketOffice
 			this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.usersDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.usersDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.usersDataGridView.MultiSelect = false;
 			this.usersDataGridView.Name = "usersDataGridView";
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -547,6 +555,7 @@ namespace AirTicketOffice
 			this.ordersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ordersDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.ordersDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.ordersDataGridView.MultiSelect = false;
 			this.ordersDataGridView.Name = "ordersDataGridView";
 			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -635,6 +644,7 @@ namespace AirTicketOffice
 			this.ticketsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ticketsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.ticketsDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.ticketsDataGridView.MultiSelect = false;
 			this.ticketsDataGridView.Name = "ticketsDataGridView";
 			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
@@ -708,6 +718,7 @@ namespace AirTicketOffice
 			this.routesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.routesDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.routesDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.routesDataGridView.MultiSelect = false;
 			this.routesDataGridView.Name = "routesDataGridView";
 			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
@@ -774,6 +785,7 @@ namespace AirTicketOffice
 			this.flightsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flightsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flightsDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.flightsDataGridView.MultiSelect = false;
 			this.flightsDataGridView.Name = "flightsDataGridView";
 			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
@@ -840,6 +852,7 @@ namespace AirTicketOffice
 			this.planesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.planesDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.planesDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.planesDataGridView.MultiSelect = false;
 			this.planesDataGridView.Name = "planesDataGridView";
 			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
@@ -910,6 +923,7 @@ namespace AirTicketOffice
 			this.crewsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.crewsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.crewsDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.crewsDataGridView.MultiSelect = false;
 			this.crewsDataGridView.Name = "crewsDataGridView";
 			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
@@ -1008,6 +1022,7 @@ namespace AirTicketOffice
 			this.airportsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.airportsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.airportsDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.airportsDataGridView.MultiSelect = false;
 			this.airportsDataGridView.Name = "airportsDataGridView";
 			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
@@ -1077,9 +1092,10 @@ namespace AirTicketOffice
 			this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(0);
 			this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.saveSingleToolStripButton,
+            this.saveAllToolStripButton,
+            this.addToolStripButton,
+            this.deleteToolStripButton});
 			this.toolStrip2.Location = new System.Drawing.Point(0, 30);
 			this.toolStrip2.Name = "toolStrip2";
 			this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
@@ -1087,12 +1103,60 @@ namespace AirTicketOffice
 			this.toolStrip2.TabIndex = 1;
 			this.toolStrip2.Text = "toolStrip2";
 			// 
+			// saveSingleToolStripButton
+			// 
+			this.saveSingleToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.saveSingleToolStripButton.Image = global::AirTicketOffice.Properties.Resources.save_icon;
+			this.saveSingleToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.saveSingleToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.saveSingleToolStripButton.Margin = new System.Windows.Forms.Padding(5, 5, 2, 5);
+			this.saveSingleToolStripButton.Name = "saveSingleToolStripButton";
+			this.saveSingleToolStripButton.Size = new System.Drawing.Size(44, 44);
+			this.saveSingleToolStripButton.Text = "Сохранить выделенную запись";
+			this.saveSingleToolStripButton.Click += new System.EventHandler(this.saveSingleToolStripButton_Click);
+			// 
+			// saveAllToolStripButton
+			// 
+			this.saveAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.saveAllToolStripButton.Image = global::AirTicketOffice.Properties.Resources.save_all_icon;
+			this.saveAllToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.saveAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.saveAllToolStripButton.Margin = new System.Windows.Forms.Padding(3, 5, 5, 5);
+			this.saveAllToolStripButton.Name = "saveAllToolStripButton";
+			this.saveAllToolStripButton.Size = new System.Drawing.Size(44, 44);
+			this.saveAllToolStripButton.Text = "Сохранить все записи";
+			this.saveAllToolStripButton.Click += new System.EventHandler(this.saveAllToolStripButton_Click);
+			// 
+			// addToolStripButton
+			// 
+			this.addToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.addToolStripButton.Image = global::AirTicketOffice.Properties.Resources.add_icon;
+			this.addToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.addToolStripButton.Margin = new System.Windows.Forms.Padding(3, 5, 2, 5);
+			this.addToolStripButton.Name = "addToolStripButton";
+			this.addToolStripButton.Size = new System.Drawing.Size(44, 44);
+			this.addToolStripButton.Text = "Добавить запись";
+			this.addToolStripButton.Click += new System.EventHandler(this.addToolStripButton_Click);
+			// 
+			// deleteToolStripButton
+			// 
+			this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.deleteToolStripButton.Image = global::AirTicketOffice.Properties.Resources.delete_icon;
+			this.deleteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.deleteToolStripButton.Margin = new System.Windows.Forms.Padding(3, 5, 5, 5);
+			this.deleteToolStripButton.Name = "deleteToolStripButton";
+			this.deleteToolStripButton.Size = new System.Drawing.Size(44, 44);
+			this.deleteToolStripButton.Text = "Удалить выделенную запись";
+			this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
+			// 
 			// materialTabSelector1
 			// 
 			this.materialTabSelector1.BaseTabControl = this.mainTabPageTabControl;
 			this.materialTabSelector1.Depth = 0;
 			this.materialTabSelector1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.materialTabSelector1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.materialTabSelector1.Location = new System.Drawing.Point(0, 0);
 			this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialTabSelector1.Name = "materialTabSelector1";
@@ -1104,7 +1168,8 @@ namespace AirTicketOffice
 			// profileTabPage
 			// 
 			this.profileTabPage.BackColor = System.Drawing.Color.White;
-			this.profileTabPage.Controls.Add(this.materialCard1);
+			this.profileTabPage.Controls.Add(this.tableLayoutPanel1);
+			this.profileTabPage.Controls.Add(this.panel3);
 			this.profileTabPage.ImageKey = "user_icon.png";
 			this.profileTabPage.Location = new System.Drawing.Point(4, 39);
 			this.profileTabPage.Name = "profileTabPage";
@@ -1113,239 +1178,347 @@ namespace AirTicketOffice
 			this.profileTabPage.TabIndex = 1;
 			this.profileTabPage.Text = "Мой профиль";
 			// 
-			// materialCard1
+			// tableLayoutPanel1
 			// 
-			this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 332F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 332);
+			this.tableLayoutPanel1.TabIndex = 3;
+			// 
+			// panel4
+			// 
+			this.panel4.Controls.Add(this.accountGenderComboBox);
+			this.panel4.Controls.Add(this.materialLabel2);
+			this.panel4.Controls.Add(this.accountPatronymicTextBox);
+			this.panel4.Controls.Add(this.materialLabel5);
+			this.panel4.Controls.Add(this.accountNameTextBox);
+			this.panel4.Controls.Add(this.materialLabel4);
+			this.panel4.Controls.Add(this.accountSurnameTextBox);
+			this.panel4.Controls.Add(this.materialLabel3);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel4.Location = new System.Drawing.Point(3, 3);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(387, 326);
+			this.panel4.TabIndex = 2;
+			// 
+			// accountGenderComboBox
+			// 
+			this.accountGenderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.materialCard1.Controls.Add(this.materialTextBox7);
-			this.materialCard1.Controls.Add(this.materialLabel7);
-			this.materialCard1.Controls.Add(this.materialTextBox6);
-			this.materialCard1.Controls.Add(this.materialLabel6);
-			this.materialCard1.Controls.Add(this.materialTextBox5);
-			this.materialCard1.Controls.Add(this.materialLabel5);
-			this.materialCard1.Controls.Add(this.materialTextBox4);
-			this.materialCard1.Controls.Add(this.materialLabel4);
-			this.materialCard1.Controls.Add(this.materialTextBox3);
-			this.materialCard1.Controls.Add(this.materialLabel3);
-			this.materialCard1.Controls.Add(this.materialTextBox2);
-			this.materialCard1.Controls.Add(this.materialLabel2);
-			this.materialCard1.Controls.Add(this.materialTextBox1);
-			this.materialCard1.Controls.Add(this.materialLabel1);
-			this.materialCard1.Controls.Add(this.pictureBox1);
-			this.materialCard1.Depth = 0;
-			this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.materialCard1.Location = new System.Drawing.Point(14, 14);
-			this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-			this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialCard1.Name = "materialCard1";
-			this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-			this.materialCard1.Size = new System.Drawing.Size(764, 361);
-			this.materialCard1.TabIndex = 0;
-			// 
-			// materialTextBox7
-			// 
-			this.materialTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox7.Depth = 0;
-			this.materialTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox7.LeadingIcon = null;
-			this.materialTextBox7.Location = new System.Drawing.Point(481, 109);
-			this.materialTextBox7.MaxLength = 50;
-			this.materialTextBox7.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox7.Multiline = false;
-			this.materialTextBox7.Name = "materialTextBox7";
-			this.materialTextBox7.Size = new System.Drawing.Size(266, 36);
-			this.materialTextBox7.TabIndex = 14;
-			this.materialTextBox7.Text = "";
-			this.materialTextBox7.TrailingIcon = null;
-			this.materialTextBox7.UseTallSize = false;
-			// 
-			// materialLabel7
-			// 
-			this.materialLabel7.AutoSize = true;
-			this.materialLabel7.Depth = 0;
-			this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel7.Location = new System.Drawing.Point(469, 87);
-			this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialLabel7.Name = "materialLabel7";
-			this.materialLabel7.Size = new System.Drawing.Size(126, 19);
-			this.materialLabel7.TabIndex = 13;
-			this.materialLabel7.Text = "Номер телефона";
-			// 
-			// materialTextBox6
-			// 
-			this.materialTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox6.Depth = 0;
-			this.materialTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox6.LeadingIcon = null;
-			this.materialTextBox6.Location = new System.Drawing.Point(481, 38);
-			this.materialTextBox6.MaxLength = 50;
-			this.materialTextBox6.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox6.Multiline = false;
-			this.materialTextBox6.Name = "materialTextBox6";
-			this.materialTextBox6.Size = new System.Drawing.Size(266, 36);
-			this.materialTextBox6.TabIndex = 12;
-			this.materialTextBox6.Text = "";
-			this.materialTextBox6.TrailingIcon = null;
-			this.materialTextBox6.UseTallSize = false;
-			// 
-			// materialLabel6
-			// 
-			this.materialLabel6.AutoSize = true;
-			this.materialLabel6.Depth = 0;
-			this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel6.Location = new System.Drawing.Point(469, 16);
-			this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialLabel6.Name = "materialLabel6";
-			this.materialLabel6.Size = new System.Drawing.Size(124, 19);
-			this.materialLabel6.TabIndex = 11;
-			this.materialLabel6.Text = "Номер паспорта";
-			// 
-			// materialTextBox5
-			// 
-			this.materialTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox5.Depth = 0;
-			this.materialTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox5.LeadingIcon = null;
-			this.materialTextBox5.Location = new System.Drawing.Point(17, 308);
-			this.materialTextBox5.MaxLength = 50;
-			this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox5.Multiline = false;
-			this.materialTextBox5.Name = "materialTextBox5";
-			this.materialTextBox5.Size = new System.Drawing.Size(436, 36);
-			this.materialTextBox5.TabIndex = 10;
-			this.materialTextBox5.Text = "";
-			this.materialTextBox5.TrailingIcon = null;
-			this.materialTextBox5.UseTallSize = false;
-			// 
-			// materialLabel5
-			// 
-			this.materialLabel5.AutoSize = true;
-			this.materialLabel5.Depth = 0;
-			this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel5.Location = new System.Drawing.Point(5, 286);
-			this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialLabel5.Name = "materialLabel5";
-			this.materialLabel5.Size = new System.Drawing.Size(71, 19);
-			this.materialLabel5.TabIndex = 9;
-			this.materialLabel5.Text = "Отчество";
-			// 
-			// materialTextBox4
-			// 
-			this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox4.Depth = 0;
-			this.materialTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox4.LeadingIcon = null;
-			this.materialTextBox4.Location = new System.Drawing.Point(17, 241);
-			this.materialTextBox4.MaxLength = 50;
-			this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox4.Multiline = false;
-			this.materialTextBox4.Name = "materialTextBox4";
-			this.materialTextBox4.Size = new System.Drawing.Size(436, 36);
-			this.materialTextBox4.TabIndex = 8;
-			this.materialTextBox4.Text = "";
-			this.materialTextBox4.TrailingIcon = null;
-			this.materialTextBox4.UseTallSize = false;
-			// 
-			// materialLabel4
-			// 
-			this.materialLabel4.AutoSize = true;
-			this.materialLabel4.Depth = 0;
-			this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel4.Location = new System.Drawing.Point(5, 219);
-			this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialLabel4.Name = "materialLabel4";
-			this.materialLabel4.Size = new System.Drawing.Size(33, 19);
-			this.materialLabel4.TabIndex = 7;
-			this.materialLabel4.Text = "Имя";
-			// 
-			// materialTextBox3
-			// 
-			this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox3.Depth = 0;
-			this.materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox3.LeadingIcon = null;
-			this.materialTextBox3.Location = new System.Drawing.Point(17, 177);
-			this.materialTextBox3.MaxLength = 50;
-			this.materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox3.Multiline = false;
-			this.materialTextBox3.Name = "materialTextBox3";
-			this.materialTextBox3.Size = new System.Drawing.Size(436, 36);
-			this.materialTextBox3.TabIndex = 6;
-			this.materialTextBox3.Text = "";
-			this.materialTextBox3.TrailingIcon = null;
-			this.materialTextBox3.UseTallSize = false;
-			// 
-			// materialLabel3
-			// 
-			this.materialLabel3.AutoSize = true;
-			this.materialLabel3.Depth = 0;
-			this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel3.Location = new System.Drawing.Point(5, 155);
-			this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialLabel3.Name = "materialLabel3";
-			this.materialLabel3.Size = new System.Drawing.Size(70, 19);
-			this.materialLabel3.TabIndex = 5;
-			this.materialLabel3.Text = "Фамилия";
-			// 
-			// materialTextBox2
-			// 
-			this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox2.Depth = 0;
-			this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox2.LeadingIcon = null;
-			this.materialTextBox2.Location = new System.Drawing.Point(187, 109);
-			this.materialTextBox2.MaxLength = 50;
-			this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox2.Multiline = false;
-			this.materialTextBox2.Name = "materialTextBox2";
-			this.materialTextBox2.Size = new System.Drawing.Size(266, 36);
-			this.materialTextBox2.TabIndex = 4;
-			this.materialTextBox2.Text = "";
-			this.materialTextBox2.TrailingIcon = null;
-			this.materialTextBox2.UseTallSize = false;
+			this.accountGenderComboBox.AutoResize = false;
+			this.accountGenderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.accountGenderComboBox.Depth = 0;
+			this.accountGenderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+			this.accountGenderComboBox.DropDownHeight = 118;
+			this.accountGenderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.accountGenderComboBox.DropDownWidth = 121;
+			this.accountGenderComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.accountGenderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.accountGenderComboBox.FormattingEnabled = true;
+			this.accountGenderComboBox.IntegralHeight = false;
+			this.accountGenderComboBox.ItemHeight = 29;
+			this.accountGenderComboBox.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+			this.accountGenderComboBox.Location = new System.Drawing.Point(17, 260);
+			this.accountGenderComboBox.MaxDropDownItems = 4;
+			this.accountGenderComboBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountGenderComboBox.Name = "accountGenderComboBox";
+			this.accountGenderComboBox.Size = new System.Drawing.Size(363, 35);
+			this.accountGenderComboBox.StartIndex = 0;
+			this.accountGenderComboBox.TabIndex = 24;
+			this.accountGenderComboBox.UseTallSize = false;
 			// 
 			// materialLabel2
 			// 
 			this.materialLabel2.AutoSize = true;
 			this.materialLabel2.Depth = 0;
 			this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel2.Location = new System.Drawing.Point(175, 87);
+			this.materialLabel2.Location = new System.Drawing.Point(7, 238);
 			this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel2.Name = "materialLabel2";
-			this.materialLabel2.Size = new System.Drawing.Size(57, 19);
-			this.materialLabel2.TabIndex = 3;
-			this.materialLabel2.Text = "Пароль";
+			this.materialLabel2.Size = new System.Drawing.Size(30, 19);
+			this.materialLabel2.TabIndex = 23;
+			this.materialLabel2.Text = "Пол";
 			// 
-			// materialTextBox1
+			// accountPatronymicTextBox
 			// 
-			this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox1.Depth = 0;
-			this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox1.LeadingIcon = null;
-			this.materialTextBox1.Location = new System.Drawing.Point(187, 39);
-			this.materialTextBox1.MaxLength = 50;
-			this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox1.Multiline = false;
-			this.materialTextBox1.Name = "materialTextBox1";
-			this.materialTextBox1.Size = new System.Drawing.Size(266, 36);
-			this.materialTextBox1.TabIndex = 2;
-			this.materialTextBox1.Text = "";
-			this.materialTextBox1.TrailingIcon = null;
-			this.materialTextBox1.UseTallSize = false;
+			this.accountPatronymicTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountPatronymicTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountPatronymicTextBox.Depth = 0;
+			this.accountPatronymicTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPatronymicTextBox.LeadingIcon = null;
+			this.accountPatronymicTextBox.Location = new System.Drawing.Point(17, 184);
+			this.accountPatronymicTextBox.MaxLength = 50;
+			this.accountPatronymicTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountPatronymicTextBox.Multiline = false;
+			this.accountPatronymicTextBox.Name = "accountPatronymicTextBox";
+			this.accountPatronymicTextBox.Size = new System.Drawing.Size(363, 36);
+			this.accountPatronymicTextBox.TabIndex = 22;
+			this.accountPatronymicTextBox.Text = "";
+			this.accountPatronymicTextBox.TrailingIcon = null;
+			this.accountPatronymicTextBox.UseTallSize = false;
+			// 
+			// materialLabel5
+			// 
+			this.materialLabel5.AutoSize = true;
+			this.materialLabel5.Depth = 0;
+			this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel5.Location = new System.Drawing.Point(7, 162);
+			this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel5.Name = "materialLabel5";
+			this.materialLabel5.Size = new System.Drawing.Size(71, 19);
+			this.materialLabel5.TabIndex = 21;
+			this.materialLabel5.Text = "Отчество";
+			// 
+			// accountNameTextBox
+			// 
+			this.accountNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountNameTextBox.Depth = 0;
+			this.accountNameTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountNameTextBox.LeadingIcon = null;
+			this.accountNameTextBox.Location = new System.Drawing.Point(17, 108);
+			this.accountNameTextBox.MaxLength = 50;
+			this.accountNameTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountNameTextBox.Multiline = false;
+			this.accountNameTextBox.Name = "accountNameTextBox";
+			this.accountNameTextBox.Size = new System.Drawing.Size(363, 36);
+			this.accountNameTextBox.TabIndex = 20;
+			this.accountNameTextBox.Text = "";
+			this.accountNameTextBox.TrailingIcon = null;
+			this.accountNameTextBox.UseTallSize = false;
+			// 
+			// materialLabel4
+			// 
+			this.materialLabel4.AutoSize = true;
+			this.materialLabel4.Depth = 0;
+			this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel4.Location = new System.Drawing.Point(7, 86);
+			this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel4.Name = "materialLabel4";
+			this.materialLabel4.Size = new System.Drawing.Size(33, 19);
+			this.materialLabel4.TabIndex = 19;
+			this.materialLabel4.Text = "Имя";
+			// 
+			// accountSurnameTextBox
+			// 
+			this.accountSurnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountSurnameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountSurnameTextBox.Depth = 0;
+			this.accountSurnameTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountSurnameTextBox.LeadingIcon = null;
+			this.accountSurnameTextBox.Location = new System.Drawing.Point(17, 32);
+			this.accountSurnameTextBox.MaxLength = 50;
+			this.accountSurnameTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountSurnameTextBox.Multiline = false;
+			this.accountSurnameTextBox.Name = "accountSurnameTextBox";
+			this.accountSurnameTextBox.Size = new System.Drawing.Size(363, 36);
+			this.accountSurnameTextBox.TabIndex = 18;
+			this.accountSurnameTextBox.Text = "";
+			this.accountSurnameTextBox.TrailingIcon = null;
+			this.accountSurnameTextBox.UseTallSize = false;
+			// 
+			// materialLabel3
+			// 
+			this.materialLabel3.AutoSize = true;
+			this.materialLabel3.Depth = 0;
+			this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel3.Location = new System.Drawing.Point(7, 10);
+			this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel3.Name = "materialLabel3";
+			this.materialLabel3.Size = new System.Drawing.Size(70, 19);
+			this.materialLabel3.TabIndex = 17;
+			this.materialLabel3.Text = "Фамилия";
+			// 
+			// panel5
+			// 
+			this.panel5.Controls.Add(this.changePasswordButton);
+			this.panel5.Controls.Add(this.accountLoginTextBox);
+			this.panel5.Controls.Add(this.materialLabel1);
+			this.panel5.Controls.Add(this.accountPhoneTextBox);
+			this.panel5.Controls.Add(this.materialLabel7);
+			this.panel5.Controls.Add(this.materialLabel6);
+			this.panel5.Controls.Add(this.accountPassportTextBox);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel5.Location = new System.Drawing.Point(396, 3);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(387, 326);
+			this.panel5.TabIndex = 3;
+			// 
+			// changePasswordButton
+			// 
+			this.changePasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.changePasswordButton.AutoSize = false;
+			this.changePasswordButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.changePasswordButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.changePasswordButton.Depth = 0;
+			this.changePasswordButton.HighEmphasis = true;
+			this.changePasswordButton.Icon = null;
+			this.changePasswordButton.Location = new System.Drawing.Point(21, 259);
+			this.changePasswordButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.changePasswordButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.changePasswordButton.Name = "changePasswordButton";
+			this.changePasswordButton.Size = new System.Drawing.Size(362, 36);
+			this.changePasswordButton.TabIndex = 29;
+			this.changePasswordButton.Text = "Сменить пароль";
+			this.changePasswordButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.changePasswordButton.UseAccentColor = false;
+			this.changePasswordButton.UseVisualStyleBackColor = true;
+			// 
+			// accountLoginTextBox
+			// 
+			this.accountLoginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountLoginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountLoginTextBox.Depth = 0;
+			this.accountLoginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountLoginTextBox.LeadingIcon = null;
+			this.accountLoginTextBox.Location = new System.Drawing.Point(21, 32);
+			this.accountLoginTextBox.MaxLength = 50;
+			this.accountLoginTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountLoginTextBox.Multiline = false;
+			this.accountLoginTextBox.Name = "accountLoginTextBox";
+			this.accountLoginTextBox.Size = new System.Drawing.Size(362, 36);
+			this.accountLoginTextBox.TabIndex = 28;
+			this.accountLoginTextBox.Text = "";
+			this.accountLoginTextBox.TrailingIcon = null;
+			this.accountLoginTextBox.UseTallSize = false;
 			// 
 			// materialLabel1
 			// 
 			this.materialLabel1.AutoSize = true;
 			this.materialLabel1.Depth = 0;
 			this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel1.Location = new System.Drawing.Point(175, 17);
+			this.materialLabel1.Location = new System.Drawing.Point(11, 10);
 			this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel1.Name = "materialLabel1";
 			this.materialLabel1.Size = new System.Drawing.Size(46, 19);
-			this.materialLabel1.TabIndex = 1;
+			this.materialLabel1.TabIndex = 27;
 			this.materialLabel1.Text = "Логин";
+			// 
+			// accountPhoneTextBox
+			// 
+			this.accountPhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountPhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountPhoneTextBox.Depth = 0;
+			this.accountPhoneTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPhoneTextBox.LeadingIcon = null;
+			this.accountPhoneTextBox.Location = new System.Drawing.Point(21, 184);
+			this.accountPhoneTextBox.MaxLength = 50;
+			this.accountPhoneTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountPhoneTextBox.Multiline = false;
+			this.accountPhoneTextBox.Name = "accountPhoneTextBox";
+			this.accountPhoneTextBox.Size = new System.Drawing.Size(362, 36);
+			this.accountPhoneTextBox.TabIndex = 26;
+			this.accountPhoneTextBox.Text = "";
+			this.accountPhoneTextBox.TrailingIcon = null;
+			this.accountPhoneTextBox.UseTallSize = false;
+			// 
+			// materialLabel7
+			// 
+			this.materialLabel7.AutoSize = true;
+			this.materialLabel7.Depth = 0;
+			this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel7.Location = new System.Drawing.Point(11, 162);
+			this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel7.Name = "materialLabel7";
+			this.materialLabel7.Size = new System.Drawing.Size(126, 19);
+			this.materialLabel7.TabIndex = 25;
+			this.materialLabel7.Text = "Номер телефона";
+			// 
+			// materialLabel6
+			// 
+			this.materialLabel6.AutoSize = true;
+			this.materialLabel6.Depth = 0;
+			this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel6.Location = new System.Drawing.Point(13, 86);
+			this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel6.Name = "materialLabel6";
+			this.materialLabel6.Size = new System.Drawing.Size(124, 19);
+			this.materialLabel6.TabIndex = 23;
+			this.materialLabel6.Text = "Номер паспорта";
+			// 
+			// accountPassportTextBox
+			// 
+			this.accountPassportTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.accountPassportTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.accountPassportTextBox.Depth = 0;
+			this.accountPassportTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPassportTextBox.LeadingIcon = null;
+			this.accountPassportTextBox.Location = new System.Drawing.Point(21, 108);
+			this.accountPassportTextBox.MaxLength = 50;
+			this.accountPassportTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.accountPassportTextBox.Multiline = false;
+			this.accountPassportTextBox.Name = "accountPassportTextBox";
+			this.accountPassportTextBox.Size = new System.Drawing.Size(362, 36);
+			this.accountPassportTextBox.TabIndex = 24;
+			this.accountPassportTextBox.Text = "";
+			this.accountPassportTextBox.TrailingIcon = null;
+			this.accountPassportTextBox.UseTallSize = false;
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.leaveAccountButton);
+			this.panel3.Controls.Add(this.saveAccountChangesButton);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel3.Location = new System.Drawing.Point(3, 335);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(786, 47);
+			this.panel3.TabIndex = 0;
+			// 
+			// leaveAccountButton
+			// 
+			this.leaveAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.leaveAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.leaveAccountButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.leaveAccountButton.Depth = 0;
+			this.leaveAccountButton.HighEmphasis = true;
+			this.leaveAccountButton.Icon = null;
+			this.leaveAccountButton.Location = new System.Drawing.Point(6, 5);
+			this.leaveAccountButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.leaveAccountButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.leaveAccountButton.Name = "leaveAccountButton";
+			this.leaveAccountButton.Size = new System.Drawing.Size(177, 36);
+			this.leaveAccountButton.TabIndex = 5;
+			this.leaveAccountButton.Text = "Выйти из аккаунта";
+			this.leaveAccountButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+			this.leaveAccountButton.UseAccentColor = false;
+			this.leaveAccountButton.UseVisualStyleBackColor = true;
+			// 
+			// saveAccountChangesButton
+			// 
+			this.saveAccountChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.saveAccountChangesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.saveAccountChangesButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.saveAccountChangesButton.Depth = 0;
+			this.saveAccountChangesButton.HighEmphasis = true;
+			this.saveAccountChangesButton.Icon = null;
+			this.saveAccountChangesButton.Location = new System.Drawing.Point(577, 5);
+			this.saveAccountChangesButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.saveAccountChangesButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.saveAccountChangesButton.Name = "saveAccountChangesButton";
+			this.saveAccountChangesButton.Size = new System.Drawing.Size(203, 36);
+			this.saveAccountChangesButton.TabIndex = 3;
+			this.saveAccountChangesButton.Text = "Сохранить изменения";
+			this.saveAccountChangesButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.saveAccountChangesButton.UseAccentColor = false;
+			this.saveAccountChangesButton.UseVisualStyleBackColor = true;
 			// 
 			// searchTabPage
 			// 
@@ -1612,7 +1785,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.searchTextBox.Depth = 0;
-			this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.searchTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.searchTextBox.Hint = "Поиск...";
 			this.searchTextBox.LeadingIcon = null;
 			this.searchTextBox.Location = new System.Drawing.Point(8, 10);
@@ -1632,7 +1805,7 @@ namespace AirTicketOffice
 			this.materialTabSelector2.BaseTabControl = this.searchTabControl;
 			this.materialTabSelector2.Depth = 0;
 			this.materialTabSelector2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.materialTabSelector2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialTabSelector2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.materialTabSelector2.Location = new System.Drawing.Point(0, 0);
 			this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialTabSelector2.Name = "materialTabSelector2";
@@ -1745,7 +1918,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.materialTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.materialTextBox8.Depth = 0;
-			this.materialTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialTextBox8.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.materialTextBox8.Hint = "Фильтр...";
 			this.materialTextBox8.LeadingIcon = null;
 			this.materialTextBox8.Location = new System.Drawing.Point(8, 10);
@@ -1764,7 +1937,7 @@ namespace AirTicketOffice
 			this.materialTabSelector3.BaseTabControl = this.materialTabControl1;
 			this.materialTabSelector3.Depth = 0;
 			this.materialTabSelector3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.materialTabSelector3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialTabSelector3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.materialTabSelector3.Location = new System.Drawing.Point(0, 0);
 			this.materialTabSelector3.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialTabSelector3.Name = "materialTabSelector3";
@@ -1791,70 +1964,6 @@ namespace AirTicketOffice
 			this.actionIconsImageList.Images.SetKeyName(1, "delete_icon.png");
 			this.actionIconsImageList.Images.SetKeyName(2, "save_icon.png");
 			// 
-			// miniToolStrip
-			// 
-			this.miniToolStrip.AccessibleName = "New item selection";
-			this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDown;
-			this.miniToolStrip.AutoSize = false;
-			this.miniToolStrip.CanOverflow = false;
-			this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-			this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.miniToolStrip.Location = new System.Drawing.Point(9, 3);
-			this.miniToolStrip.Name = "miniToolStrip";
-			this.miniToolStrip.Size = new System.Drawing.Size(792, 25);
-			this.miniToolStrip.TabIndex = 0;
-			// 
-			// toolStrip1
-			// 
-			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(792, 25);
-			this.toolStrip1.TabIndex = 0;
-			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// toolStripButton1
-			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = global::AirTicketOffice.Properties.Resources.save_icon;
-			this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Margin = new System.Windows.Forms.Padding(5, 5, 2, 5);
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(44, 44);
-			this.toolStripButton1.Text = "toolStripButton1";
-			// 
-			// toolStripButton2
-			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = global::AirTicketOffice.Properties.Resources.add_icon;
-			this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Margin = new System.Windows.Forms.Padding(3, 5, 2, 5);
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(44, 44);
-			this.toolStripButton2.Text = "toolStripButton2";
-			// 
-			// toolStripButton3
-			// 
-			this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton3.Image = global::AirTicketOffice.Properties.Resources.delete_icon;
-			this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton3.Margin = new System.Windows.Forms.Padding(3, 5, 5, 5);
-			this.toolStripButton3.Name = "toolStripButton3";
-			this.toolStripButton3.Size = new System.Drawing.Size(44, 44);
-			this.toolStripButton3.Text = "toolStripButton3";
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackgroundImage = global::AirTicketOffice.Properties.Resources.user_picture_0_5x;
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Location = new System.Drawing.Point(17, 17);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
-			// 
 			// AdminMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1867,7 +1976,6 @@ namespace AirTicketOffice
 			this.Name = "AdminMainWindow";
 			this.Padding = new System.Windows.Forms.Padding(0);
 			this.Text = "Form1";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.mainTabControl.ResumeLayout(false);
 			this.mainTabPage.ResumeLayout(false);
 			this.mainTabPage.PerformLayout();
@@ -1893,8 +2001,13 @@ namespace AirTicketOffice
 			this.toolStrip2.ResumeLayout(false);
 			this.toolStrip2.PerformLayout();
 			this.profileTabPage.ResumeLayout(false);
-			this.materialCard1.ResumeLayout(false);
-			this.materialCard1.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
+			this.panel5.ResumeLayout(false);
+			this.panel5.PerformLayout();
+			this.panel3.ResumeLayout(false);
+			this.panel3.PerformLayout();
 			this.searchTabPage.ResumeLayout(false);
 			this.searchTabControl.ResumeLayout(false);
 			this.searchPassengersTabPage.ResumeLayout(false);
@@ -1907,7 +2020,6 @@ namespace AirTicketOffice
 			this.materialTabControl1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1918,27 +2030,10 @@ namespace AirTicketOffice
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private MaterialSkin.Controls.MaterialTabControl mainTabControl;
 		private System.Windows.Forms.TabPage mainTabPage;
-		private System.Windows.Forms.TabPage profileTabPage;
 		private System.Windows.Forms.TabPage searchTabPage;
 		private System.Windows.Forms.TabPage filterTabPage;
 		private System.Windows.Forms.TabPage printTabPage;
 		private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-		private MaterialSkin.Controls.MaterialCard materialCard1;
-		private PictureBox pictureBox1;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox7;
-		private MaterialSkin.Controls.MaterialLabel materialLabel7;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox6;
-		private MaterialSkin.Controls.MaterialLabel materialLabel6;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
-		private MaterialSkin.Controls.MaterialLabel materialLabel5;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
-		private MaterialSkin.Controls.MaterialLabel materialLabel4;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
-		private MaterialSkin.Controls.MaterialLabel materialLabel3;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-		private MaterialSkin.Controls.MaterialLabel materialLabel2;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-		private MaterialSkin.Controls.MaterialLabel materialLabel1;
 		private Panel panel1;
 		private MaterialSkin.Controls.MaterialTabSelector materialTabSelector2;
 		private MaterialSkin.Controls.MaterialTabControl searchTabControl;
@@ -2037,11 +2132,32 @@ namespace AirTicketOffice
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
 		private ToolStrip toolStrip2;
-		private ToolStripButton toolStripButton1;
-		private ToolStripButton toolStripButton2;
-		private ToolStripButton toolStripButton3;
-		private ToolStrip miniToolStrip;
-		private ToolStrip toolStrip1;
+		private ToolStripButton saveSingleToolStripButton;
+		private ToolStripButton addToolStripButton;
+		private ToolStripButton deleteToolStripButton;
+		private ToolStripButton saveAllToolStripButton;
+		private TabPage profileTabPage;
+		private TableLayoutPanel tableLayoutPanel1;
+		private Panel panel4;
+		private MaterialSkin.Controls.MaterialComboBox accountGenderComboBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel2;
+		private MaterialSkin.Controls.MaterialTextBox accountPatronymicTextBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel5;
+		private MaterialSkin.Controls.MaterialTextBox accountNameTextBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel4;
+		private MaterialSkin.Controls.MaterialTextBox accountSurnameTextBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel3;
+		private Panel panel5;
+		private MaterialSkin.Controls.MaterialButton changePasswordButton;
+		private MaterialSkin.Controls.MaterialTextBox accountLoginTextBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel1;
+		private MaterialSkin.Controls.MaterialTextBox accountPhoneTextBox;
+		private MaterialSkin.Controls.MaterialLabel materialLabel7;
+		private MaterialSkin.Controls.MaterialLabel materialLabel6;
+		private MaterialSkin.Controls.MaterialTextBox accountPassportTextBox;
+		private Panel panel3;
+		private MaterialSkin.Controls.MaterialButton leaveAccountButton;
+		private MaterialSkin.Controls.MaterialButton saveAccountChangesButton;
 	}
 }
 

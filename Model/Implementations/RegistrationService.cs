@@ -17,6 +17,7 @@ namespace Model.Implementations
 		public void Register(UserEntity user)
 		{
 			_dbRepository.Add(user);
+			_dbRepository.SaveChangesAsync();
 		}
 
 		public bool VerifyLogin(string login)
