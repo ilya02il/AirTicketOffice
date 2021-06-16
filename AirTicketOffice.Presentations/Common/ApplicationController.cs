@@ -38,7 +38,7 @@ namespace AirTicketOffice.Presentations.Common
         public void Run<TPresenter>() where TPresenter : class, IPresenter
         {
             if (!_container.IsRegistered<TPresenter>())
-                _container.Register<TPresenter>();
+                _container.Register<TPresenter>(TypeLifetime.Transient);
             
             var presenter = _container.Resolve<TPresenter>();
             presenter.Run();

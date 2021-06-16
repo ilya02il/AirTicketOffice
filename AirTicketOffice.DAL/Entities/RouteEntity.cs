@@ -5,18 +5,14 @@ namespace AirTicketOffice.DAL.Entities
     public class RouteEntity : IEntity
     {
         public int Id { get; set; }
-        public string From { get; set; }
-        public string To { get; set; }
         public bool IsActive { get; set; }
 
-        public int AirportId { get; set; }
-        public AirportEntity Airport { get; set; }
+        public int DepartureAirportId { get; set; }
+        public virtual AirportEntity DepartureAirport { get; set; }
 
-        public ICollection<FlightEntity> Flights { get; set; }
+        public int ArrivalAirportId { get; set; }
+        public virtual AirportEntity ArrivalAirport { get; set; }
 
-        public RouteEntity()
-        {
-            Flights = new List<FlightEntity>();
-        }
+        public virtual ICollection<FlightEntity> Flights { get; set; }
     }
 }

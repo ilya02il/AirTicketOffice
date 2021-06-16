@@ -17,13 +17,7 @@ namespace AirTicketOffice.DAL.Entities
         public string PhoneNumber { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<TicketEntity> Tickets { get; set; }
-        public ICollection<OrderEntity> Orders { get; set; }
-
-        public UserEntity()
-        {
-            Tickets = new List<TicketEntity>();
-            Orders = new List<OrderEntity>();
-        }
+        public virtual ICollection<TicketEntity> Tickets { get; set; }
+        public virtual ICollection<OrderEntity> Orders { get; set; }
     }
 }

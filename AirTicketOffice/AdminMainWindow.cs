@@ -21,6 +21,16 @@ namespace AirTicketOffice
 		public event Action GetAllCrewMembers;
 		public event Action GetAllAirports;
 
+		public event Action AddEvent;
+		public event Action AddUser;
+		public event Action AddOrder;
+		public event Action AddTicket;
+		public event Action AddRoute;
+		public event Action AddFlight;
+		public event Action AddPlane;
+		public event Action AddCrewMember;
+		public event Action AddAirport;
+
 		public event Action DeleteEvent;
 		public event Action DeleteUser;
 		public event Action DeleteOrder;
@@ -50,6 +60,10 @@ namespace AirTicketOffice
 		public event Action SavePlaneChanges;
 		public event Action SaveCrewMemberChanges;
 		public event Action SaveAirportChanges;
+
+		public event Action SaveCurrentUserInfo;
+		public event Action ChangePassword;
+		public event Action ExitFromAccount;
 
 		private readonly ApplicationContext _context;
 
@@ -90,6 +104,10 @@ namespace AirTicketOffice
 			planesTabPage.Leave += (sender, args) => planesDataGridView.Rows.Clear();
 			crewTabPage.Leave += (sender, args) => crewsDataGridView.Rows.Clear();
 			airportsTabPage.Leave += (sender, args) => airportsDataGridView.Rows.Clear();
+
+			saveAccountChangesButton.Click += (sender, args) => SaveCurrentUserInfo?.Invoke();
+			changePasswordButton.Click += (sender, args) => ChangePassword?.Invoke();
+			exitFromAccountButton.Click += (sender, args) => ExitFromAccount?.Invoke();
 		}
 
 		public sealed override string Text
@@ -105,6 +123,31 @@ namespace AirTicketOffice
 		public string HelloMessage
 		{
 			set => Text += @" | " + value;
+		}
+
+		public UserEntity CurrentUser
+		{
+			get =>
+				new UserEntity()
+				{
+					Surname = accountSurnameTextBox.Text,
+					Name = accountNameTextBox.Text,
+					Patronymic = accountPatronymicTextBox.Text,
+					Gender = accountGenderComboBox.SelectedItem.ToString(),
+					Login = accountLoginTextBox.Text,
+					PassportNumber = accountPassportTextBox.Text,
+					PhoneNumber = accountPhoneTextBox.Text
+				};
+			set
+			{
+				accountSurnameTextBox.Text = value.Surname;
+				accountNameTextBox.Text = value.Name;
+				accountPatronymicTextBox.Text = value.Patronymic;
+				accountGenderComboBox.SelectedItem = value.Gender;
+				accountLoginTextBox.Text = value.Login;
+				accountPassportTextBox.Text = value.PassportNumber;
+				accountPhoneTextBox.Text = value.PhoneNumber;
+			}
 		}
 
 		public ICollection<UserEntity> Users
@@ -178,15 +221,15 @@ namespace AirTicketOffice
 			{
 				var eventList = new List<EventEntity>();
 
-				foreach (DataGridViewRow row in usersDataGridView.Rows)
+				for (int i = 0; i < eventsDataGridView.RowCount; i++)
 				{
-					var id = (int)row.Cells[0].Value;
-					var image = row.Cells[1].Value.ToString();
-					var name = row.Cells[2].Value.ToString();
-					var description = row.Cells[3].Value.ToString();
-					var finishDate = Convert.ToDateTime(row.Cells[4].Value);
-					var position = row.Cells[5].Value.ToString();
-					var status = row.Cells[6].Value.ToString();
+					var id = Convert.ToInt32(eventsDataGridView.Rows[i].Cells[0].Value);
+					var image = Convert.ToString(eventsDataGridView.Rows[i].Cells[1].Value);
+					var name = Convert.ToString(eventsDataGridView.Rows[i].Cells[2].Value);
+					var description = Convert.ToString(eventsDataGridView.Rows[i].Cells[3].Value);
+					var finishDate = Convert.ToDateTime(eventsDataGridView.Rows[i].Cells[4].Value);
+					var position = Convert.ToString(eventsDataGridView.Rows[i].Cells[5].Value);
+					var status = Convert.ToString(eventsDataGridView.Rows[i].Cells[6].Value);
 
 					var user = new EventEntity()
 					{
@@ -222,9 +265,135 @@ namespace AirTicketOffice
 				}
 			}
 		}
-		public ICollection<OrderEntity> Orders { get; set; }
-		public ICollection<TicketEntity> Tickets { get; set; }
-		public ICollection<RouteEntity> Routes { get; set; }
+
+		public ICollection<OrderEntity> Orders
+		{
+			get
+			{
+				var orderList = new List<OrderEntity>();
+
+				for (int i = 0; i < ordersDataGridView.RowCount; i++)
+				{
+					var id = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[0].Value);
+					var userId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[1].Value);
+					var flightId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[2].Value);
+					var desiredDate = Convert.ToDateTime(ordersDataGridView.Rows[i].Cells[3].Value);
+					var orderDate = Convert.ToDateTime(ordersDataGridView.Rows[i].Cells[4].Value);
+					var officeId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[5].Value);
+
+					var order = new OrderEntity()
+					{
+						Id = id,
+						UserId = userId,
+						FlightId = flightId,
+						DesiredDate = desiredDate,
+						OrderDate = orderDate,
+						OfficeId = officeId
+					};
+
+					orderList.Add(order);
+				}
+
+				return orderList;
+			}
+			set
+			{
+				ordersDataGridView.Rows.Clear();
+
+				foreach (var order in value)
+				{
+					ordersDataGridView.Rows.Add(
+						order.Id,
+						order.UserId,
+						order.FlightId,
+						order.DesiredDate,
+						order.OrderDate,
+						order.OfficeId
+					);
+				}
+			}
+		}
+
+		public ICollection<TicketEntity> Tickets
+		{
+			get
+			{
+				var ticketList = new List<TicketEntity>();
+
+				for (int i = 0; i < ticketsDataGridView.RowCount; i++)
+				{
+					var id = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[0].Value);
+					var userId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[1].Value);
+					var flightId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[2].Value);
+					var classId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[3].Value);
+
+					var ticket = new TicketEntity()
+					{
+						Id = id,
+						UserId = userId,
+						FlightId = flightId,
+						ClassId = classId
+					};
+
+					ticketList.Add(ticket);
+				}
+
+				return ticketList;
+			}
+			set
+			{
+				ticketsDataGridView.Rows.Clear();
+
+				foreach (var ticket in value)
+				{
+					ticketsDataGridView.Rows.Add(
+						ticket.Id,
+						ticket.UserId,
+						ticket.FlightId,
+						ticket.ClassId
+					);
+				}
+			}
+		}
+
+		public ICollection<RouteEntity> Routes
+		{
+			get
+			{
+				var routeList = new List<RouteEntity>();
+
+				for (int i = 0; i < routesDataGridView.RowCount; i++)
+				{
+					var id = Convert.ToInt32(routesDataGridView.Rows[i].Cells[0].Value);
+					var departureAirportId = Convert.ToInt32(routesDataGridView.Rows[i].Cells[1].Value);
+					var arrivalAirportId = Convert.ToInt32(routesDataGridView.Rows[i].Cells[2].Value);
+
+					var route = new RouteEntity()
+					{
+						Id = id,
+						DepartureAirportId = departureAirportId,
+						ArrivalAirportId = arrivalAirportId
+					};
+
+					routeList.Add(route);
+				}
+
+				return routeList;
+			}
+			set
+			{
+				routesDataGridView.Rows.Clear();
+
+				foreach (var route in value)
+				{
+					routesDataGridView.Rows.Add(
+						route.Id,
+						route.DepartureAirportId,
+						route.ArrivalAirportId
+					);
+				}
+			}
+		}
 		public ICollection<FlightEntity> Flights { get; set; }
 		public ICollection<PlaneEntity> Planes { get; set; }
 		public ICollection<CrewMemberEntity> Crew { get; set; }
@@ -386,7 +555,43 @@ namespace AirTicketOffice
 
 		private void addToolStripButton_Click(object sender, EventArgs e)
 		{
-
+			if (mainTabPageTabControl.SelectedTab == adTabPage)
+			{
+				
+				AddEvent?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			{
+				AddUser?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == ordersTabPage)
+			{
+				AddOrder?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == ticketsTabPage)
+			{
+				AddTicket?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == routesTabPage)
+			{
+				AddRoute?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == flightsTabPage)
+			{
+				AddFlight?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == planesTabPage)
+			{
+				AddPlane?.Invoke();
+			}
+			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
+			{
+				AddCrewMember?.Invoke();
+			}
+			else
+			{
+				AddAirport?.Invoke();
+			}
 		}
 
 		private void deleteToolStripButton_Click(object sender, EventArgs e)

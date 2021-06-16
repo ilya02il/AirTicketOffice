@@ -11,20 +11,14 @@ namespace AirTicketOffice.DAL.Entities
         public bool IsActive { get; set; }
 
 
-        public int? PlaneId { get; set; }
-        public PlaneEntity Plane { get; set; }
+        public int PlaneId { get; set; }
+        public virtual PlaneEntity Plane { get; set; }
 
-        public int? RouteId { get; set; }
-        public RouteEntity Route { get; set; }
+        public int RouteId { get; set; }
+        public virtual RouteEntity Route { get; set; }
 
-        public int? OrderId { get; set; }
-        public OrderEntity Order { get; set; }
-
-        public ICollection<TicketEntity> Tickets { get; set; }
-
-        public FlightEntity()
-        {
-            Tickets = new List<TicketEntity>();
-        }
+        public virtual ICollection<TicketEntity> Tickets { get; set; }
+        public virtual ICollection<OrderEntity> Orders { get; set; }
+        
     }
 }

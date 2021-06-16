@@ -151,7 +151,7 @@ namespace AirTicketOffice
 			this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
 			this.accountPassportTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.leaveAccountButton = new MaterialSkin.Controls.MaterialButton();
+			this.exitFromAccountButton = new MaterialSkin.Controls.MaterialButton();
 			this.saveAccountChangesButton = new MaterialSkin.Controls.MaterialButton();
 			this.searchTabPage = new System.Windows.Forms.TabPage();
 			this.searchTabControl = new MaterialSkin.Controls.MaterialTabControl();
@@ -167,9 +167,9 @@ namespace AirTicketOffice
 			this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.vacantSeatsTabPage = new System.Windows.Forms.TabPage();
 			this.vacantSeatsDataGridView = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.searchEmptySeatsPlaneNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.searchEmptySeatsRouteNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.searchEmptySeatsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.searchTypeComboBox = new MaterialSkin.Controls.MaterialComboBox();
 			this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
@@ -1474,7 +1474,7 @@ namespace AirTicketOffice
 			// 
 			// panel3
 			// 
-			this.panel3.Controls.Add(this.leaveAccountButton);
+			this.panel3.Controls.Add(this.exitFromAccountButton);
 			this.panel3.Controls.Add(this.saveAccountChangesButton);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel3.Location = new System.Drawing.Point(3, 335);
@@ -1482,24 +1482,24 @@ namespace AirTicketOffice
 			this.panel3.Size = new System.Drawing.Size(786, 47);
 			this.panel3.TabIndex = 0;
 			// 
-			// leaveAccountButton
+			// exitFromAccountButton
 			// 
-			this.leaveAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.leaveAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.leaveAccountButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-			this.leaveAccountButton.Depth = 0;
-			this.leaveAccountButton.HighEmphasis = true;
-			this.leaveAccountButton.Icon = null;
-			this.leaveAccountButton.Location = new System.Drawing.Point(6, 5);
-			this.leaveAccountButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-			this.leaveAccountButton.MouseState = MaterialSkin.MouseState.HOVER;
-			this.leaveAccountButton.Name = "leaveAccountButton";
-			this.leaveAccountButton.Size = new System.Drawing.Size(177, 36);
-			this.leaveAccountButton.TabIndex = 5;
-			this.leaveAccountButton.Text = "Выйти из аккаунта";
-			this.leaveAccountButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-			this.leaveAccountButton.UseAccentColor = false;
-			this.leaveAccountButton.UseVisualStyleBackColor = true;
+			this.exitFromAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.exitFromAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.exitFromAccountButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.exitFromAccountButton.Depth = 0;
+			this.exitFromAccountButton.HighEmphasis = true;
+			this.exitFromAccountButton.Icon = null;
+			this.exitFromAccountButton.Location = new System.Drawing.Point(6, 5);
+			this.exitFromAccountButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.exitFromAccountButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.exitFromAccountButton.Name = "exitFromAccountButton";
+			this.exitFromAccountButton.Size = new System.Drawing.Size(177, 36);
+			this.exitFromAccountButton.TabIndex = 5;
+			this.exitFromAccountButton.Text = "Выйти из аккаунта";
+			this.exitFromAccountButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+			this.exitFromAccountButton.UseAccentColor = false;
+			this.exitFromAccountButton.UseVisualStyleBackColor = true;
 			// 
 			// saveAccountChangesButton
 			// 
@@ -1687,9 +1687,9 @@ namespace AirTicketOffice
 			this.vacantSeatsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
 			this.vacantSeatsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.vacantSeatsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
+            this.searchEmptySeatsPlaneNumColumn,
+            this.searchEmptySeatsRouteNumColumn,
+            this.searchEmptySeatsColumn});
 			this.vacantSeatsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.vacantSeatsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.vacantSeatsDataGridView.Margin = new System.Windows.Forms.Padding(0);
@@ -1707,27 +1707,26 @@ namespace AirTicketOffice
 			this.vacantSeatsDataGridView.Size = new System.Drawing.Size(784, 275);
 			this.vacantSeatsDataGridView.TabIndex = 2;
 			// 
-			// dataGridViewTextBoxColumn8
+			// searchEmptySeatsPlaneNumColumn
 			// 
-			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn8.FillWeight = 4F;
-			this.dataGridViewTextBoxColumn8.HeaderText = "№";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.searchEmptySeatsPlaneNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.searchEmptySeatsPlaneNumColumn.FillWeight = 40F;
+			this.searchEmptySeatsPlaneNumColumn.HeaderText = "Самолет";
+			this.searchEmptySeatsPlaneNumColumn.Name = "searchEmptySeatsPlaneNumColumn";
 			// 
-			// dataGridViewTextBoxColumn9
+			// searchEmptySeatsRouteNumColumn
 			// 
-			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn9.FillWeight = 40F;
-			this.dataGridViewTextBoxColumn9.HeaderText = "Самолет";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.searchEmptySeatsRouteNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.searchEmptySeatsRouteNumColumn.FillWeight = 40F;
+			this.searchEmptySeatsRouteNumColumn.HeaderText = "Маршрут";
+			this.searchEmptySeatsRouteNumColumn.Name = "searchEmptySeatsRouteNumColumn";
 			// 
-			// dataGridViewTextBoxColumn10
+			// searchEmptySeatsColumn
 			// 
-			this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn10.FillWeight = 40F;
-			this.dataGridViewTextBoxColumn10.HeaderText = "Маршрут";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+			this.searchEmptySeatsColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.searchEmptySeatsColumn.FillWeight = 20F;
+			this.searchEmptySeatsColumn.HeaderText = "Свободные места";
+			this.searchEmptySeatsColumn.Name = "searchEmptySeatsColumn";
 			// 
 			// panel1
 			// 
@@ -2052,9 +2051,6 @@ namespace AirTicketOffice
 		private MaterialSkin.Controls.MaterialLabel materialLabel8;
 		private MaterialSkin.Controls.MaterialTextBox searchTextBox;
 		private DataGridView vacantSeatsDataGridView;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 		private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
 		private TabPage tabPage1;
 		private TabPage tabPage2;
@@ -2156,8 +2152,11 @@ namespace AirTicketOffice
 		private MaterialSkin.Controls.MaterialLabel materialLabel6;
 		private MaterialSkin.Controls.MaterialTextBox accountPassportTextBox;
 		private Panel panel3;
-		private MaterialSkin.Controls.MaterialButton leaveAccountButton;
+		private MaterialSkin.Controls.MaterialButton exitFromAccountButton;
 		private MaterialSkin.Controls.MaterialButton saveAccountChangesButton;
+		private DataGridViewTextBoxColumn searchEmptySeatsPlaneNumColumn;
+		private DataGridViewTextBoxColumn searchEmptySeatsRouteNumColumn;
+		private DataGridViewTextBoxColumn searchEmptySeatsColumn;
 	}
 }
 

@@ -10,11 +10,6 @@ namespace AirTicketOffice.DAL.Entities
         public string Image { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<OrderEntity> Orders { get; set; }
-
-        public OfficeEntity()
-        {
-            Orders = new List<OrderEntity>();
-        }
+        public virtual ICollection<OrderEntity> Orders { get; set; }
     }
 }

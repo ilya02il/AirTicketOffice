@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace AirTicketOffice.DAL.Entities
 {
@@ -10,17 +9,13 @@ namespace AirTicketOffice.DAL.Entities
         public DateTime OrderDate { get; set; }
         public bool IsActive { get; set; }
 
-        public int? UserId { get; set; }
-        public UserEntity User { get; set; }
+        public int UserId { get; set; }
+        public virtual UserEntity User { get; set; }
 
-        public int? OfficeId { get; set; }
-        public OfficeEntity Office { get; set; }
+        public int OfficeId { get; set; }
+        public virtual OfficeEntity Office { get; set; }
 
-        public ICollection<FlightEntity> Flights { get; set; }
-
-        public OrderEntity()
-        {
-            Flights = new List<FlightEntity>();
-        }
+        public int FlightId { get; set; }
+        public virtual FlightEntity Flight { get; set; }
     }
 }

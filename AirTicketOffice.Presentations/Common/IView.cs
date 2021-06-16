@@ -4,6 +4,5 @@ namespace AirTicketOffice.Presentations.Common
     {
         void Show();
         void Close();
-        void Hide();
     }
 }

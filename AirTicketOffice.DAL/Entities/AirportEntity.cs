@@ -10,11 +10,7 @@ namespace AirTicketOffice.DAL.Entities
         public string Image { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<RouteEntity> Routes { get; set; }
-
-        public AirportEntity()
-        {
-            Routes = new List<RouteEntity>();
-        }
+        public virtual ICollection<RouteEntity> DepartureRoutes { get; set; }
+        public virtual ICollection<RouteEntity> ArrivalRoutes { get; set; }
     }
 }

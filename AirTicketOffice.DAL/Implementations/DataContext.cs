@@ -10,6 +10,8 @@ namespace AirTicketOffice.DAL.Implementations
         public DbSet<FlightEntity> Flights { get; set; }
         public DbSet<OrderEntity> Orders { get; set; }
         public DbSet<PlaneEntity> Planes { get; set; }
+        public DbSet<ClassEntity> Classes { get; set; }
+        public DbSet<SeatEntity> Seats { get; set; }
         public DbSet<CrewMemberEntity> CrewMembers { get; set; }
         public DbSet<RouteEntity> Routes { get; set; }
         public DbSet<OfficeEntity> Offices { get; set; }
@@ -24,5 +26,20 @@ namespace AirTicketOffice.DAL.Implementations
         {
             
         }
-    }
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<RouteEntity>()
+				.HasRequired(r => r.DepartureAirport)
+				.WithMany(a => a.DepartureRoutes)
+				.HasForeignKey(r => r.DepartureAirportId)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<RouteEntity>()
+				.HasRequired(r => r.ArrivalAirport)
+				.WithMany(a => a.ArrivalRoutes)
+				.HasForeignKey(r => r.ArrivalAirportId)
+				.WillCascadeOnDelete(false);
+		}
+	}
 }

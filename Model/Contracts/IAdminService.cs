@@ -22,13 +22,11 @@ namespace Model.Contracts
 
 		void EditAllAsync<TEntity>(ICollection<TEntity> entities)
 			where TEntity : class, IEntity;
-
-		void EditAllAsync<TEntity>(ICollection<TEntity> entities,
-			params Expression<Func<TEntity, object>>[] properties)
-			where TEntity : class, IEntity;
+			
 
 		#region get functions
 
+		int GetAmountOfEmptySeats(PlaneEntity plane, ClassEntity type);
 		IQueryable<OrderEntity> GetUserOrders(UserEntity user);
 		IQueryable<TicketEntity> GetUserTickets(UserEntity user);
 		IQueryable<TicketEntity> GetFlightTickets(FlightEntity flight);

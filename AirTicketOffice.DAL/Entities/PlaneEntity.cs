@@ -9,13 +9,8 @@ namespace AirTicketOffice.DAL.Entities
         public string Type { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<FlightEntity> Flights { get; set; }
-        public ICollection<CrewMemberEntity> Crew { get; set; }
-
-        public PlaneEntity()
-        {
-            Flights = new List<FlightEntity>();
-            Crew = new List<CrewMemberEntity>();
-        }
+        public virtual ICollection<FlightEntity> Flights { get; set; }
+        public virtual ICollection<CrewMemberEntity> Crew { get; set; }
+        public virtual ICollection<SeatEntity> Seats { get; set; }
     }
 }

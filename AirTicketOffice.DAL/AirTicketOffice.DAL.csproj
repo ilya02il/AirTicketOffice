@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ClassEntity.cs" />
+    <Compile Include="Entities\SeatEntity.cs" />
     <Compile Include="Implementations\DbRepository.cs" />
     <Compile Include="Contracts\IDbRepository.cs" />
     <Compile Include="Implementations\DataContext.cs" />
@@ -69,6 +71,14 @@
     <Compile Include="Migrations\202106041549139_AddSaltMigration.designer.cs">
       <DependentUpon>202106041549139_AddSaltMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106160750479_ReorganizeTables.cs" />
+    <Compile Include="Migrations\202106160750479_ReorganizeTables.designer.cs">
+      <DependentUpon>202106160750479_ReorganizeTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106160935298_RejoinFlightsAndOrders.cs" />
+    <Compile Include="Migrations\202106160935298_RejoinFlightsAndOrders.designer.cs">
+      <DependentUpon>202106160935298_RejoinFlightsAndOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +90,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106041549139_AddSaltMigration.resx">
       <DependentUpon>202106041549139_AddSaltMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160750479_ReorganizeTables.resx">
+      <DependentUpon>202106160750479_ReorganizeTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160935298_RejoinFlightsAndOrders.resx">
+      <DependentUpon>202106160935298_RejoinFlightsAndOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

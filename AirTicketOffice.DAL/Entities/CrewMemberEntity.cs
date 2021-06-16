@@ -7,7 +7,7 @@
         public string Position { get; set; }
         public bool IsActive { get; set; }
 
-        public int? PlaneId { get; set; }
-        public PlaneEntity Plane { get; set; }
+        public int PlaneId { get; set; }
+        public virtual PlaneEntity Plane { get; set; }
     }
 }

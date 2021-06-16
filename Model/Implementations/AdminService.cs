@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using AirTicketOffice.DAL.Contracts;
 using AirTicketOffice.DAL.Entities;
 using Model.Contracts;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace Model.Implementations
 {
@@ -36,10 +35,6 @@ namespace Model.Implementations
 
 		public async void Edit<TEntity>(TEntity entity) where TEntity : class, IEntity
 		{
-			var primaryEntity = _dbRepository.Get<TEntity>().FirstOrDefault();
-
-
-
 			await _dbRepository.Update(entity);
 			await _dbRepository.SaveChangesAsync();
 		}
@@ -55,18 +50,20 @@ namespace Model.Implementations
 			await _dbRepository.SaveChangesAsync();
 		}
 
-		public async void EditAllAsync<TEntity>(ICollection<TEntity> entities, params Expression<Func<TEntity, object>>[] properties)
-			where TEntity : class, IEntity
-		{
-			foreach (var entity in entities)
-			{
-				await _dbRepository.Update(entity);
-			}
-
-			await _dbRepository.SaveChangesAsync();
-		}
-
 		#region get functions
+
+		public int GetAmountOfEmptySeats(PlaneEntity plane, ClassEntity type)
+		{
+			var planeSeats = _dbRepository.GetAll<SeatEntity>().
+				FirstOrDefault(seat => seat.PlaneId == plane.Id && seat.ClassId == type.Id);
+
+			if (planeSeats == null)
+				throw new NullReferenceException("This plane has no seats of this class.");
+
+			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.ClassId == type.Id).Count();
+
+			return planeSeats.Amount - classTicketsAmount;
+		}
 
 		public IQueryable<OrderEntity> GetUserOrders(UserEntity user)
 		{
