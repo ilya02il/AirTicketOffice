@@ -14,17 +14,15 @@ namespace Model.Implementations
 			_dbRepository = dbRepository;
 		}
 
-		public void Register(UserEntity user)
+		public async void Register(UserEntity user)
 		{
 			_dbRepository.Add(user);
-			_dbRepository.SaveChangesAsync();
+			await _dbRepository.SaveChangesAsync();
 		}
 
 		public bool VerifyLogin(string login)
 		{
-			var registeredUser = _dbRepository.Get<UserEntity>(u => u.Login == login).ToList().Count;
-
-			return registeredUser == 0;
+			return _dbRepository.Get<UserEntity>(u => u.Login == login).Any();
 		}
 	}
 }

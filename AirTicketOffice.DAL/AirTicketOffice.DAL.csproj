@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202106160935298_RejoinFlightsAndOrders.designer.cs">
       <DependentUpon>202106160935298_RejoinFlightsAndOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106170516266_AnotherMigration.cs" />
+    <Compile Include="Migrations\202106170516266_AnotherMigration.designer.cs">
+      <DependentUpon>202106170516266_AnotherMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106160935298_RejoinFlightsAndOrders.resx">
       <DependentUpon>202106160935298_RejoinFlightsAndOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106170516266_AnotherMigration.resx">
+      <DependentUpon>202106170516266_AnotherMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

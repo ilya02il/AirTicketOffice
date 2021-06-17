@@ -3,7 +3,7 @@ using AirTicketOffice.DAL.Entities;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using AirTicketOffice.Presentations.Views;
 
@@ -11,7 +11,6 @@ namespace AirTicketOffice
 {
 	public partial class AdminMainWindow : MaterialForm, IAdminMainView
 	{
-		public event Action GetAllEvents;
 		public event Action GetAllUsers;
 		public event Action GetAllOrders;
 		public event Action GetAllTickets;
@@ -21,17 +20,6 @@ namespace AirTicketOffice
 		public event Action GetAllCrewMembers;
 		public event Action GetAllAirports;
 
-		public event Action AddEvent;
-		public event Action AddUser;
-		public event Action AddOrder;
-		public event Action AddTicket;
-		public event Action AddRoute;
-		public event Action AddFlight;
-		public event Action AddPlane;
-		public event Action AddCrewMember;
-		public event Action AddAirport;
-
-		public event Action DeleteEvent;
 		public event Action DeleteUser;
 		public event Action DeleteOrder;
 		public event Action DeleteTicket;
@@ -41,7 +29,6 @@ namespace AirTicketOffice
 		public event Action DeleteCrewMember;
 		public event Action DeleteAirport;
 
-		public event Action SaveAllEventsChanges;
 		public event Action SaveAllUsersChanges;
 		public event Action SaveAllOrdersChanges;
 		public event Action SaveAllTicketsChanges;
@@ -51,7 +38,6 @@ namespace AirTicketOffice
 		public event Action SaveAllCrewMembersChanges;
 		public event Action SaveAllAirportsChanges;
 
-		public event Action SaveEventChanges;
 		public event Action SaveUserChanges;
 		public event Action SaveOrderChanges;
 		public event Action SaveTicketChanges;
@@ -78,7 +64,6 @@ namespace AirTicketOffice
 			mainTabControl.SelectedIndex = 0;
 			Text = @"	 " + mainTabControl.SelectedTab.Text;
 
-			adTabPage.Enter += (sender, args) => GetAllEvents?.Invoke();
 			usersTabPage.Enter += (sender, args) => GetAllUsers?.Invoke();
 			searchPassengersTabPage.Enter += (sender, args) =>
 			{
@@ -95,16 +80,6 @@ namespace AirTicketOffice
 			crewTabPage.Enter += (sender, args) => GetAllCrewMembers?.Invoke();
 			airportsTabPage.Enter += (sender, args) => GetAllAirports?.Invoke();
 
-			adTabPage.Leave += (sender, args) => eventsDataGridView.Rows.Clear();
-			usersTabPage.Leave += (sender, args) => usersDataGridView.Rows.Clear();
-			ordersTabPage.Leave += (sender, args) => ordersDataGridView.Rows.Clear();
-			ticketsTabPage.Leave += (sender, args) => ticketsDataGridView.Rows.Clear();
-			routesTabPage.Leave += (sender, args) => routesDataGridView.Rows.Clear();
-			flightsTabPage.Leave += (sender, args) => flightsDataGridView.Rows.Clear();
-			planesTabPage.Leave += (sender, args) => planesDataGridView.Rows.Clear();
-			crewTabPage.Leave += (sender, args) => crewsDataGridView.Rows.Clear();
-			airportsTabPage.Leave += (sender, args) => airportsDataGridView.Rows.Clear();
-
 			saveAccountChangesButton.Click += (sender, args) => SaveCurrentUserInfo?.Invoke();
 			changePasswordButton.Click += (sender, args) => ChangePassword?.Invoke();
 			exitFromAccountButton.Click += (sender, args) => ExitFromAccount?.Invoke();
@@ -117,8 +92,6 @@ namespace AirTicketOffice
 		}
 
 		public int SelectedId { get; set; }
-
-		public ICollection<AirportEntity> Airports { get; set; }
 
 		public string HelloMessage
 		{
@@ -156,7 +129,7 @@ namespace AirTicketOffice
 			{
 				var userList = new List<UserEntity>();
 
-				for (int i = 0; i < usersDataGridView.RowCount; i++)
+				for (int i = 0; i < usersDataGridView.RowCount - 1; i++)
 				{
 					var id = Convert.ToInt32(usersDataGridView.Rows[i].Cells[0].Value);
 					var login = Convert.ToString(usersDataGridView.Rows[i].Cells[1].Value);
@@ -215,64 +188,13 @@ namespace AirTicketOffice
 			}
 		}
 
-		public new ICollection<EventEntity> Events
-		{
-			get
-			{
-				var eventList = new List<EventEntity>();
-
-				for (int i = 0; i < eventsDataGridView.RowCount; i++)
-				{
-					var id = Convert.ToInt32(eventsDataGridView.Rows[i].Cells[0].Value);
-					var image = Convert.ToString(eventsDataGridView.Rows[i].Cells[1].Value);
-					var name = Convert.ToString(eventsDataGridView.Rows[i].Cells[2].Value);
-					var description = Convert.ToString(eventsDataGridView.Rows[i].Cells[3].Value);
-					var finishDate = Convert.ToDateTime(eventsDataGridView.Rows[i].Cells[4].Value);
-					var position = Convert.ToString(eventsDataGridView.Rows[i].Cells[5].Value);
-					var status = Convert.ToString(eventsDataGridView.Rows[i].Cells[6].Value);
-
-					var user = new EventEntity()
-					{
-						Id = id,
-						Image = image,
-						Name = name,
-						Description = description,
-						EndingDate = finishDate,
-						Position = position,
-						Status = status
-					};
-
-					eventList.Add(user);
-				}
-
-				return eventList;
-			}
-			set
-			{
-				eventsDataGridView.Rows.Clear();
-
-				foreach (var e in value)
-				{
-					eventsDataGridView.Rows.Add(
-						e.Id,
-						Image.FromFile(Application.StartupPath + e.Image),
-						e.Name,
-						e.Description,
-						e.EndingDate.ToShortDateString(),
-						e.Position,
-						e.Status
-						);
-				}
-			}
-		}
-
 		public ICollection<OrderEntity> Orders
 		{
 			get
 			{
 				var orderList = new List<OrderEntity>();
 
-				for (int i = 0; i < ordersDataGridView.RowCount; i++)
+				for (int i = 0; i < ordersDataGridView.RowCount - 1; i++)
 				{
 					var id = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[0].Value);
 					var userId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[1].Value);
@@ -320,19 +242,21 @@ namespace AirTicketOffice
 			{
 				var ticketList = new List<TicketEntity>();
 
-				for (int i = 0; i < ticketsDataGridView.RowCount; i++)
+				for (int i = 0; i < ticketsDataGridView.RowCount - 1; i++)
 				{
 					var id = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[0].Value);
 					var userId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[1].Value);
-					var flightId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[2].Value);
-					var classId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[3].Value);
+					var classId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[2].Value);
+					var flightId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[3].Value);
+					var cost = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[4].Value);
 
 					var ticket = new TicketEntity()
 					{
 						Id = id,
 						UserId = userId,
 						FlightId = flightId,
-						ClassId = classId
+						ClassId = classId,
+						Cost = cost
 					};
 
 					ticketList.Add(ticket);
@@ -350,7 +274,8 @@ namespace AirTicketOffice
 						ticket.Id,
 						ticket.UserId,
 						ticket.FlightId,
-						ticket.ClassId
+						ticket.ClassId,
+						ticket.Cost
 					);
 				}
 			}
@@ -362,7 +287,7 @@ namespace AirTicketOffice
 			{
 				var routeList = new List<RouteEntity>();
 
-				for (int i = 0; i < routesDataGridView.RowCount; i++)
+				for (int i = 0; i < routesDataGridView.RowCount - 1; i++)
 				{
 					var id = Convert.ToInt32(routesDataGridView.Rows[i].Cells[0].Value);
 					var departureAirportId = Convert.ToInt32(routesDataGridView.Rows[i].Cells[1].Value);
@@ -394,9 +319,186 @@ namespace AirTicketOffice
 				}
 			}
 		}
-		public ICollection<FlightEntity> Flights { get; set; }
-		public ICollection<PlaneEntity> Planes { get; set; }
-		public ICollection<CrewMemberEntity> Crew { get; set; }
+
+		public ICollection<FlightEntity> Flights
+		{
+			get
+			{
+				var flightList = new List<FlightEntity>();
+
+				for (int i = 0; i < flightsDataGridView.RowCount - 1; i++)
+				{
+					var id = Convert.ToInt32(flightsDataGridView.Rows[i].Cells[0].Value);
+					var planeId = Convert.ToInt32(flightsDataGridView.Rows[i].Cells[1].Value);
+					var routeId = Convert.ToInt32(flightsDataGridView.Rows[i].Cells[2].Value);
+					var dateFrom = Convert.ToDateTime(flightsDataGridView.Rows[i].Cells[3].Value);
+					var dateTo = Convert.ToDateTime(flightsDataGridView.Rows[i].Cells[4].Value);
+
+					var flight = new FlightEntity()
+					{
+						Id = id,
+						PlaneId = planeId,
+						RouteId = routeId,
+						DateFrom = dateFrom,
+						DateTo = dateTo
+					};
+
+					flightList.Add(flight);
+				}
+
+				return flightList;
+			}
+			set
+			{
+				flightsDataGridView.Rows.Clear();
+
+				foreach (var flight in value)
+				{
+					flightsDataGridView.Rows.Add(
+						flight.Id,
+						flight.PlaneId,
+						flight.RouteId,
+						flight.DateFrom,
+						flight.DateTo
+					);
+				}
+			}
+		}
+
+		public ICollection<PlaneEntity> Planes
+		{
+			get
+			{
+				var planeList = new List<PlaneEntity>();
+
+				for (int i = 0; i < planesDataGridView.RowCount - 1; i++)
+				{
+					var id = Convert.ToInt32(planesDataGridView.Rows[i].Cells[0].Value);
+					var number = Convert.ToInt32(planesDataGridView.Rows[i].Cells[1].Value);
+					var type = Convert.ToString(planesDataGridView.Rows[i].Cells[2].Value);
+					var stClassSeats = Convert.ToInt32(planesDataGridView.Rows[i].Cells[3].Value);
+					var ndClassSeats = Convert.ToInt32(planesDataGridView.Rows[i].Cells[4].Value);
+					var rdClassSeats = Convert.ToInt32(planesDataGridView.Rows[i].Cells[5].Value);
+
+					var plane = new PlaneEntity()
+					{
+						Id = id,
+						Number = number,
+						Type = type,
+						Seats = new List<SeatEntity>()
+						{
+							new SeatEntity() { ClassId = 2, PlaneId = id, Amount = stClassSeats},
+							new SeatEntity() { ClassId = 3, PlaneId = id, Amount = ndClassSeats},
+							new SeatEntity() { ClassId = 4, PlaneId = id, Amount = rdClassSeats}
+						}
+					};
+
+					planeList.Add(plane);
+				}
+
+				return planeList;
+			}
+			set
+			{
+				planesDataGridView.Rows.Clear();
+
+				foreach (var plane in value)
+				{
+					planesDataGridView.Rows.Add(
+						plane.Id,
+						plane.Number,
+						plane.Type,
+						plane.Seats.ToList()[0].Amount,
+						plane.Seats.ToList()[1].Amount,
+						plane.Seats.ToList()[2].Amount
+					);
+				}
+			}
+		}
+
+		public ICollection<CrewMemberEntity> CrewMembers
+		{
+			get
+			{
+				var crewList = new List<CrewMemberEntity>();
+
+				for (int i = 0; i < crewMembersDataGridView.RowCount - 1; i++)
+				{
+					var id = Convert.ToInt32(crewMembersDataGridView.Rows[i].Cells[0].Value);
+					var planeId = Convert.ToInt32(crewMembersDataGridView.Rows[i].Cells[1].Value);
+					var initials = Convert.ToString(crewMembersDataGridView.Rows[i].Cells[2].Value);
+					var position = Convert.ToString(crewMembersDataGridView.Rows[i].Cells[3].Value);
+
+					var crewMember = new CrewMemberEntity()
+					{
+						Id = id,
+						PlaneId = planeId,
+						Initials = initials,
+						Position = position
+					};
+
+					crewList.Add(crewMember);
+				}
+
+				return crewList;
+			}
+			set
+			{
+				crewMembersDataGridView.Rows.Clear();
+
+				foreach (var crewMember in value)
+				{
+					crewMembersDataGridView.Rows.Add(
+						crewMember.Id,
+						crewMember.PlaneId,
+						crewMember.Initials,
+						crewMember.Position
+					);
+				}
+			}
+		}
+
+		public ICollection<AirportEntity> Airports
+		{
+			get
+			{
+				var airportsList = new List<AirportEntity>();
+
+				for (int i = 0; i < airportsDataGridView.RowCount - 1; i++)
+				{
+					var id = Convert.ToInt32(airportsDataGridView.Rows[i].Cells[0].Value);
+					var name = Convert.ToString(airportsDataGridView.Rows[i].Cells[1].Value);
+					var city = Convert.ToString(airportsDataGridView.Rows[i].Cells[2].Value);
+					var image = Convert.ToString(airportsDataGridView.Rows[i].Cells[3].Value);
+
+					var airport = new AirportEntity()
+					{
+						Id = id,
+						Name = name,
+						City = city,
+						Image = image
+					};
+
+					airportsList.Add(airport);
+				}
+
+				return airportsList;
+			}
+			set
+			{
+				airportsDataGridView.Rows.Clear();
+
+				foreach (var airport in value)
+				{
+					airportsDataGridView.Rows.Add(
+						airport.Id,
+						airport.Name,
+						airport.City,
+						airport.Image
+					);
+				}
+			}
+		}
 
 		public new void Show()
 		{
@@ -456,13 +558,7 @@ namespace AirTicketOffice
 
 		private void saveSingleToolStripButton_Click(object sender, EventArgs e)
 		{
-			if (mainTabPageTabControl.SelectedTab == adTabPage)
-			{
-				SelectedId = GetSelectedId(eventsDataGridView);
-
-				SaveEventChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			if (mainTabPageTabControl.SelectedTab == usersTabPage)
 			{
 				SelectedId = GetSelectedId(usersDataGridView);
 
@@ -500,7 +596,7 @@ namespace AirTicketOffice
 			}
 			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
 			{
-				SelectedId = GetSelectedId(crewsDataGridView);
+				SelectedId = GetSelectedId(crewMembersDataGridView);
 
 				SaveCrewMemberChanges?.Invoke();
 			}
@@ -515,11 +611,7 @@ namespace AirTicketOffice
 		private void saveAllToolStripButton_Click(object sender, EventArgs e)
 		{
 
-			if (mainTabPageTabControl.SelectedTab == adTabPage)
-			{
-				SaveAllEventsChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			if (mainTabPageTabControl.SelectedTab == usersTabPage)
 			{
 				SaveAllUsersChanges?.Invoke();
 			}
@@ -552,48 +644,6 @@ namespace AirTicketOffice
 				SaveAllAirportsChanges?.Invoke();
 			}
 		}
-
-		private void addToolStripButton_Click(object sender, EventArgs e)
-		{
-			if (mainTabPageTabControl.SelectedTab == adTabPage)
-			{
-				
-				AddEvent?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == usersTabPage)
-			{
-				AddUser?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ordersTabPage)
-			{
-				AddOrder?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ticketsTabPage)
-			{
-				AddTicket?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == routesTabPage)
-			{
-				AddRoute?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == flightsTabPage)
-			{
-				AddFlight?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == planesTabPage)
-			{
-				AddPlane?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
-			{
-				AddCrewMember?.Invoke();
-			}
-			else
-			{
-				AddAirport?.Invoke();
-			}
-		}
-
 		private void deleteToolStripButton_Click(object sender, EventArgs e)
 		{
 			if (MessageBox.Show(@"Вы действительно хотите удалить запись?", @"Удаление", MessageBoxButtons.YesNo) == DialogResult.No) 
@@ -601,15 +651,7 @@ namespace AirTicketOffice
 
 			int selectedRowIndex;
 
-			if (mainTabPageTabControl.SelectedTab == adTabPage)
-			{
-				selectedRowIndex = eventsDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)eventsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
-
-				eventsDataGridView.Rows.Remove(eventsDataGridView.Rows[selectedRowIndex]);
-				DeleteEvent?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			if (mainTabPageTabControl.SelectedTab == usersTabPage)
 			{
 				selectedRowIndex = usersDataGridView.CurrentCell.RowIndex;
 				SelectedId = (int)usersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
@@ -659,10 +701,10 @@ namespace AirTicketOffice
 			}
 			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
 			{
-				selectedRowIndex = crewsDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)crewsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+				selectedRowIndex = crewMembersDataGridView.CurrentCell.RowIndex;
+				SelectedId = (int)crewMembersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				crewsDataGridView.Rows.Remove(crewsDataGridView.Rows[selectedRowIndex]);
+				crewMembersDataGridView.Rows.Remove(crewMembersDataGridView.Rows[selectedRowIndex]);
 				DeleteCrewMember?.Invoke();
 			}
 			else

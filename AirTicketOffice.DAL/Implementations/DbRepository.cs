@@ -20,12 +20,12 @@ namespace AirTicketOffice.DAL.Implementations
 
         public IQueryable<T> Get<T>() where T : class, IEntity
         {
-            return _context.Set<T>().Where(x => x.IsActive).AsQueryable();
+            return _context.Set<T>().AsQueryable();
         }
 
         public IQueryable<T> Get<T>(Expression<Func<T, bool>> selector) where T : class, IEntity
         {
-            return _context.Set<T>().Where(selector).Where(x => x.IsActive).AsQueryable();
+            return _context.Set<T>().Where(selector).AsQueryable();
         }
 
         public void Add<T>(T newEntity) where T : class, IEntity

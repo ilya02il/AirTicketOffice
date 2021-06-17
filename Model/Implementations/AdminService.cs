@@ -35,7 +35,14 @@ namespace Model.Implementations
 
 		public async void Edit<TEntity>(TEntity entity) where TEntity : class, IEntity
 		{
-			await _dbRepository.Update(entity);
+			if (_dbRepository.Get<TEntity>(e => e.Id == entity.Id).Any())
+			{
+				await _dbRepository.Update(entity);
+			}
+			else
+			{
+				_dbRepository.Add(entity);
+			}
 			await _dbRepository.SaveChangesAsync();
 		}
 
@@ -44,7 +51,14 @@ namespace Model.Implementations
 		{
 			foreach (var entity in entities)
 			{
-				await _dbRepository.Update(entity);
+				if (_dbRepository.Get<TEntity>(e => e.Id == entity.Id).Any())
+				{
+					await _dbRepository.Update(entity);
+				}
+				else
+				{
+					_dbRepository.Add(entity);
+				}
 			}
 
 			await _dbRepository.SaveChangesAsync();

@@ -8,7 +8,11 @@ using MaterialSkin;
 using Model.Contracts;
 using Model.Implementations;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Windows.Forms;
+using AirTicketOffice.DAL.Entities;
 
 namespace AirTicketOffice
 {

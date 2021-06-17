@@ -7,7 +7,6 @@ namespace AirTicketOffice.Presentations.Views
 {
 	public interface IAdminMainView : IView
 	{
-		event Action GetAllEvents;
 		event Action GetAllUsers;
 		event Action GetAllOrders;
 		event Action GetAllTickets;
@@ -17,17 +16,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action GetAllCrewMembers;
 		event Action GetAllAirports;
 
-		event Action AddEvent;
-		event Action AddUser;
-		event Action AddOrder;
-		event Action AddTicket;
-		event Action AddRoute;
-		event Action AddFlight;
-		event Action AddPlane;
-		event Action AddCrewMember;
-		event Action AddAirport;
-
-		event Action DeleteEvent;
 		event Action DeleteUser;
 		event Action DeleteOrder;
 		event Action DeleteTicket;
@@ -37,7 +25,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action DeleteCrewMember;
 		event Action DeleteAirport;
 
-		event Action SaveAllEventsChanges;
 		event Action SaveAllUsersChanges;
 		event Action SaveAllOrdersChanges;
 		event Action SaveAllTicketsChanges;
@@ -47,7 +34,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action SaveAllCrewMembersChanges;
 		event Action SaveAllAirportsChanges;
 
-		event Action SaveEventChanges;
 		event Action SaveUserChanges;
 		event Action SaveOrderChanges;
 		event Action SaveTicketChanges;
@@ -66,13 +52,12 @@ namespace AirTicketOffice.Presentations.Views
 		UserEntity CurrentUser { get; set; }
 
 		ICollection<UserEntity> Users { get; set; }
-		ICollection<EventEntity> Events { get; set; }
 		ICollection<OrderEntity> Orders { get; set; }
 		ICollection<TicketEntity> Tickets { get; set; }
 		ICollection<RouteEntity> Routes { get; set; }
 		ICollection<FlightEntity> Flights { get; set; }
 		ICollection<PlaneEntity> Planes { get; set; }
-		ICollection<CrewMemberEntity> Crew { get; set; }
+		ICollection<CrewMemberEntity> CrewMembers { get; set; }
 		ICollection<AirportEntity> Airports { get; set; }
 
 		void SendMessage(string message);
