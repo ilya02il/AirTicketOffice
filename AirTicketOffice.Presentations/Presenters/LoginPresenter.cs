@@ -72,7 +72,7 @@ namespace AirTicketOffice.Presentations.Presenters
 		            else
 		            {
                         //passenger main window presenter
-                        //Controller.Run<AdminMainPresenter, UserEntity>(user);
+                        Controller.Run<PassengerMainPresenter, UserEntity>(user);
                     }
 
 		            View.Close();

@@ -8,11 +8,7 @@ using MaterialSkin;
 using Model.Contracts;
 using Model.Implementations;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 using System.Windows.Forms;
-using AirTicketOffice.DAL.Entities;
 
 namespace AirTicketOffice
 {
@@ -41,9 +37,12 @@ namespace AirTicketOffice
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
+			//Application.Run(new PassengerMainWindow(manager));
+
 			Controller.AddTransient<ILoginView, AuthorizationWindow>();
 			Controller.AddTransient<ICaptchaView, CaptchaWindow>();
 			Controller.AddTransient<IAdminMainView, AdminMainWindow>();
+			Controller.AddTransient<IPassengerMainView, PassengerMainWindow>();
 			Controller.AddTransient<IInitializationView, InitializeWindow>();
 			Controller.AddTransient<IRegistrationView, RegistrationWindow>();
 			Controller.AddTransient<IRegistrationStartView, RegistrationStartWindow>();
@@ -54,6 +53,7 @@ namespace AirTicketOffice
 			Controller.AddScoped<ICaptchaService, CaptchaService>();
 			Controller.AddScoped<IRegistrationService, RegistrationService>();
 			Controller.AddScoped<IAdminService, AdminService>();
+			Controller.AddScoped<IPassengerService, PassengerService>();
 			Controller.AddSingleton(new ApplicationContext());
 			Controller.AddSingleton(manager);
 

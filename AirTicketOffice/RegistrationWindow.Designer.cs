@@ -31,6 +31,7 @@ namespace AirTicketOffice
         {
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.surnameTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.patronymicTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.nameTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.backButton = new MaterialSkin.Controls.MaterialButton();
@@ -39,7 +40,6 @@ namespace AirTicketOffice
 			this.genderComboBox = new MaterialSkin.Controls.MaterialComboBox();
 			this.passportTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.phoneTextBox = new MaterialSkin.Controls.MaterialTextBox();
-			this.surnameTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -74,6 +74,25 @@ namespace AirTicketOffice
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(401, 418);
 			this.panel1.TabIndex = 2;
+			// 
+			// surnameTextBox
+			// 
+			this.surnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.surnameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.surnameTextBox.Depth = 0;
+			this.surnameTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.surnameTextBox.Hint = "Введите фамилию";
+			this.surnameTextBox.LeadingIcon = null;
+			this.surnameTextBox.Location = new System.Drawing.Point(23, 12);
+			this.surnameTextBox.MaxLength = 50;
+			this.surnameTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.surnameTextBox.Multiline = false;
+			this.surnameTextBox.Name = "surnameTextBox";
+			this.surnameTextBox.Size = new System.Drawing.Size(352, 50);
+			this.surnameTextBox.TabIndex = 56;
+			this.surnameTextBox.Text = "";
+			this.surnameTextBox.TrailingIcon = null;
 			// 
 			// patronymicTextBox
 			// 
@@ -187,8 +206,7 @@ namespace AirTicketOffice
 			this.genderComboBox.ItemHeight = 43;
 			this.genderComboBox.Items.AddRange(new object[] {
             "Мужской",
-            "Женский",
-            "Бесполый уебан"});
+            "Женский"});
 			this.genderComboBox.Location = new System.Drawing.Point(26, 184);
 			this.genderComboBox.MaxDropDownItems = 4;
 			this.genderComboBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -235,25 +253,6 @@ namespace AirTicketOffice
 			this.phoneTextBox.TabIndex = 50;
 			this.phoneTextBox.Text = "";
 			this.phoneTextBox.TrailingIcon = null;
-			// 
-			// surnameTextBox
-			// 
-			this.surnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.surnameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.surnameTextBox.Depth = 0;
-			this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.surnameTextBox.Hint = "Введите фамилию";
-			this.surnameTextBox.LeadingIcon = null;
-			this.surnameTextBox.Location = new System.Drawing.Point(23, 12);
-			this.surnameTextBox.MaxLength = 50;
-			this.surnameTextBox.MouseState = MaterialSkin.MouseState.OUT;
-			this.surnameTextBox.Multiline = false;
-			this.surnameTextBox.Name = "surnameTextBox";
-			this.surnameTextBox.Size = new System.Drawing.Size(352, 50);
-			this.surnameTextBox.TabIndex = 56;
-			this.surnameTextBox.Text = "";
-			this.surnameTextBox.TrailingIcon = null;
 			// 
 			// RegistrationWindow
 			// 
