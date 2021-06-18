@@ -77,6 +77,11 @@ namespace AirTicketOffice
 			this.ordersOfficeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ticketsTabPage = new System.Windows.Forms.TabPage();
 			this.ticketsDataGridView = new System.Windows.Forms.DataGridView();
+			this.ticketsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketsPassengerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketsClassColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketsFlightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketCostColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.routesTabPage = new System.Windows.Forms.TabPage();
 			this.routesDataGridView = new System.Windows.Forms.DataGridView();
 			this.routesNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +89,11 @@ namespace AirTicketOffice
 			this.routesToColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.flightsTabPage = new System.Windows.Forms.TabPage();
 			this.flightsDataGridView = new System.Windows.Forms.DataGridView();
+			this.flightsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.flightsPlaneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.flightsRouteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.flightsDateFromColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.flightsDateToColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.planesTabPage = new System.Windows.Forms.TabPage();
 			this.planesDataGridView = new System.Windows.Forms.DataGridView();
 			this.planesNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +110,10 @@ namespace AirTicketOffice
 			this.crewMembersPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.airportsTabPage = new System.Windows.Forms.TabPage();
 			this.airportsDataGridView = new System.Windows.Forms.DataGridView();
+			this.airportsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.airportsNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.airportsCityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.airportsImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.saveSingleToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.saveAllToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -160,20 +174,6 @@ namespace AirTicketOffice
 			this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
 			this.printTabPage = new System.Windows.Forms.TabPage();
 			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
-			this.airportsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.airportsNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.airportsCityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.airportsImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flightsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flightsPlaneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flightsRouteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flightsDateFromColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.flightsDateToColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsPassengerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsClassColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsFlightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketCostColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.mainTabControl.SuspendLayout();
 			this.mainTabPage.SuspendLayout();
 			this.mainTabPageTabControl.SuspendLayout();
@@ -223,10 +223,10 @@ namespace AirTicketOffice
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 578);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1066, 22);
 			this.statusStrip1.SizingGrip = false;
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
@@ -248,7 +248,7 @@ namespace AirTicketOffice
 			this.mainTabControl.Name = "mainTabControl";
 			this.mainTabControl.Padding = new System.Drawing.Point(0, 0);
 			this.mainTabControl.SelectedIndex = 0;
-			this.mainTabControl.Size = new System.Drawing.Size(800, 428);
+			this.mainTabControl.Size = new System.Drawing.Size(1066, 578);
 			this.mainTabControl.TabIndex = 5;
 			this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
 			// 
@@ -539,6 +539,42 @@ namespace AirTicketOffice
 			this.ticketsDataGridView.Size = new System.Drawing.Size(784, 275);
 			this.ticketsDataGridView.TabIndex = 1;
 			// 
+			// ticketsNumberColumn
+			// 
+			this.ticketsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsNumberColumn.FillWeight = 4F;
+			this.ticketsNumberColumn.HeaderText = "№";
+			this.ticketsNumberColumn.Name = "ticketsNumberColumn";
+			this.ticketsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// ticketsPassengerColumn
+			// 
+			this.ticketsPassengerColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsPassengerColumn.FillWeight = 40F;
+			this.ticketsPassengerColumn.HeaderText = "Пассажир";
+			this.ticketsPassengerColumn.Name = "ticketsPassengerColumn";
+			// 
+			// ticketsClassColumn
+			// 
+			this.ticketsClassColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsClassColumn.FillWeight = 10F;
+			this.ticketsClassColumn.HeaderText = "Класс";
+			this.ticketsClassColumn.Name = "ticketsClassColumn";
+			// 
+			// ticketsFlightColumn
+			// 
+			this.ticketsFlightColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsFlightColumn.FillWeight = 10F;
+			this.ticketsFlightColumn.HeaderText = "Рейс";
+			this.ticketsFlightColumn.Name = "ticketsFlightColumn";
+			// 
+			// ticketCostColumn
+			// 
+			this.ticketCostColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketCostColumn.FillWeight = 10F;
+			this.ticketCostColumn.HeaderText = "Цена";
+			this.ticketCostColumn.Name = "ticketCostColumn";
+			// 
 			// routesTabPage
 			// 
 			this.routesTabPage.Controls.Add(this.routesDataGridView);
@@ -652,6 +688,42 @@ namespace AirTicketOffice
 			this.flightsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.flightsDataGridView.Size = new System.Drawing.Size(784, 275);
 			this.flightsDataGridView.TabIndex = 1;
+			// 
+			// flightsNumberColumn
+			// 
+			this.flightsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.flightsNumberColumn.FillWeight = 4F;
+			this.flightsNumberColumn.HeaderText = "№";
+			this.flightsNumberColumn.Name = "flightsNumberColumn";
+			this.flightsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// flightsPlaneColumn
+			// 
+			this.flightsPlaneColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.flightsPlaneColumn.FillWeight = 40F;
+			this.flightsPlaneColumn.HeaderText = "Самолет";
+			this.flightsPlaneColumn.Name = "flightsPlaneColumn";
+			// 
+			// flightsRouteColumn
+			// 
+			this.flightsRouteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.flightsRouteColumn.FillWeight = 40F;
+			this.flightsRouteColumn.HeaderText = "Маршрут";
+			this.flightsRouteColumn.Name = "flightsRouteColumn";
+			// 
+			// flightsDateFromColumn
+			// 
+			this.flightsDateFromColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.flightsDateFromColumn.FillWeight = 20F;
+			this.flightsDateFromColumn.HeaderText = "Дата и время отлета";
+			this.flightsDateFromColumn.Name = "flightsDateFromColumn";
+			// 
+			// flightsDateToColumn
+			// 
+			this.flightsDateToColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.flightsDateToColumn.FillWeight = 20F;
+			this.flightsDateToColumn.HeaderText = "Дата и время прилета";
+			this.flightsDateToColumn.Name = "flightsDateToColumn";
 			// 
 			// planesTabPage
 			// 
@@ -864,6 +936,36 @@ namespace AirTicketOffice
 			this.airportsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.airportsDataGridView.Size = new System.Drawing.Size(784, 275);
 			this.airportsDataGridView.TabIndex = 1;
+			// 
+			// airportsNumberColumn
+			// 
+			this.airportsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.airportsNumberColumn.FillWeight = 4F;
+			this.airportsNumberColumn.HeaderText = "№";
+			this.airportsNumberColumn.Name = "airportsNumberColumn";
+			this.airportsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// airportsNameColumn
+			// 
+			this.airportsNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.airportsNameColumn.FillWeight = 20F;
+			this.airportsNameColumn.HeaderText = "Название";
+			this.airportsNameColumn.Name = "airportsNameColumn";
+			// 
+			// airportsCityColumn
+			// 
+			this.airportsCityColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.airportsCityColumn.FillWeight = 20F;
+			this.airportsCityColumn.HeaderText = "Город";
+			this.airportsCityColumn.Name = "airportsCityColumn";
+			// 
+			// airportsImageColumn
+			// 
+			this.airportsImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.airportsImageColumn.FillWeight = 20F;
+			this.airportsImageColumn.HeaderText = "Изображение";
+			this.airportsImageColumn.Name = "airportsImageColumn";
+			this.airportsImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
 			// toolStrip2
 			// 
@@ -1294,7 +1396,7 @@ namespace AirTicketOffice
 			this.searchTabPage.ImageKey = "search_icon.png";
 			this.searchTabPage.Location = new System.Drawing.Point(4, 39);
 			this.searchTabPage.Name = "searchTabPage";
-			this.searchTabPage.Size = new System.Drawing.Size(792, 385);
+			this.searchTabPage.Size = new System.Drawing.Size(1058, 535);
 			this.searchTabPage.TabIndex = 2;
 			this.searchTabPage.Text = "Поиск";
 			// 
@@ -1310,7 +1412,7 @@ namespace AirTicketOffice
 			this.searchTabControl.Multiline = true;
 			this.searchTabControl.Name = "searchTabControl";
 			this.searchTabControl.SelectedIndex = 0;
-			this.searchTabControl.Size = new System.Drawing.Size(792, 301);
+			this.searchTabControl.Size = new System.Drawing.Size(1058, 451);
 			this.searchTabControl.TabIndex = 4;
 			// 
 			// searchPassengersTabPage
@@ -1320,7 +1422,7 @@ namespace AirTicketOffice
 			this.searchPassengersTabPage.Location = new System.Drawing.Point(4, 22);
 			this.searchPassengersTabPage.Margin = new System.Windows.Forms.Padding(0);
 			this.searchPassengersTabPage.Name = "searchPassengersTabPage";
-			this.searchPassengersTabPage.Size = new System.Drawing.Size(784, 275);
+			this.searchPassengersTabPage.Size = new System.Drawing.Size(1050, 425);
 			this.searchPassengersTabPage.TabIndex = 0;
 			this.searchPassengersTabPage.Text = "Пассажиры";
 			// 
@@ -1360,7 +1462,7 @@ namespace AirTicketOffice
 			this.passengersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
 			this.passengersDataGridView.RowHeadersVisible = false;
 			this.passengersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.passengersDataGridView.Size = new System.Drawing.Size(784, 275);
+			this.passengersDataGridView.Size = new System.Drawing.Size(1050, 425);
 			this.passengersDataGridView.TabIndex = 5;
 			// 
 			// dataGridViewTextBoxColumn1
@@ -1503,7 +1605,7 @@ namespace AirTicketOffice
 			this.panel1.Location = new System.Drawing.Point(0, 30);
 			this.panel1.Margin = new System.Windows.Forms.Padding(0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(792, 54);
+			this.panel1.Size = new System.Drawing.Size(1058, 54);
 			this.panel1.TabIndex = 3;
 			// 
 			// searchTypeComboBox
@@ -1521,7 +1623,7 @@ namespace AirTicketOffice
 			this.searchTypeComboBox.FormattingEnabled = true;
 			this.searchTypeComboBox.IntegralHeight = false;
 			this.searchTypeComboBox.ItemHeight = 29;
-			this.searchTypeComboBox.Location = new System.Drawing.Point(467, 10);
+			this.searchTypeComboBox.Location = new System.Drawing.Point(733, 10);
 			this.searchTypeComboBox.MaxDropDownItems = 4;
 			this.searchTypeComboBox.MouseState = MaterialSkin.MouseState.OUT;
 			this.searchTypeComboBox.Name = "searchTypeComboBox";
@@ -1536,7 +1638,7 @@ namespace AirTicketOffice
 			this.materialLabel8.AutoSize = true;
 			this.materialLabel8.Depth = 0;
 			this.materialLabel8.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel8.Location = new System.Drawing.Point(380, 18);
+			this.materialLabel8.Location = new System.Drawing.Point(646, 18);
 			this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel8.Name = "materialLabel8";
 			this.materialLabel8.Size = new System.Drawing.Size(81, 19);
@@ -1557,7 +1659,7 @@ namespace AirTicketOffice
 			this.searchTextBox.MouseState = MaterialSkin.MouseState.OUT;
 			this.searchTextBox.Multiline = false;
 			this.searchTextBox.Name = "searchTextBox";
-			this.searchTextBox.Size = new System.Drawing.Size(356, 36);
+			this.searchTextBox.Size = new System.Drawing.Size(622, 36);
 			this.searchTextBox.TabIndex = 0;
 			this.searchTextBox.Text = "";
 			this.searchTextBox.TrailingIcon = null;
@@ -1573,7 +1675,7 @@ namespace AirTicketOffice
 			this.materialTabSelector2.Location = new System.Drawing.Point(0, 0);
 			this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialTabSelector2.Name = "materialTabSelector2";
-			this.materialTabSelector2.Size = new System.Drawing.Size(792, 30);
+			this.materialTabSelector2.Size = new System.Drawing.Size(1058, 30);
 			this.materialTabSelector2.TabIndex = 2;
 			this.materialTabSelector2.TabIndicatorHeight = 5;
 			this.materialTabSelector2.TabStop = false;
@@ -1728,113 +1830,11 @@ namespace AirTicketOffice
 			this.actionIconsImageList.Images.SetKeyName(1, "delete_icon.png");
 			this.actionIconsImageList.Images.SetKeyName(2, "save_icon.png");
 			// 
-			// airportsNumberColumn
-			// 
-			this.airportsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.airportsNumberColumn.FillWeight = 4F;
-			this.airportsNumberColumn.HeaderText = "№";
-			this.airportsNumberColumn.Name = "airportsNumberColumn";
-			this.airportsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// airportsNameColumn
-			// 
-			this.airportsNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.airportsNameColumn.FillWeight = 20F;
-			this.airportsNameColumn.HeaderText = "Название";
-			this.airportsNameColumn.Name = "airportsNameColumn";
-			// 
-			// airportsCityColumn
-			// 
-			this.airportsCityColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.airportsCityColumn.FillWeight = 20F;
-			this.airportsCityColumn.HeaderText = "Город";
-			this.airportsCityColumn.Name = "airportsCityColumn";
-			// 
-			// airportsImageColumn
-			// 
-			this.airportsImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.airportsImageColumn.FillWeight = 20F;
-			this.airportsImageColumn.HeaderText = "Изображение";
-			this.airportsImageColumn.Name = "airportsImageColumn";
-			this.airportsImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// flightsNumberColumn
-			// 
-			this.flightsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.flightsNumberColumn.FillWeight = 4F;
-			this.flightsNumberColumn.HeaderText = "№";
-			this.flightsNumberColumn.Name = "flightsNumberColumn";
-			this.flightsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// flightsPlaneColumn
-			// 
-			this.flightsPlaneColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.flightsPlaneColumn.FillWeight = 40F;
-			this.flightsPlaneColumn.HeaderText = "Самолет";
-			this.flightsPlaneColumn.Name = "flightsPlaneColumn";
-			// 
-			// flightsRouteColumn
-			// 
-			this.flightsRouteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.flightsRouteColumn.FillWeight = 40F;
-			this.flightsRouteColumn.HeaderText = "Маршрут";
-			this.flightsRouteColumn.Name = "flightsRouteColumn";
-			// 
-			// flightsDateFromColumn
-			// 
-			this.flightsDateFromColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.flightsDateFromColumn.FillWeight = 20F;
-			this.flightsDateFromColumn.HeaderText = "Дата и время отлета";
-			this.flightsDateFromColumn.Name = "flightsDateFromColumn";
-			// 
-			// flightsDateToColumn
-			// 
-			this.flightsDateToColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.flightsDateToColumn.FillWeight = 20F;
-			this.flightsDateToColumn.HeaderText = "Дата и время прилета";
-			this.flightsDateToColumn.Name = "flightsDateToColumn";
-			// 
-			// ticketsNumberColumn
-			// 
-			this.ticketsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsNumberColumn.FillWeight = 4F;
-			this.ticketsNumberColumn.HeaderText = "№";
-			this.ticketsNumberColumn.Name = "ticketsNumberColumn";
-			this.ticketsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// ticketsPassengerColumn
-			// 
-			this.ticketsPassengerColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsPassengerColumn.FillWeight = 40F;
-			this.ticketsPassengerColumn.HeaderText = "Пассажир";
-			this.ticketsPassengerColumn.Name = "ticketsPassengerColumn";
-			// 
-			// ticketsClassColumn
-			// 
-			this.ticketsClassColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsClassColumn.FillWeight = 10F;
-			this.ticketsClassColumn.HeaderText = "Класс";
-			this.ticketsClassColumn.Name = "ticketsClassColumn";
-			// 
-			// ticketsFlightColumn
-			// 
-			this.ticketsFlightColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsFlightColumn.FillWeight = 10F;
-			this.ticketsFlightColumn.HeaderText = "Рейс";
-			this.ticketsFlightColumn.Name = "ticketsFlightColumn";
-			// 
-			// ticketCostColumn
-			// 
-			this.ticketCostColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketCostColumn.FillWeight = 10F;
-			this.ticketCostColumn.HeaderText = "Цена";
-			this.ticketCostColumn.Name = "ticketCostColumn";
-			// 
 			// AdminMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1066, 600);
 			this.Controls.Add(this.mainTabControl);
 			this.Controls.Add(this.statusStrip1);
 			this.DrawerShowIconsWhenHidden = true;

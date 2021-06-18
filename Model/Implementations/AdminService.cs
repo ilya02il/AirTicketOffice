@@ -63,52 +63,5 @@ namespace Model.Implementations
 
 			await _dbRepository.SaveChangesAsync();
 		}
-
-		#region get functions
-
-		public int GetAmountOfEmptySeats(PlaneEntity plane, ClassEntity type)
-		{
-			var planeSeats = _dbRepository.GetAll<SeatEntity>().
-				FirstOrDefault(seat => seat.PlaneId == plane.Id && seat.ClassId == type.Id);
-
-			if (planeSeats == null)
-				throw new NullReferenceException("This plane has no seats of this class.");
-
-			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.ClassId == type.Id).Count();
-
-			return planeSeats.Amount - classTicketsAmount;
-		}
-
-		public IQueryable<OrderEntity> GetUserOrders(UserEntity user)
-		{
-			return _dbRepository.Get<OrderEntity>(order => order.UserId == user.Id);
-		}
-
-		public IQueryable<TicketEntity> GetUserTickets(UserEntity user)
-		{
-			return _dbRepository.Get<TicketEntity>(ticket => ticket.UserId == user.Id);
-		}
-
-		public IQueryable<TicketEntity> GetFlightTickets(FlightEntity flight)
-		{
-			return _dbRepository.Get<TicketEntity>(ticket => ticket.FlightId == flight.Id);
-		}
-
-		public IQueryable<FlightEntity> GetPlaneFlights(PlaneEntity plane)
-		{
-			return _dbRepository.Get<FlightEntity>(flight => flight.PlaneId == plane.Id);
-		}
-
-		public IQueryable<CrewMemberEntity> GetPlaneCrewMembers(PlaneEntity plane)
-		{
-			return _dbRepository.Get<CrewMemberEntity>(crewMember => crewMember.PlaneId == plane.Id);
-		}
-
-		public IQueryable<FlightEntity> GetRouteFlights(RouteEntity route)
-		{
-			return _dbRepository.Get<FlightEntity>(flight => flight.RouteId == route.Id);
-		}
-
-		#endregion
 	}
 }

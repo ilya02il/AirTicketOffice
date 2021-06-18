@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using AirTicketOffice.DAL.Entities;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -124,9 +125,8 @@ namespace AirTicketOffice
 				_tiles.Add(id, new PictureBox()
 				{
 					Image = image,
-					//BackColor = Color.Black,
 					Size = new Size(170, 140),
-					Location = new Point(3, 144 * _tiles.Count + 7),
+					Location = new Point((carouselCard.Size.Width - 170) / 2, 144 * _tiles.Count + 7),
 					Anchor = AnchorStyles.None
 				});
 
@@ -136,6 +136,13 @@ namespace AirTicketOffice
 				{
 					_topTileId = id;
 				}
+			}
+
+			flightsDataGridView.CurrentCell = null;
+
+			for (int i = 0; i < flightsDataGridView.RowCount - 1; i++)
+			{
+				flightsDataGridView.Rows[i].Selected = true;
 			}
 
 			foreach (var tile in _tiles)
@@ -167,7 +174,7 @@ namespace AirTicketOffice
 		{
 			foreach (var tile in _tiles)
 			{
-				if (tile.Value.Location.Y >= -147)
+				if (tile.Value.Location.Y >= -tile.Value.Size.Height + 7)
 				{
 					tile.Value.Location = new Point(tile.Value.Location.X, tile.Value.Location.Y - 1);
 				}
@@ -177,6 +184,35 @@ namespace AirTicketOffice
 					_topTileId = tile.Key;
 				}
 			}
+		}
+
+		private void flightsDataGridView_SelectionChanged(object sender, EventArgs e)
+		{
+			flightNumberLabel.Text = flightsDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+			flightRouteLabel.Text = flightsDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+			flightDepartureDateLabel.Text = flightsDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+			flightArrivalDateLabel.Text = flightsDataGridView.SelectedRows[0].Cells[4].Value.ToString();
+
+			var id = Convert.ToInt32(flightsDataGridView.SelectedRows[0].Cells[0].Value);
+
+			var flightStClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
+					.FirstOrDefault(seat => seat.ClassId == 2)?.Amount -
+				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
+					ticket.ClassId == 2) ?? 0;
+
+			var flightNdClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
+					.FirstOrDefault(seat => seat.ClassId == 3)?.Amount -
+				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
+					ticket.ClassId == 3) ?? 0;
+
+			var flightRdClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
+					.FirstOrDefault(seat => seat.ClassId == 4)?.Amount -
+				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
+					ticket.ClassId == 4) ?? 0;
+
+			flightStClassEmptySeatsLabel.Text = flightStClassEmptySeats.ToString();
+			flightNdClassEmptySeatsLabel.Text = flightNdClassEmptySeats.ToString();
+			flightRdClassEmptySeatsLabel.Text = flightRdClassEmptySeats.ToString();
 		}
 	}
 }

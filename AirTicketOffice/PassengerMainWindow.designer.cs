@@ -69,10 +69,31 @@ namespace AirTicketOffice
 			this.flightsDateFromColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.flightsDateToColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.propertiesCard = new MaterialSkin.Controls.MaterialCard();
+			this.carouselCard = new MaterialSkin.Controls.MaterialCard();
 			this.mapTabPage = new System.Windows.Forms.TabPage();
 			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.carouselCard = new MaterialSkin.Controls.MaterialCard();
+			this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+			this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+			this.flightNumberLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+			this.flightRouteLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
+			this.flightDepartureDateLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.flightArrivalDateLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
+			this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+			this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
+			this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
+			this.materialRadioButton2 = new MaterialSkin.Controls.MaterialRadioButton();
+			this.materialRadioButton3 = new MaterialSkin.Controls.MaterialRadioButton();
+			this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+			this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+			this.ticketCostLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+			this.flightStClassEmptySeatsLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.flightNdClassEmptySeatsLabel = new MaterialSkin.Controls.MaterialLabel();
+			this.flightRdClassEmptySeatsLabel = new MaterialSkin.Controls.MaterialLabel();
 			this.mainTabControl.SuspendLayout();
 			this.profileTabPage.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -83,6 +104,7 @@ namespace AirTicketOffice
 			this.tableLayoutPanel2.SuspendLayout();
 			this.dataGridViewCard.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.flightsDataGridView)).BeginInit();
+			this.propertiesCard.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainTabControlImageList
@@ -99,10 +121,10 @@ namespace AirTicketOffice
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 578);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1066, 22);
 			this.statusStrip1.SizingGrip = false;
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
@@ -122,7 +144,7 @@ namespace AirTicketOffice
 			this.mainTabControl.Name = "mainTabControl";
 			this.mainTabControl.Padding = new System.Drawing.Point(0, 0);
 			this.mainTabControl.SelectedIndex = 0;
-			this.mainTabControl.Size = new System.Drawing.Size(800, 428);
+			this.mainTabControl.Size = new System.Drawing.Size(1066, 578);
 			this.mainTabControl.TabIndex = 5;
 			this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
 			// 
@@ -488,7 +510,7 @@ namespace AirTicketOffice
 			this.orderTabPage.Location = new System.Drawing.Point(4, 39);
 			this.orderTabPage.Name = "orderTabPage";
 			this.orderTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.orderTabPage.Size = new System.Drawing.Size(792, 385);
+			this.orderTabPage.Size = new System.Drawing.Size(1058, 535);
 			this.orderTabPage.TabIndex = 2;
 			this.orderTabPage.Text = "Заявка";
 			this.orderTabPage.UseVisualStyleBackColor = true;
@@ -497,8 +519,8 @@ namespace AirTicketOffice
 			// 
 			this.tableLayoutPanel2.ColumnCount = 3;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
 			this.tableLayoutPanel2.Controls.Add(this.dataGridViewCard, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.propertiesCard, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.carouselCard, 0, 0);
@@ -507,7 +529,7 @@ namespace AirTicketOffice
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(786, 379);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(1052, 529);
 			this.tableLayoutPanel2.TabIndex = 5;
 			// 
 			// dataGridViewCard
@@ -517,12 +539,12 @@ namespace AirTicketOffice
 			this.dataGridViewCard.Depth = 0;
 			this.dataGridViewCard.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridViewCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.dataGridViewCard.Location = new System.Drawing.Point(210, 14);
+			this.dataGridViewCard.Location = new System.Drawing.Point(277, 14);
 			this.dataGridViewCard.Margin = new System.Windows.Forms.Padding(14);
 			this.dataGridViewCard.MouseState = MaterialSkin.MouseState.HOVER;
 			this.dataGridViewCard.Name = "dataGridViewCard";
 			this.dataGridViewCard.Padding = new System.Windows.Forms.Padding(14);
-			this.dataGridViewCard.Size = new System.Drawing.Size(365, 351);
+			this.dataGridViewCard.Size = new System.Drawing.Size(445, 501);
 			this.dataGridViewCard.TabIndex = 4;
 			// 
 			// flightsDataGridView
@@ -557,9 +579,10 @@ namespace AirTicketOffice
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.flightsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.flightsDataGridView.RowHeadersVisible = false;
-			this.flightsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.flightsDataGridView.Size = new System.Drawing.Size(337, 323);
+			this.flightsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.flightsDataGridView.Size = new System.Drawing.Size(417, 473);
 			this.flightsDataGridView.TabIndex = 3;
+			this.flightsDataGridView.SelectionChanged += new System.EventHandler(this.flightsDataGridView_SelectionChanged);
 			// 
 			// flightsNumberColumn
 			// 
@@ -600,16 +623,51 @@ namespace AirTicketOffice
 			// propertiesCard
 			// 
 			this.propertiesCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.propertiesCard.Controls.Add(this.flightRdClassEmptySeatsLabel);
+			this.propertiesCard.Controls.Add(this.flightNdClassEmptySeatsLabel);
+			this.propertiesCard.Controls.Add(this.flightStClassEmptySeatsLabel);
+			this.propertiesCard.Controls.Add(this.materialButton1);
+			this.propertiesCard.Controls.Add(this.ticketCostLabel);
+			this.propertiesCard.Controls.Add(this.materialLabel18);
+			this.propertiesCard.Controls.Add(this.materialDivider2);
+			this.propertiesCard.Controls.Add(this.materialRadioButton3);
+			this.propertiesCard.Controls.Add(this.materialRadioButton2);
+			this.propertiesCard.Controls.Add(this.materialRadioButton1);
+			this.propertiesCard.Controls.Add(this.materialLabel17);
+			this.propertiesCard.Controls.Add(this.materialDivider1);
+			this.propertiesCard.Controls.Add(this.flightArrivalDateLabel);
+			this.propertiesCard.Controls.Add(this.materialLabel16);
+			this.propertiesCard.Controls.Add(this.flightDepartureDateLabel);
+			this.propertiesCard.Controls.Add(this.materialLabel13);
+			this.propertiesCard.Controls.Add(this.flightRouteLabel);
+			this.propertiesCard.Controls.Add(this.materialLabel11);
+			this.propertiesCard.Controls.Add(this.flightNumberLabel);
+			this.propertiesCard.Controls.Add(this.materialLabel9);
+			this.propertiesCard.Controls.Add(this.materialLabel8);
 			this.propertiesCard.Depth = 0;
 			this.propertiesCard.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.propertiesCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.propertiesCard.Location = new System.Drawing.Point(603, 14);
+			this.propertiesCard.Location = new System.Drawing.Point(750, 14);
 			this.propertiesCard.Margin = new System.Windows.Forms.Padding(14);
 			this.propertiesCard.MouseState = MaterialSkin.MouseState.HOVER;
 			this.propertiesCard.Name = "propertiesCard";
 			this.propertiesCard.Padding = new System.Windows.Forms.Padding(14);
-			this.propertiesCard.Size = new System.Drawing.Size(169, 351);
+			this.propertiesCard.Size = new System.Drawing.Size(288, 501);
 			this.propertiesCard.TabIndex = 5;
+			// 
+			// carouselCard
+			// 
+			this.carouselCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.carouselCard.Depth = 0;
+			this.carouselCard.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.carouselCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.carouselCard.Location = new System.Drawing.Point(14, 14);
+			this.carouselCard.Margin = new System.Windows.Forms.Padding(14);
+			this.carouselCard.MouseState = MaterialSkin.MouseState.HOVER;
+			this.carouselCard.Name = "carouselCard";
+			this.carouselCard.Padding = new System.Windows.Forms.Padding(14);
+			this.carouselCard.Size = new System.Drawing.Size(235, 501);
+			this.carouselCard.TabIndex = 6;
 			// 
 			// mapTabPage
 			// 
@@ -634,31 +692,297 @@ namespace AirTicketOffice
 			// 
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// carouselCard
+			// materialLabel8
 			// 
-			this.carouselCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.carouselCard.Depth = 0;
-			this.carouselCard.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.carouselCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.carouselCard.Location = new System.Drawing.Point(14, 14);
-			this.carouselCard.Margin = new System.Windows.Forms.Padding(14);
-			this.carouselCard.MouseState = MaterialSkin.MouseState.HOVER;
-			this.carouselCard.Name = "carouselCard";
-			this.carouselCard.Padding = new System.Windows.Forms.Padding(14);
-			this.carouselCard.Size = new System.Drawing.Size(168, 351);
-			this.carouselCard.TabIndex = 6;
+			this.materialLabel8.AutoSize = true;
+			this.materialLabel8.Depth = 0;
+			this.materialLabel8.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+			this.materialLabel8.Location = new System.Drawing.Point(17, 14);
+			this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel8.Name = "materialLabel8";
+			this.materialLabel8.Size = new System.Drawing.Size(203, 24);
+			this.materialLabel8.TabIndex = 0;
+			this.materialLabel8.Text = "Информация о рейсе:";
+			// 
+			// materialLabel9
+			// 
+			this.materialLabel9.AutoSize = true;
+			this.materialLabel9.Depth = 0;
+			this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel9.Location = new System.Drawing.Point(18, 49);
+			this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel9.Name = "materialLabel9";
+			this.materialLabel9.Size = new System.Drawing.Size(54, 19);
+			this.materialLabel9.TabIndex = 1;
+			this.materialLabel9.Text = "Номер:";
+			// 
+			// flightNumberLabel
+			// 
+			this.flightNumberLabel.AutoSize = true;
+			this.flightNumberLabel.Depth = 0;
+			this.flightNumberLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightNumberLabel.Location = new System.Drawing.Point(78, 49);
+			this.flightNumberLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightNumberLabel.Name = "flightNumberLabel";
+			this.flightNumberLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightNumberLabel.TabIndex = 2;
+			this.flightNumberLabel.Text = "materialLabel10";
+			// 
+			// materialLabel11
+			// 
+			this.materialLabel11.AutoSize = true;
+			this.materialLabel11.Depth = 0;
+			this.materialLabel11.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel11.Location = new System.Drawing.Point(18, 74);
+			this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel11.Name = "materialLabel11";
+			this.materialLabel11.Size = new System.Drawing.Size(75, 19);
+			this.materialLabel11.TabIndex = 3;
+			this.materialLabel11.Text = "Маршрут:";
+			// 
+			// flightRouteLabel
+			// 
+			this.flightRouteLabel.AutoSize = true;
+			this.flightRouteLabel.Depth = 0;
+			this.flightRouteLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightRouteLabel.Location = new System.Drawing.Point(99, 74);
+			this.flightRouteLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightRouteLabel.Name = "flightRouteLabel";
+			this.flightRouteLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightRouteLabel.TabIndex = 4;
+			this.flightRouteLabel.Text = "materialLabel12";
+			// 
+			// materialLabel13
+			// 
+			this.materialLabel13.AutoSize = true;
+			this.materialLabel13.Depth = 0;
+			this.materialLabel13.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel13.Location = new System.Drawing.Point(18, 99);
+			this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel13.Name = "materialLabel13";
+			this.materialLabel13.Size = new System.Drawing.Size(208, 19);
+			this.materialLabel13.TabIndex = 5;
+			this.materialLabel13.Text = "Дата и время отправления:";
+			// 
+			// flightDepartureDateLabel
+			// 
+			this.flightDepartureDateLabel.AutoSize = true;
+			this.flightDepartureDateLabel.Depth = 0;
+			this.flightDepartureDateLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightDepartureDateLabel.Location = new System.Drawing.Point(18, 124);
+			this.flightDepartureDateLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightDepartureDateLabel.Name = "flightDepartureDateLabel";
+			this.flightDepartureDateLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightDepartureDateLabel.TabIndex = 6;
+			this.flightDepartureDateLabel.Text = "materialLabel14";
+			// 
+			// flightArrivalDateLabel
+			// 
+			this.flightArrivalDateLabel.AutoSize = true;
+			this.flightArrivalDateLabel.Depth = 0;
+			this.flightArrivalDateLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightArrivalDateLabel.Location = new System.Drawing.Point(18, 175);
+			this.flightArrivalDateLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightArrivalDateLabel.Name = "flightArrivalDateLabel";
+			this.flightArrivalDateLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightArrivalDateLabel.TabIndex = 8;
+			this.flightArrivalDateLabel.Text = "materialLabel15";
+			// 
+			// materialLabel16
+			// 
+			this.materialLabel16.AutoSize = true;
+			this.materialLabel16.Depth = 0;
+			this.materialLabel16.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel16.Location = new System.Drawing.Point(18, 150);
+			this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel16.Name = "materialLabel16";
+			this.materialLabel16.Size = new System.Drawing.Size(185, 19);
+			this.materialLabel16.TabIndex = 7;
+			this.materialLabel16.Text = "Дата и время прибытия:";
+			// 
+			// materialDivider1
+			// 
+			this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.materialDivider1.Depth = 0;
+			this.materialDivider1.Location = new System.Drawing.Point(17, 207);
+			this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialDivider1.Name = "materialDivider1";
+			this.materialDivider1.Size = new System.Drawing.Size(253, 1);
+			this.materialDivider1.TabIndex = 9;
+			this.materialDivider1.Text = "materialDivider1";
+			// 
+			// materialLabel17
+			// 
+			this.materialLabel17.AutoSize = true;
+			this.materialLabel17.Depth = 0;
+			this.materialLabel17.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel17.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+			this.materialLabel17.Location = new System.Drawing.Point(17, 216);
+			this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel17.Name = "materialLabel17";
+			this.materialLabel17.Size = new System.Drawing.Size(138, 24);
+			this.materialLabel17.TabIndex = 10;
+			this.materialLabel17.Text = "Выбор класса:";
+			// 
+			// materialRadioButton1
+			// 
+			this.materialRadioButton1.AutoSize = true;
+			this.materialRadioButton1.Depth = 0;
+			this.materialRadioButton1.Location = new System.Drawing.Point(14, 240);
+			this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
+			this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
+			this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialRadioButton1.Name = "materialRadioButton1";
+			this.materialRadioButton1.Ripple = true;
+			this.materialRadioButton1.Size = new System.Drawing.Size(91, 37);
+			this.materialRadioButton1.TabIndex = 11;
+			this.materialRadioButton1.TabStop = true;
+			this.materialRadioButton1.Text = "1 класс";
+			this.materialRadioButton1.UseVisualStyleBackColor = true;
+			// 
+			// materialRadioButton2
+			// 
+			this.materialRadioButton2.AutoSize = true;
+			this.materialRadioButton2.Depth = 0;
+			this.materialRadioButton2.Location = new System.Drawing.Point(14, 277);
+			this.materialRadioButton2.Margin = new System.Windows.Forms.Padding(0);
+			this.materialRadioButton2.MouseLocation = new System.Drawing.Point(-1, -1);
+			this.materialRadioButton2.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialRadioButton2.Name = "materialRadioButton2";
+			this.materialRadioButton2.Ripple = true;
+			this.materialRadioButton2.Size = new System.Drawing.Size(91, 37);
+			this.materialRadioButton2.TabIndex = 12;
+			this.materialRadioButton2.TabStop = true;
+			this.materialRadioButton2.Text = "2 класс";
+			this.materialRadioButton2.UseVisualStyleBackColor = true;
+			// 
+			// materialRadioButton3
+			// 
+			this.materialRadioButton3.AutoSize = true;
+			this.materialRadioButton3.Depth = 0;
+			this.materialRadioButton3.Location = new System.Drawing.Point(14, 314);
+			this.materialRadioButton3.Margin = new System.Windows.Forms.Padding(0);
+			this.materialRadioButton3.MouseLocation = new System.Drawing.Point(-1, -1);
+			this.materialRadioButton3.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialRadioButton3.Name = "materialRadioButton3";
+			this.materialRadioButton3.Ripple = true;
+			this.materialRadioButton3.Size = new System.Drawing.Size(91, 37);
+			this.materialRadioButton3.TabIndex = 13;
+			this.materialRadioButton3.TabStop = true;
+			this.materialRadioButton3.Text = "3 класс";
+			this.materialRadioButton3.UseVisualStyleBackColor = true;
+			// 
+			// materialDivider2
+			// 
+			this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.materialDivider2.Depth = 0;
+			this.materialDivider2.Location = new System.Drawing.Point(17, 357);
+			this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialDivider2.Name = "materialDivider2";
+			this.materialDivider2.Size = new System.Drawing.Size(253, 1);
+			this.materialDivider2.TabIndex = 14;
+			this.materialDivider2.Text = "materialDivider2";
+			// 
+			// materialLabel18
+			// 
+			this.materialLabel18.AutoSize = true;
+			this.materialLabel18.Depth = 0;
+			this.materialLabel18.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+			this.materialLabel18.Location = new System.Drawing.Point(17, 367);
+			this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel18.Name = "materialLabel18";
+			this.materialLabel18.Size = new System.Drawing.Size(90, 24);
+			this.materialLabel18.TabIndex = 15;
+			this.materialLabel18.Text = "К оплате:";
+			// 
+			// ticketCostLabel
+			// 
+			this.ticketCostLabel.AutoSize = true;
+			this.ticketCostLabel.Depth = 0;
+			this.ticketCostLabel.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.ticketCostLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+			this.ticketCostLabel.Location = new System.Drawing.Point(113, 367);
+			this.ticketCostLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.ticketCostLabel.Name = "ticketCostLabel";
+			this.ticketCostLabel.Size = new System.Drawing.Size(56, 24);
+			this.ticketCostLabel.TabIndex = 16;
+			this.ticketCostLabel.Text = "15255";
+			// 
+			// materialButton1
+			// 
+			this.materialButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.materialButton1.AutoSize = false;
+			this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.materialButton1.Depth = 0;
+			this.materialButton1.HighEmphasis = true;
+			this.materialButton1.Icon = null;
+			this.materialButton1.Location = new System.Drawing.Point(18, 445);
+			this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialButton1.Name = "materialButton1";
+			this.materialButton1.Size = new System.Drawing.Size(252, 36);
+			this.materialButton1.TabIndex = 17;
+			this.materialButton1.Text = "Заказать билет";
+			this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.materialButton1.UseAccentColor = false;
+			this.materialButton1.UseVisualStyleBackColor = true;
+			// 
+			// flightStClassEmptySeatsLabel
+			// 
+			this.flightStClassEmptySeatsLabel.AutoSize = true;
+			this.flightStClassEmptySeatsLabel.Depth = 0;
+			this.flightStClassEmptySeatsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightStClassEmptySeatsLabel.Location = new System.Drawing.Point(114, 250);
+			this.flightStClassEmptySeatsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightStClassEmptySeatsLabel.Name = "flightStClassEmptySeatsLabel";
+			this.flightStClassEmptySeatsLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightStClassEmptySeatsLabel.TabIndex = 18;
+			this.flightStClassEmptySeatsLabel.Text = "materialLabel10";
+			// 
+			// flightNdClassEmptySeatsLabel
+			// 
+			this.flightNdClassEmptySeatsLabel.AutoSize = true;
+			this.flightNdClassEmptySeatsLabel.Depth = 0;
+			this.flightNdClassEmptySeatsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightNdClassEmptySeatsLabel.Location = new System.Drawing.Point(114, 287);
+			this.flightNdClassEmptySeatsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightNdClassEmptySeatsLabel.Name = "flightNdClassEmptySeatsLabel";
+			this.flightNdClassEmptySeatsLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightNdClassEmptySeatsLabel.TabIndex = 19;
+			this.flightNdClassEmptySeatsLabel.Text = "materialLabel12";
+			// 
+			// flightRdClassEmptySeatsLabel
+			// 
+			this.flightRdClassEmptySeatsLabel.AutoSize = true;
+			this.flightRdClassEmptySeatsLabel.Depth = 0;
+			this.flightRdClassEmptySeatsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.flightRdClassEmptySeatsLabel.Location = new System.Drawing.Point(114, 324);
+			this.flightRdClassEmptySeatsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+			this.flightRdClassEmptySeatsLabel.Name = "flightRdClassEmptySeatsLabel";
+			this.flightRdClassEmptySeatsLabel.Size = new System.Drawing.Size(116, 19);
+			this.flightRdClassEmptySeatsLabel.TabIndex = 20;
+			this.flightRdClassEmptySeatsLabel.Text = "materialLabel14";
 			// 
 			// PassengerMainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1066, 600);
 			this.Controls.Add(this.mainTabControl);
 			this.Controls.Add(this.statusStrip1);
 			this.DrawerShowIconsWhenHidden = true;
 			this.DrawerTabControl = this.mainTabControl;
 			this.Name = "PassengerMainWindow";
 			this.Padding = new System.Windows.Forms.Padding(0);
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.PassengerMainWindow_Load);
 			this.mainTabControl.ResumeLayout(false);
@@ -674,6 +998,8 @@ namespace AirTicketOffice
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.dataGridViewCard.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.flightsDataGridView)).EndInit();
+			this.propertiesCard.ResumeLayout(false);
+			this.propertiesCard.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -719,6 +1045,27 @@ namespace AirTicketOffice
 		private DataGridViewTextBoxColumn flightsDateToColumn;
 		private Timer timer1;
 		private MaterialSkin.Controls.MaterialCard carouselCard;
+		private MaterialSkin.Controls.MaterialButton materialButton1;
+		private MaterialSkin.Controls.MaterialLabel ticketCostLabel;
+		private MaterialSkin.Controls.MaterialLabel materialLabel18;
+		private MaterialSkin.Controls.MaterialDivider materialDivider2;
+		private MaterialSkin.Controls.MaterialRadioButton materialRadioButton3;
+		private MaterialSkin.Controls.MaterialRadioButton materialRadioButton2;
+		private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
+		private MaterialSkin.Controls.MaterialLabel materialLabel17;
+		private MaterialSkin.Controls.MaterialDivider materialDivider1;
+		private MaterialSkin.Controls.MaterialLabel flightArrivalDateLabel;
+		private MaterialSkin.Controls.MaterialLabel materialLabel16;
+		private MaterialSkin.Controls.MaterialLabel flightDepartureDateLabel;
+		private MaterialSkin.Controls.MaterialLabel materialLabel13;
+		private MaterialSkin.Controls.MaterialLabel flightRouteLabel;
+		private MaterialSkin.Controls.MaterialLabel materialLabel11;
+		private MaterialSkin.Controls.MaterialLabel flightNumberLabel;
+		private MaterialSkin.Controls.MaterialLabel materialLabel9;
+		private MaterialSkin.Controls.MaterialLabel materialLabel8;
+		private MaterialSkin.Controls.MaterialLabel flightRdClassEmptySeatsLabel;
+		private MaterialSkin.Controls.MaterialLabel flightNdClassEmptySeatsLabel;
+		private MaterialSkin.Controls.MaterialLabel flightStClassEmptySeatsLabel;
 	}
 }
 

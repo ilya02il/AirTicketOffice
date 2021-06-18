@@ -7,6 +7,7 @@ namespace AirTicketOffice.DAL.Implementations
     {
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<TicketEntity> Tickets { get; set; }
+        public DbSet<TicketPriceEntity> TicketPrices { get; set; }
         public DbSet<FlightEntity> Flights { get; set; }
         public DbSet<OrderEntity> Orders { get; set; }
         public DbSet<PlaneEntity> Planes { get; set; }

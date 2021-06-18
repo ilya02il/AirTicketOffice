@@ -35,7 +35,7 @@ namespace Model.Implementations
 			if (planeSeats == null)
 				throw new NullReferenceException("This plane has no seats of this class.");
 
-			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.ClassId == type.Id).Count();
+			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.Price.ClassId == type.Id).Count();
 
 			return planeSeats.Amount - classTicketsAmount;
 		}
