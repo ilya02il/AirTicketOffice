@@ -25,5 +25,6 @@ namespace AirTicketOffice.DAL.Contracts
 		Task Update<T>(T entity) where T : class, IEntity;
 
 		Task<int> SaveChangesAsync();
+		int SaveChanges();
 	}
 }

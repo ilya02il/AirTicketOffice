@@ -13,14 +13,17 @@ namespace AirTicketOffice
 	public partial class PassengerMainWindow : MaterialForm, IPassengerMainView
 	{
 		public event Action LoadFlights;
+		public event Action AddTicket;
+		public event Action PrintTicket;
 
 		public event Action SaveCurrentUserInfo;
 		public event Action ChangePassword;
 		public event Action ExitFromAccount;
 
+		private UserEntity _currentUser;
 		private readonly Dictionary<int, PictureBox> _tiles;
 		private ICollection<FlightEntity> _flights;
-		private int _topTileId;
+		private int _topTileKey;
 		private readonly ApplicationContext _context;
 
 		public PassengerMainWindow(ApplicationContext context, MaterialSkinManager manager)
@@ -38,6 +41,18 @@ namespace AirTicketOffice
 			saveAccountChangesButton.Click += (sender, args) => SaveCurrentUserInfo?.Invoke();
 			changePasswordButton.Click += (sender, args) => ChangePassword?.Invoke();
 			exitFromAccountButton.Click += (sender, args) => ExitFromAccount?.Invoke();
+
+			orderTicketButton.Click += (sender, args) =>
+			{
+				var dialogResult = MessageBox.Show(@"Распечатать билет?", @"Печать", 
+					MessageBoxButtons.YesNo);
+
+				if (dialogResult == DialogResult.No)
+					return;
+
+				AddTicket?.Invoke();
+				PrintTicket?.Invoke();
+			};
 		}
 
 		public sealed override string Text
@@ -67,6 +82,8 @@ namespace AirTicketOffice
 				};
 			set
 			{
+				_currentUser = value;
+
 				accountSurnameTextBox.Text = value.Surname;
 				accountNameTextBox.Text = value.Name;
 				accountPatronymicTextBox.Text = value.Patronymic;
@@ -76,8 +93,32 @@ namespace AirTicketOffice
 				accountPhoneTextBox.Text = value.PhoneNumber;
 			}
 		}
-		
 
+		public TicketEntity Ticket
+		{
+			get
+			{
+				string selectedClassName;
+
+				if (materialRadioButton1.Checked)
+					selectedClassName = "A";
+				else if (materialRadioButton2.Checked)
+					selectedClassName = "B";
+				else
+					selectedClassName = "C";
+
+				var selectedFlightId = Convert.ToInt32(flightNumberLabel.Text);
+
+				var ticketPriceId = _flights.FirstOrDefault(flight => flight.Id == selectedFlightId)?.TicketPrices
+					.FirstOrDefault(tp => tp.Class.Name == selectedClassName)?.Id;
+
+				return new TicketEntity()
+				{
+					UserId = _currentUser.Id,
+					TicketPriceId = ticketPriceId
+				};
+			}
+		}
 		public ICollection<FlightEntity> Flights
 		{
 			set
@@ -111,7 +152,7 @@ namespace AirTicketOffice
 
 		private void PassengerMainWindow_Load(object sender, EventArgs e)
 		{
-			timer1.Interval = 10;
+			timer1.Interval = 50;
 			timer1.Enabled = true;
 			timer1.Tick += timer1_Tick;
 
@@ -119,10 +160,13 @@ namespace AirTicketOffice
 
 			foreach (var flight in _flights)
 			{
-				var id = flight.Id;
+				var arrivalAirportId = flight.Route.ArrivalAirportId;
 				var image = Image.FromFile(Application.StartupPath + "\\Images\\" + flight.Route.ArrivalAirport.Image);
 
-				_tiles.Add(id, new PictureBox()
+				if (_tiles.Keys.Any(key => key == arrivalAirportId))
+					continue;
+
+				_tiles.Add(arrivalAirportId, new PictureBox()
 				{
 					Image = image,
 					Size = new Size(170, 140),
@@ -130,33 +174,33 @@ namespace AirTicketOffice
 					Anchor = AnchorStyles.None
 				});
 
-				carouselCard.Controls.Add(_tiles[id]);
+				carouselCard.Controls.Add(_tiles[arrivalAirportId]);
 
 				if (_tiles.Count == 1)
 				{
-					_topTileId = id;
+					_topTileKey = arrivalAirportId;
 				}
-			}
-
-			flightsDataGridView.CurrentCell = null;
-
-			for (int i = 0; i < flightsDataGridView.RowCount - 1; i++)
-			{
-				flightsDataGridView.Rows[i].Selected = true;
 			}
 
 			foreach (var tile in _tiles)
 			{
 				tile.Value.Click += (o, args) =>
 				{
+					flightsDataGridView.ClearSelection();
+
 					for (int i = 0; i < flightsDataGridView.RowCount - 1; i++)
 					{
+						var flightId = Convert.ToInt32(flightsDataGridView.Rows[i].Cells[0].Value);
+						var flight = _flights.FirstOrDefault(f => f.Id == flightId);
+						var arrAirportId = flight?.Route.ArrivalAirportId ?? 0;
+
 						foreach (var t in _tiles)
 						{
-							//if (Convert.ToInt32(flightsDataGridView.Rows[i].Cells[0].Value) != t.Key) continue;
-
-							flightsDataGridView.Rows[i].Selected = true;
-							break;
+							if (t.Value == o && t.Key == arrAirportId)
+								//flightsDataGridView.Rows[i].Visible = true;
+								flightsDataGridView.Rows[i].Selected = true;
+							//else
+								//flightsDataGridView.Rows[i].Visible = false;
 						}
 					}
 				};
@@ -180,14 +224,16 @@ namespace AirTicketOffice
 				}
 				else
 				{
-					tile.Value.Location = new Point(tile.Value.Location.X, _tiles[_topTileId].Location.Y + (tile.Value.Size.Height + 7));
-					_topTileId = tile.Key;
+					tile.Value.Location = new Point(tile.Value.Location.X, _tiles[_topTileKey].Location.Y + (tile.Value.Size.Height + 7));
+					_topTileKey = tile.Key;
 				}
 			}
 		}
 
 		private void flightsDataGridView_SelectionChanged(object sender, EventArgs e)
 		{
+			if (flightsDataGridView.SelectedRows.Count == 0) return;
+
 			flightNumberLabel.Text = flightsDataGridView.SelectedRows[0].Cells[0].Value.ToString();
 			flightRouteLabel.Text = flightsDataGridView.SelectedRows[0].Cells[2].Value.ToString();
 			flightDepartureDateLabel.Text = flightsDataGridView.SelectedRows[0].Cells[3].Value.ToString();
@@ -195,24 +241,47 @@ namespace AirTicketOffice
 
 			var id = Convert.ToInt32(flightsDataGridView.SelectedRows[0].Cells[0].Value);
 
-			var flightStClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
-					.FirstOrDefault(seat => seat.ClassId == 2)?.Amount -
-				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
-					ticket.ClassId == 2) ?? 0;
+			flightStClassEmptySeatsLabel.Text = GetEmptySeatsForClass(id, "A") + @" свободных мест.";
+			flightNdClassEmptySeatsLabel.Text = GetEmptySeatsForClass(id, "B") + @" свободных мест.";
+			flightRdClassEmptySeatsLabel.Text = GetEmptySeatsForClass(id, "C") + @" свободных мест.";
 
-			var flightNdClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
-					.FirstOrDefault(seat => seat.ClassId == 3)?.Amount -
-				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
-					ticket.ClassId == 3) ?? 0;
+			materialRadioButton1.Checked = true;
+			radioButton_CheckedChanged(null, null);
+		}
 
-			var flightRdClassEmptySeats = _flights.FirstOrDefault(flight => flight.Id == id)?.Plane.Seats
-					.FirstOrDefault(seat => seat.ClassId == 4)?.Amount -
-				(_flights.FirstOrDefault(flight => flight.Id == id)?.Tickets)?.Count(ticket =>
-					ticket.ClassId == 4) ?? 0;
+		private int GetEmptySeatsForClass(int flightId, string className)
+		{
+			var generalPlaneSeatsAmount = _flights.FirstOrDefault(flight => flight.Id == flightId)?.Plane.Seats
+				.FirstOrDefault(seat => seat.Class.Name == className)?.Amount ?? 0;
 
-			flightStClassEmptySeatsLabel.Text = flightStClassEmptySeats.ToString();
-			flightNdClassEmptySeatsLabel.Text = flightNdClassEmptySeats.ToString();
-			flightRdClassEmptySeatsLabel.Text = flightRdClassEmptySeats.ToString();
+			var ticketsAmount = _flights.FirstOrDefault(flight => flight.Id == flightId)?.TicketPrices
+				.FirstOrDefault(tp => tp.Class.Name == className)
+				?.Tickets.Count() ?? 0;
+
+			return generalPlaneSeatsAmount - ticketsAmount;
+		}
+
+		private int GetTicketPrice(int flightId, string className)
+		{ 
+			var flight = _flights.FirstOrDefault(f => f.Id == flightId); 
+			var ticketPrice = flight?.TicketPrices.FirstOrDefault(tp => tp.Class.Name == className)?.Price ?? 0;
+
+			return ticketPrice;
+		}
+
+		private void radioButton_CheckedChanged(object sender, EventArgs e)
+		{
+			var id = Convert.ToInt32(flightsDataGridView.SelectedRows[0].Cells[0].Value);
+			string selectedClassName;
+
+			if (materialRadioButton1.Checked)
+				selectedClassName = "A";
+			else if (materialRadioButton2.Checked)
+				selectedClassName = "B";
+			else
+				selectedClassName = "C";
+
+			ticketPriceLabel.Text = GetTicketPrice(id, selectedClassName).ToString();
 		}
 	}
 }

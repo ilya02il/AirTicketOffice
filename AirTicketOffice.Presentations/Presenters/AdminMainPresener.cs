@@ -13,41 +13,45 @@ namespace AirTicketOffice.Presentations.Presenters
 
         public AdminMainPresenter(IApplicationController controller, IAdminMainView view, IAdminService service) : base(controller, view)
         {
-	        View.GetAllUsers += () => View.Users = service.GetAll<UserEntity>().ToList();
-	        View.GetAllOrders += () => View.Orders = service.GetAll<OrderEntity>().ToList();
-	        View.GetAllTickets += () => View.Tickets = service.GetAll<TicketEntity>().ToList();
-	        View.GetAllRoutes += () => View.Routes = service.GetAll<RouteEntity>().ToList();
-	        View.GetAllFlights += () => View.Flights = service.GetAll<FlightEntity>().ToList();
-	        View.GetAllPlanes += () => View.Planes = service.GetAll<PlaneEntity>().ToList();
-	        View.GetAllCrewMembers += () => View.CrewMembers = service.GetAll<CrewMemberEntity>().ToList();
-	        View.GetAllAirports += () => View.Airports = service.GetAll<AirportEntity>().ToList();
+			View.GetAllUsers += () => View.Users = service.GetAll<UserEntity>().ToList();
+			View.GetAllOrders += () => View.Orders = service.GetAll<OrderEntity>().ToList();
+			View.GetAllTickets += () => View.Tickets = service.GetAll<TicketEntity>().ToList();
+			View.GetAllTicketPrices += () => View.TicketPrices = service.GetAll<TicketPriceEntity>().ToList();
+			View.GetAllRoutes += () => View.Routes = service.GetAll<RouteEntity>().ToList();
+			View.GetAllFlights += () => View.Flights = service.GetAll<FlightEntity>().ToList();
+			View.GetAllPlanes += () => View.Planes = service.GetAll<PlaneEntity>().ToList();
+			View.GetAllCrewMembers += () => View.CrewMembers = service.GetAll<CrewMemberEntity>().ToList();
+			View.GetAllAirports += () => View.Airports = service.GetAll<AirportEntity>().ToList();
 
-	        View.DeleteUser += () => service.Delete<UserEntity>(View.SelectedId);
-	        View.DeleteOrder += () => service.Delete<OrderEntity>(View.SelectedId);
-	        View.DeleteTicket += () => service.Delete<TicketEntity>(View.SelectedId);
-	        View.DeleteRoute += () => service.Delete<RouteEntity>(View.SelectedId);
-	        View.DeleteFlight += () => service.Delete<FlightEntity>(View.SelectedId);
-	        View.DeletePlane += () => service.Delete<PlaneEntity>(View.SelectedId);
-	        View.DeleteCrewMember += () => service.Delete<CrewMemberEntity>(View.SelectedId);
-	        View.DeleteAirport += () => service.Delete<AirportEntity>(View.SelectedId);
+			View.DeleteUser += () => service.Delete<UserEntity>(View.SelectedId);
+			View.DeleteOrder += () => service.Delete<OrderEntity>(View.SelectedId);
+			View.DeleteTicket += () => service.Delete<TicketEntity>(View.SelectedId);
+			View.DeleteTicketPrice += () => service.Delete<TicketPriceEntity>(View.SelectedId);
+			View.DeleteRoute += () => service.Delete<RouteEntity>(View.SelectedId);
+			View.DeleteFlight += () => service.Delete<FlightEntity>(View.SelectedId);
+			View.DeletePlane += () => service.Delete<PlaneEntity>(View.SelectedId);
+			View.DeleteCrewMember += () => service.Delete<CrewMemberEntity>(View.SelectedId);
+			View.DeleteAirport += () => service.Delete<AirportEntity>(View.SelectedId);
 
-	        View.SaveAllUsersChanges += () => service.EditAllAsync(View.Users);
-	        View.SaveAllOrdersChanges += () => service.EditAllAsync(View.Orders);
-	        View.SaveAllTicketsChanges += () => service.EditAllAsync(View.Tickets);
-	        View.SaveAllRoutesChanges += () => service.EditAllAsync(View.Routes);
-	        View.SaveAllFlightsChanges += () => service.EditAllAsync(View.Flights);
-	        View.SaveAllPlanesChanges += () => service.EditAllAsync(View.Planes);
-	        View.SaveAllCrewMembersChanges += () => service.EditAllAsync(View.CrewMembers);
-	        View.SaveAllAirportsChanges += () => service.EditAllAsync(View.Airports);
+			View.SaveAllUsersChanges += () => service.EditAllAsync(View.Users);
+			View.SaveAllOrdersChanges += () => service.EditAllAsync(View.Orders);
+			View.SaveAllTicketsChanges += () => service.EditAllAsync(View.Tickets);
+			View.SaveAllTicketPricesChanges += () => service.EditAllAsync(View.TicketPrices);
+			View.SaveAllRoutesChanges += () => service.EditAllAsync(View.Routes);
+			View.SaveAllFlightsChanges += () => service.EditAllAsync(View.Flights);
+			View.SaveAllPlanesChanges += () => service.EditAllAsync(View.Planes);
+			View.SaveAllCrewMembersChanges += () => service.EditAllAsync(View.CrewMembers);
+			View.SaveAllAirportsChanges += () => service.EditAllAsync(View.Airports);
 
-	        View.SaveUserChanges += () => service.Edit(View.Users.FirstOrDefault(u => u.Id == View.SelectedId));
-	        View.SaveOrderChanges += () => service.Edit(View.Orders.FirstOrDefault(o => o.Id == View.SelectedId));
+			View.SaveUserChanges += () => service.Edit(View.Users.FirstOrDefault(u => u.Id == View.SelectedId));
+			View.SaveOrderChanges += () => service.Edit(View.Orders.FirstOrDefault(o => o.Id == View.SelectedId));
 	        View.SaveTicketChanges += () => service.Edit(View.Tickets.FirstOrDefault(t => t.Id == View.SelectedId));
-	        View.SaveRouteChanges += () => service.Edit(View.Routes.FirstOrDefault(r => r.Id == View.SelectedId));
-	        View.SaveFlightChanges += () => service.Edit(View.Flights.FirstOrDefault(f => f.Id == View.SelectedId));
-	        View.SavePlaneChanges += () => service.Edit(View.Planes.FirstOrDefault(p => p.Id == View.SelectedId));
-	        View.SaveCrewMemberChanges += () => service.Edit(View.CrewMembers.FirstOrDefault(cm => cm.Id == View.SelectedId));
-	        View.SaveAirportChanges += () => service.Edit(View.Airports.FirstOrDefault(a => a.Id == View.SelectedId));
+	        View.SaveTicketPriceChanges += () => service.Edit(View.TicketPrices.FirstOrDefault(t => t.Id == View.SelectedId));
+			View.SaveRouteChanges += () => service.Edit(View.Routes.FirstOrDefault(r => r.Id == View.SelectedId));
+			View.SaveFlightChanges += () => service.Edit(View.Flights.FirstOrDefault(f => f.Id == View.SelectedId));
+			View.SavePlaneChanges += () => service.Edit(View.Planes.FirstOrDefault(p => p.Id == View.SelectedId));
+			View.SaveCrewMemberChanges += () => service.Edit(View.CrewMembers.FirstOrDefault(cm => cm.Id == View.SelectedId));
+			View.SaveAirportChanges += () => service.Edit(View.Airports.FirstOrDefault(a => a.Id == View.SelectedId));
 
 			View.SaveCurrentUserInfo += () =>
 			{
@@ -57,8 +61,7 @@ namespace AirTicketOffice.Presentations.Presenters
 				service.Edit(user);
 			};
 			View.ExitFromAccount += ExitFromAccount;
-			View.ChangePassword += () => 
-				ChangePassword(_user);
+			View.ChangePassword += () => ChangePassword(_user);
         }
 
         public override void Run(UserEntity argument)

@@ -84,9 +84,13 @@
     <Compile Include="Migrations\202106170516266_AnotherMigration.designer.cs">
       <DependentUpon>202106170516266_AnotherMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106180414464_AddTicketPrices.cs" />
-    <Compile Include="Migrations\202106180414464_AddTicketPrices.designer.cs">
-      <DependentUpon>202106180414464_AddTicketPrices.cs</DependentUpon>
+    <Compile Include="Migrations\202106200507133_IntermediateMigration.cs" />
+    <Compile Include="Migrations\202106200507133_IntermediateMigration.designer.cs">
+      <DependentUpon>202106200507133_IntermediateMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106200508026_AddTicketPrices.cs" />
+    <Compile Include="Migrations\202106200508026_AddTicketPrices.designer.cs">
+      <DependentUpon>202106200508026_AddTicketPrices.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,8 +113,11 @@
     <EmbeddedResource Include="Migrations\202106170516266_AnotherMigration.resx">
       <DependentUpon>202106170516266_AnotherMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106180414464_AddTicketPrices.resx">
-      <DependentUpon>202106180414464_AddTicketPrices.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106200507133_IntermediateMigration.resx">
+      <DependentUpon>202106200507133_IntermediateMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200508026_AddTicketPrices.resx">
+      <DependentUpon>202106200508026_AddTicketPrices.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

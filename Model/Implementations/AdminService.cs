@@ -33,6 +33,12 @@ namespace Model.Implementations
 			await _dbRepository.SaveChangesAsync();
 		}
 
+		public async void Delete<TEntity>(TEntity entity) where TEntity : class, IEntity
+		{
+			await _dbRepository.Delete<TEntity>(entity.Id);
+			await _dbRepository.SaveChangesAsync();
+		}
+
 		public async void Edit<TEntity>(TEntity entity) where TEntity : class, IEntity
 		{
 			if (_dbRepository.Get<TEntity>(e => e.Id == entity.Id).Any())

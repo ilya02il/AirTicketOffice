@@ -16,7 +16,11 @@ namespace Model.Contracts
 			
 		void Delete<TEntity>(int id)
 			where TEntity : class, IEntity;
-			
+
+		void Delete<TEntity>(TEntity entity)
+			where TEntity : class, IEntity;
+
+
 		void Edit<TEntity>(TEntity entity)
 			where TEntity : class, IEntity;
 

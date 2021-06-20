@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using AirTicketOffice.DAL.Contracts;
 using AirTicketOffice.DAL.Entities;
 using Model.Contracts;
@@ -35,9 +36,29 @@ namespace Model.Implementations
 			if (planeSeats == null)
 				throw new NullReferenceException("This plane has no seats of this class.");
 
-			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.Price.ClassId == type.Id).Count();
+			var classTicketsAmount = _dbRepository.Get<TicketEntity>(ticket => ticket.TicketPrice.ClassId == type.Id).Count();
 
 			return planeSeats.Amount - classTicketsAmount;
+		}
+
+		public void Add<TEntity>(TEntity newEntity)
+			where TEntity : class, IEntity
+		{
+			_dbRepository.Add(newEntity);
+			_dbRepository.SaveChanges();
+		}
+
+		public async void Edit<TEntity>(TEntity entity) where TEntity : class, IEntity
+		{
+			if (_dbRepository.Get<TEntity>(e => e.Id == entity.Id).Any())
+			{
+				await _dbRepository.Update(entity);
+			}
+			else
+			{
+				_dbRepository.Add(entity);
+			}
+			await _dbRepository.SaveChangesAsync();
 		}
 	}
 }

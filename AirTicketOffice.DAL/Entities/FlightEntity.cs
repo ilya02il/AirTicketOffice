@@ -17,7 +17,7 @@ namespace AirTicketOffice.DAL.Entities
         public int RouteId { get; set; }
         public virtual RouteEntity Route { get; set; }
 
-        public virtual ICollection<TicketEntity> Tickets { get; set; }
+        public virtual ICollection<TicketPriceEntity> TicketPrices { get; set; }
         public virtual ICollection<OrderEntity> Orders { get; set; }
         
     }

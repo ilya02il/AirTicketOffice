@@ -8,6 +8,8 @@ namespace AirTicketOffice.Presentations.Views
 	public interface IPassengerMainView : IView
 	{
 		event Action LoadFlights;
+		event Action AddTicket;
+		event Action PrintTicket;
 
 		event Action SaveCurrentUserInfo;
 		event Action ChangePassword;
@@ -15,6 +17,7 @@ namespace AirTicketOffice.Presentations.Views
 
 		string HelloMessage { set; }
 		UserEntity CurrentUser { get; set; }
+		TicketEntity Ticket { get; }
 		ICollection<FlightEntity> Flights { set; }
 
 		void SendMessage(string message);

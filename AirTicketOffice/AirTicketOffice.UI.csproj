@@ -238,6 +238,36 @@
   <ItemGroup>
     <None Include="Resources\save_all_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_Post.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2021-06-17_16-24-33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_offices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointFive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointFour.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointOne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointSix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointThree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OfficePointTwo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

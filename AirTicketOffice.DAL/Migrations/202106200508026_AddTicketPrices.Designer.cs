@@ -13,7 +13,7 @@ namespace AirTicketOffice.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202106180414464_AddTicketPrices"; }
+            get { return "202106200508026_AddTicketPrices"; }
         }
         
         string IMigrationMetadata.Source

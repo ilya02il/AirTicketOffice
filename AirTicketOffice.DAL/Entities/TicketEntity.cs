@@ -8,7 +8,7 @@
         public int UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
-        public int TicketPriceId { get; set; }
+        public int? TicketPriceId { get; set; }
         public TicketPriceEntity TicketPrice { get; set; }
     }
 }

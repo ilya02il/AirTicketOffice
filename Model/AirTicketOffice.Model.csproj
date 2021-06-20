@@ -58,6 +58,7 @@
     <Compile Include="Contracts\IRegistrationService.cs" />
     <Compile Include="Implementations\AdminService.cs" />
     <Compile Include="Implementations\CaptchaService.cs" />
+    <Compile Include="Implementations\EntityModifyEvent.cs" />
     <Compile Include="Implementations\LoginService.cs" />
     <Compile Include="Implementations\PassengerService.cs" />
     <Compile Include="Implementations\RegistrationService.cs" />

@@ -78,6 +78,11 @@ namespace AirTicketOffice.DAL.Implementations
             return await _context.SaveChangesAsync();
         }
 
+        public int SaveChanges()
+        {
+	        return _context.SaveChanges();
+        }
+
         public IQueryable<T> GetAll<T>() where T : class, IEntity
         {
             return _context.Set<T>().AsQueryable();

@@ -12,7 +12,7 @@ namespace AirTicketOffice.DAL.Entities
 		public virtual ClassEntity Class { get; set; }
 
 		public int FlightId { get; set; }
-		public virtual ClassEntity Flight { get; set; }
+		public virtual FlightEntity Flight { get; set; }
 
 		public virtual ICollection<TicketEntity> Tickets { get; set; }
 	}

@@ -8,6 +8,7 @@ using MaterialSkin;
 using Model.Contracts;
 using Model.Implementations;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AirTicketOffice
@@ -58,6 +59,26 @@ namespace AirTicketOffice
 			Controller.AddSingleton(manager);
 
 			Controller.Run<LoginPresenter>();
+
+			//var dbContext = new DataContext();
+
+			//var class1 = dbContext.Classes.FirstOrDefault(c => c.Id == 2);
+			//var class2 = dbContext.Classes.FirstOrDefault(c => c.Id == 3);
+			//var class3 = dbContext.Classes.FirstOrDefault(c => c.Id == 4);
+
+			//var cl1 = class1;
+			//var cl2 = class2;
+			//var cl3 = class3;
+
+			//cl1.Name = "A";
+			//cl2.Name = "B";
+			//cl3.Name = "C";
+
+			//dbContext.Entry(class1).CurrentValues.SetValues(cl1);
+			//dbContext.Entry(class2).CurrentValues.SetValues(cl2);
+			//dbContext.Entry(class3).CurrentValues.SetValues(cl3);
+
+			//dbContext.SaveChanges();
 		}
     }
 }

@@ -11,9 +11,15 @@ namespace AirTicketOffice
 {
 	public partial class AdminMainWindow : MaterialForm, IAdminMainView
 	{
+		//public event GetAllEntitiesEventHandler<IEntity> GetAllEntities;
+		//public event DeleteEntityEventHandler<IEntity> DeleteEntity;
+		//public event SaveEntityEventHandler<IEntity> SaveEntity;
+		//public event SaveAllEntitiesEventHandler<IEntity> SaveAllEntities;
+
 		public event Action GetAllUsers;
 		public event Action GetAllOrders;
 		public event Action GetAllTickets;
+		public event Action GetAllTicketPrices;
 		public event Action GetAllRoutes;
 		public event Action GetAllFlights;
 		public event Action GetAllPlanes;
@@ -23,6 +29,7 @@ namespace AirTicketOffice
 		public event Action DeleteUser;
 		public event Action DeleteOrder;
 		public event Action DeleteTicket;
+		public event Action DeleteTicketPrice;
 		public event Action DeleteRoute;
 		public event Action DeleteFlight;
 		public event Action DeletePlane;
@@ -32,6 +39,7 @@ namespace AirTicketOffice
 		public event Action SaveAllUsersChanges;
 		public event Action SaveAllOrdersChanges;
 		public event Action SaveAllTicketsChanges;
+		public event Action SaveAllTicketPricesChanges;
 		public event Action SaveAllRoutesChanges;
 		public event Action SaveAllFlightsChanges;
 		public event Action SaveAllPlanesChanges;
@@ -41,6 +49,7 @@ namespace AirTicketOffice
 		public event Action SaveUserChanges;
 		public event Action SaveOrderChanges;
 		public event Action SaveTicketChanges;
+		public event Action SaveTicketPriceChanges;
 		public event Action SaveRouteChanges;
 		public event Action SaveFlightChanges;
 		public event Action SavePlaneChanges;
@@ -74,6 +83,7 @@ namespace AirTicketOffice
 			};
 			ordersTabPage.Enter += (sender, args) => GetAllOrders?.Invoke();
 			ticketsTabPage.Enter += (sender, args) => GetAllTickets?.Invoke();
+			ticketPricesTabPage.Enter += (sender, args) => GetAllTicketPrices?.Invoke();
 			routesTabPage.Enter += (sender, args) => GetAllRoutes?.Invoke();
 			flightsTabPage.Enter += (sender, args) => GetAllFlights?.Invoke();
 			planesTabPage.Enter += (sender, args) => GetAllPlanes?.Invoke();
@@ -246,17 +256,13 @@ namespace AirTicketOffice
 				{
 					var id = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[0].Value);
 					var userId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[1].Value);
-					var classId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[2].Value);
-					var flightId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[3].Value);
-					var cost = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[4].Value);
+					var ticketPriceId = Convert.ToInt32(ticketsDataGridView.Rows[i].Cells[3].Value);
 
 					var ticket = new TicketEntity()
 					{
 						Id = id,
 						UserId = userId,
-						FlightId = flightId,
-						ClassId = classId,
-						Cost = cost
+						TicketPriceId = ticketPriceId
 					};
 
 					ticketList.Add(ticket);
@@ -273,9 +279,49 @@ namespace AirTicketOffice
 					ticketsDataGridView.Rows.Add(
 						ticket.Id,
 						ticket.UserId,
-						ticket.FlightId,
+						ticket.TicketPriceId
+					);
+				}
+			}
+		}
+
+		public ICollection<TicketPriceEntity> TicketPrices
+		{
+			get
+			{
+				var ticketPricesList = new List<TicketPriceEntity>();
+
+				for (int i = 0; i < ticketPricesDataGridView.RowCount - 1; i++)
+				{
+					var id = Convert.ToInt32(ticketPricesDataGridView.Rows[i].Cells[0].Value);
+					var classId = Convert.ToInt32(ticketPricesDataGridView.Rows[i].Cells[1].Value);
+					var flightId = Convert.ToInt32(ticketPricesDataGridView.Rows[i].Cells[2].Value);
+					var price = Convert.ToInt32(ticketPricesDataGridView.Rows[i].Cells[3].Value);
+
+					var ticketPrice = new TicketPriceEntity()
+					{
+						Id = id,
+						ClassId = classId,
+						FlightId = flightId,
+						Price = price
+					};
+
+					ticketPricesList.Add(ticketPrice);
+				}
+
+				return ticketPricesList;
+			}
+			set
+			{
+				ticketPricesDataGridView.Rows.Clear();
+
+				foreach (var ticket in value)
+				{
+					ticketPricesDataGridView.Rows.Add(
+						ticket.Id,
 						ticket.ClassId,
-						ticket.Cost
+						ticket.FlightId,
+						ticket.Price
 					);
 				}
 			}
@@ -516,6 +562,7 @@ namespace AirTicketOffice
 			var selectedRowIndex = dataGridView.CurrentCell.RowIndex;
 			return (int)dataGridView.Rows[selectedRowIndex].Cells[0].Value;
 		}
+
 		private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedTabText = @"	 " + mainTabControl.SelectedTab.Text;
@@ -558,92 +605,81 @@ namespace AirTicketOffice
 
 		private void saveSingleToolStripButton_Click(object sender, EventArgs e)
 		{
-			if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			switch (mainTabPageTabControl.SelectedTab.Name)
 			{
-				SelectedId = GetSelectedId(usersDataGridView);
-
-				SaveUserChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ordersTabPage)
-			{
-				SelectedId = GetSelectedId(ordersDataGridView);
-
-				SaveOrderChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ticketsTabPage)
-			{
-				SelectedId = GetSelectedId(ticketsDataGridView);
-
-				SaveTicketChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == routesTabPage)
-			{
-				SelectedId = GetSelectedId(routesDataGridView);
-
-				SaveRouteChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == flightsTabPage)
-			{
-				SelectedId = GetSelectedId(flightsDataGridView);
-
-				SaveFlightChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == planesTabPage)
-			{
-				SelectedId = GetSelectedId(planesDataGridView);
-
-				SavePlaneChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
-			{
-				SelectedId = GetSelectedId(crewMembersDataGridView);
-
-				SaveCrewMemberChanges?.Invoke();
-			}
-			else
-			{
-				SelectedId = GetSelectedId(airportsDataGridView);
-
-				SaveAirportChanges?.Invoke();
+				case "usersTabPage":
+					SelectedId = GetSelectedId(usersDataGridView);
+					SaveUserChanges?.Invoke();
+					break;
+				case "ordersTabPage":
+					SelectedId = GetSelectedId(ordersDataGridView);
+					SaveOrderChanges?.Invoke();
+					break;
+				case "ticketsTabPage":
+					SelectedId = GetSelectedId(ticketsDataGridView);
+					SaveTicketChanges?.Invoke();
+					break;
+				case "ticketPricesTabPage":
+					SelectedId = GetSelectedId(ticketPricesDataGridView);
+					SaveTicketPriceChanges?.Invoke();
+					break;
+				case "routesTabPage":
+					SelectedId = GetSelectedId(routesDataGridView);
+					SaveRouteChanges?.Invoke();
+					break;
+				case "flightsTabPage":
+					SelectedId = GetSelectedId(flightsDataGridView);
+					SaveFlightChanges?.Invoke();
+					break;
+				case "planesTabPage":
+					SelectedId = GetSelectedId(planesDataGridView);
+					SavePlaneChanges?.Invoke();
+					break;
+				case "crewTabPage":
+					SelectedId = GetSelectedId(crewMembersDataGridView);
+					SaveCrewMemberChanges?.Invoke();
+					break;
+				case "airportsTabPage":
+					SelectedId = GetSelectedId(airportsDataGridView);
+					SaveAirportChanges?.Invoke();
+					break;
 			}
 		}
 
 		private void saveAllToolStripButton_Click(object sender, EventArgs e)
 		{
-
-			if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			switch (mainTabPageTabControl.SelectedTab.Name)
 			{
-				SaveAllUsersChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ordersTabPage)
-			{
-				SaveAllOrdersChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ticketsTabPage)
-			{
-				SaveAllTicketsChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == routesTabPage)
-			{
-				SaveAllRoutesChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == flightsTabPage)
-			{
-				SaveAllFlightsChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == planesTabPage)
-			{
-				SaveAllPlanesChanges?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
-			{
-				SaveAllCrewMembersChanges?.Invoke();
-			}
-			else
-			{
-				SaveAllAirportsChanges?.Invoke();
+				case "usersTabPage":
+					SaveAllUsersChanges?.Invoke();
+					break;
+				case "ordersTabPage":
+					SaveAllOrdersChanges?.Invoke();
+					break;
+				case "ticketsTabPage":
+					SaveAllTicketsChanges?.Invoke();
+					break;
+				case "ticketPricesTabPage":
+					SaveAllTicketPricesChanges?.Invoke();
+					break;
+				case "routesTabPage":
+					SaveAllRoutesChanges?.Invoke();
+					break;
+				case "flightsTabPage":
+					SaveAllFlightsChanges?.Invoke();
+					break;
+				case "planesTabPage":
+					SaveAllPlanesChanges?.Invoke();
+					break;
+				case "crewTabPage":
+					SaveAllCrewMembersChanges?.Invoke();
+					break;
+				case "airportsTabPage":
+					SaveAllAirportsChanges?.Invoke();
+					break;
 			}
 		}
+
 		private void deleteToolStripButton_Click(object sender, EventArgs e)
 		{
 			if (MessageBox.Show(@"Вы действительно хотите удалить запись?", @"Удаление", MessageBoxButtons.YesNo) == DialogResult.No) 
@@ -651,69 +687,71 @@ namespace AirTicketOffice
 
 			int selectedRowIndex;
 
-			if (mainTabPageTabControl.SelectedTab == usersTabPage)
+			switch (mainTabPageTabControl.SelectedTab.Name)
 			{
-				selectedRowIndex = usersDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)usersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+				case "usersTabPage":
+					selectedRowIndex = usersDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)usersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				usersDataGridView.Rows.Remove(usersDataGridView.Rows[selectedRowIndex]);
-				DeleteUser?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ordersTabPage)
-			{
-				selectedRowIndex = ordersDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)ordersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					usersDataGridView.Rows.Remove(usersDataGridView.Rows[selectedRowIndex]);
+					DeleteUser?.Invoke();
+					break;
+				case "ordersTabPage":
+					selectedRowIndex = ordersDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)ordersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				ordersDataGridView.Rows.Remove(ordersDataGridView.Rows[selectedRowIndex]);
-				DeleteOrder?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == ticketsTabPage)
-			{
-				selectedRowIndex = ticketsDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)ticketsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					ordersDataGridView.Rows.Remove(ordersDataGridView.Rows[selectedRowIndex]);
+					DeleteOrder?.Invoke();
+					break;
+				case "ticketsTabPage":
+					selectedRowIndex = ticketsDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)ticketsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				ticketsDataGridView.Rows.Remove(ticketsDataGridView.Rows[selectedRowIndex]);
-				DeleteTicket?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == routesTabPage)
-			{
-				selectedRowIndex = routesDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)routesDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					ticketsDataGridView.Rows.Remove(ticketsDataGridView.Rows[selectedRowIndex]);
+					DeleteTicket?.Invoke();
+					break;
+				case "ticketPricesTabPage":
+					selectedRowIndex = ticketPricesDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)ticketPricesDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				routesDataGridView.Rows.Remove(routesDataGridView.Rows[selectedRowIndex]);
-				DeleteRoute?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == flightsTabPage)
-			{
-				selectedRowIndex = flightsDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)flightsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					ticketsDataGridView.Rows.Remove(ticketPricesDataGridView.Rows[selectedRowIndex]);
+					DeleteTicketPrice?.Invoke();
+					break;
+				case "routesTabPage":
+					selectedRowIndex = routesDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)routesDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				flightsDataGridView.Rows.Remove(flightsDataGridView.Rows[selectedRowIndex]);
-				DeleteFlight?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == planesTabPage)
-			{
-				selectedRowIndex = planesDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)planesDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					routesDataGridView.Rows.Remove(routesDataGridView.Rows[selectedRowIndex]);
+					DeleteRoute?.Invoke();
+					break;
+				case "flightsTabPage":
+					selectedRowIndex = flightsDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)flightsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				planesDataGridView.Rows.Remove(planesDataGridView.Rows[selectedRowIndex]);
-				DeletePlane?.Invoke();
-			}
-			else if (mainTabPageTabControl.SelectedTab == crewTabPage)
-			{
-				selectedRowIndex = crewMembersDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)crewMembersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					flightsDataGridView.Rows.Remove(flightsDataGridView.Rows[selectedRowIndex]);
+					DeleteFlight?.Invoke();
+					break;
+				case "planesTabPage":
+					selectedRowIndex = planesDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)planesDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				crewMembersDataGridView.Rows.Remove(crewMembersDataGridView.Rows[selectedRowIndex]);
-				DeleteCrewMember?.Invoke();
-			}
-			else
-			{
-				selectedRowIndex = airportsDataGridView.CurrentCell.RowIndex;
-				SelectedId = (int)airportsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+					planesDataGridView.Rows.Remove(planesDataGridView.Rows[selectedRowIndex]);
+					DeletePlane?.Invoke();
+					break;
+				case "crewTabPage":
+					selectedRowIndex = crewMembersDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)crewMembersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-				airportsDataGridView.Rows.Remove(airportsDataGridView.Rows[selectedRowIndex]);
-				DeleteAirport?.Invoke();
+					crewMembersDataGridView.Rows.Remove(crewMembersDataGridView.Rows[selectedRowIndex]);
+					DeleteCrewMember?.Invoke();
+					break;
+				case "airportsTabPage":
+					selectedRowIndex = airportsDataGridView.CurrentCell.RowIndex;
+					SelectedId = (int)airportsDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+
+					airportsDataGridView.Rows.Remove(airportsDataGridView.Rows[selectedRowIndex]);
+					DeleteAirport?.Invoke();
+					break;
 			}
 		}
 	}

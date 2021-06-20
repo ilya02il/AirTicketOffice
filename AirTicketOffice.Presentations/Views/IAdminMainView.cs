@@ -7,9 +7,15 @@ namespace AirTicketOffice.Presentations.Views
 {
 	public interface IAdminMainView : IView
 	{
+		//event GetAllEntitiesEventHandler<IEntity> GetAllEntities;
+		//event DeleteEntityEventHandler<IEntity> DeleteEntity;
+		//event SaveEntityEventHandler<IEntity> SaveEntity;
+		//event SaveAllEntitiesEventHandler<IEntity> SaveAllEntities;
+
 		event Action GetAllUsers;
 		event Action GetAllOrders;
 		event Action GetAllTickets;
+		event Action GetAllTicketPrices;
 		event Action GetAllRoutes;
 		event Action GetAllFlights;
 		event Action GetAllPlanes;
@@ -19,6 +25,7 @@ namespace AirTicketOffice.Presentations.Views
 		event Action DeleteUser;
 		event Action DeleteOrder;
 		event Action DeleteTicket;
+		event Action DeleteTicketPrice;
 		event Action DeleteRoute;
 		event Action DeleteFlight;
 		event Action DeletePlane;
@@ -28,6 +35,7 @@ namespace AirTicketOffice.Presentations.Views
 		event Action SaveAllUsersChanges;
 		event Action SaveAllOrdersChanges;
 		event Action SaveAllTicketsChanges;
+		event Action SaveAllTicketPricesChanges;
 		event Action SaveAllRoutesChanges;
 		event Action SaveAllFlightsChanges;
 		event Action SaveAllPlanesChanges;
@@ -37,6 +45,7 @@ namespace AirTicketOffice.Presentations.Views
 		event Action SaveUserChanges;
 		event Action SaveOrderChanges;
 		event Action SaveTicketChanges;
+		event Action SaveTicketPriceChanges;
 		event Action SaveRouteChanges;
 		event Action SaveFlightChanges;
 		event Action SavePlaneChanges;
@@ -54,6 +63,7 @@ namespace AirTicketOffice.Presentations.Views
 		ICollection<UserEntity> Users { get; set; }
 		ICollection<OrderEntity> Orders { get; set; }
 		ICollection<TicketEntity> Tickets { get; set; }
+		ICollection<TicketPriceEntity> TicketPrices { get; set; }
 		ICollection<RouteEntity> Routes { get; set; }
 		ICollection<FlightEntity> Flights { get; set; }
 		ICollection<PlaneEntity> Planes { get; set; }
