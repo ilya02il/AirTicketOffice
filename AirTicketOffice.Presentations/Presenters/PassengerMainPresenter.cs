@@ -84,7 +84,7 @@ namespace AirTicketOffice.Presentations.Presenters
 				var arrivalCity = ticket.TicketPrice.Flight.Route.ArrivalAirport.City;
 				var arrivalAirport = ticket.TicketPrice.Flight.Route.ArrivalAirport.Name;
 				var arrivalDate = ticket.TicketPrice.Flight.DateTo.ToLongDateString();
-				//var orderDate = ticket.Date.ToLongDateString();
+				var orderDate = ticket.OrderDate.ToLongDateString();
 				var price = ticket.TicketPrice.Price.ToString();
 
 
@@ -100,7 +100,7 @@ namespace AirTicketOffice.Presentations.Presenters
 				document.Range.Replace("[arrival_city]", arrivalCity, findReplaceOptions);
 				document.Range.Replace("[arrival_airport]", arrivalAirport, findReplaceOptions);
 				document.Range.Replace("[arrival_date]", arrivalDate, findReplaceOptions);
-				//document.Range.Replace("[order_date]", orderDate, findReplaceOptions);
+				document.Range.Replace("[order_date]", orderDate, findReplaceOptions);
 				document.Range.Replace("[price]", price, findReplaceOptions);
 
 				var fileName = Application.StartupPath + @"\tickets\ticket_number_" + ticket.Id + ".doc";

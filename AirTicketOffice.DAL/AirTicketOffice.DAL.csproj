@@ -88,9 +88,9 @@
     <Compile Include="Migrations\202106200507133_IntermediateMigration.designer.cs">
       <DependentUpon>202106200507133_IntermediateMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106200508026_AddTicketPrices.cs" />
-    <Compile Include="Migrations\202106200508026_AddTicketPrices.designer.cs">
-      <DependentUpon>202106200508026_AddTicketPrices.cs</DependentUpon>
+    <Compile Include="Migrations\202106201344052_IHopeThisIsTheLastMigration.cs" />
+    <Compile Include="Migrations\202106201344052_IHopeThisIsTheLastMigration.designer.cs">
+      <DependentUpon>202106201344052_IHopeThisIsTheLastMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,8 +116,8 @@
     <EmbeddedResource Include="Migrations\202106200507133_IntermediateMigration.resx">
       <DependentUpon>202106200507133_IntermediateMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106200508026_AddTicketPrices.resx">
-      <DependentUpon>202106200508026_AddTicketPrices.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106201344052_IHopeThisIsTheLastMigration.resx">
+      <DependentUpon>202106201344052_IHopeThisIsTheLastMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

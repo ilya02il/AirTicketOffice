@@ -239,34 +239,28 @@
     <None Include="Resources\save_all_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3_Post.jpg" />
+    <None Include="Resources\1st_point.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2021-06-17_16-24-33.png" />
+    <None Include="Resources\2nd_point.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\map.png" />
+    <None Include="Resources\3rd_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4th_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5th_points.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6th_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\map_offices.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointFive.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointFour.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointOne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointSix.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointThree.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\OfficePointTwo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -7,13 +7,13 @@ namespace AirTicketOffice.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddTicketPrices : IMigrationMetadata
+    public sealed partial class IHopeThisIsTheLastMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTicketPrices));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IHopeThisIsTheLastMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106200508026_AddTicketPrices"; }
+            get { return "202106201344052_IHopeThisIsTheLastMigration"; }
         }
         
         string IMigrationMetadata.Source

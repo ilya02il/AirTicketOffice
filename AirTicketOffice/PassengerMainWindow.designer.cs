@@ -92,22 +92,22 @@ namespace AirTicketOffice
 			this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
 			this.carouselCard = new MaterialSkin.Controls.MaterialCard();
 			this.mapTabPage = new System.Windows.Forms.TabPage();
-			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.pictureBox6 = new System.Windows.Forms.PictureBox();
+			this.pictureBox5 = new System.Windows.Forms.PictureBox();
+			this.pictureBox4 = new System.Windows.Forms.PictureBox();
+			this.pictureBox3 = new System.Windows.Forms.PictureBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+			this.pictureBox7 = new System.Windows.Forms.PictureBox();
 			this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
 			this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
 			this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
 			this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
 			this.materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.pictureBox8 = new System.Windows.Forms.PictureBox();
-			this.pictureBox7 = new System.Windows.Forms.PictureBox();
-			this.pictureBox6 = new System.Windows.Forms.PictureBox();
-			this.pictureBox5 = new System.Windows.Forms.PictureBox();
-			this.pictureBox4 = new System.Windows.Forms.PictureBox();
-			this.pictureBox3 = new System.Windows.Forms.PictureBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.mainTabControl.SuspendLayout();
 			this.profileTabPage.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -120,15 +120,15 @@ namespace AirTicketOffice
 			((System.ComponentModel.ISupportInitialize)(this.flightsDataGridView)).BeginInit();
 			this.propertiesCard.SuspendLayout();
 			this.mapTabPage.SuspendLayout();
-			this.materialCard2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.materialCard2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mainTabControlImageList
@@ -263,7 +263,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountPatronymicTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountPatronymicTextBox.Depth = 0;
-			this.accountPatronymicTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPatronymicTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountPatronymicTextBox.LeadingIcon = null;
 			this.accountPatronymicTextBox.Location = new System.Drawing.Point(17, 184);
 			this.accountPatronymicTextBox.MaxLength = 50;
@@ -294,7 +294,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountNameTextBox.Depth = 0;
-			this.accountNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountNameTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountNameTextBox.LeadingIcon = null;
 			this.accountNameTextBox.Location = new System.Drawing.Point(17, 108);
 			this.accountNameTextBox.MaxLength = 50;
@@ -325,7 +325,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountSurnameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountSurnameTextBox.Depth = 0;
-			this.accountSurnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountSurnameTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountSurnameTextBox.LeadingIcon = null;
 			this.accountSurnameTextBox.Location = new System.Drawing.Point(17, 32);
 			this.accountSurnameTextBox.MaxLength = 50;
@@ -392,7 +392,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountLoginTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountLoginTextBox.Depth = 0;
-			this.accountLoginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountLoginTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountLoginTextBox.LeadingIcon = null;
 			this.accountLoginTextBox.Location = new System.Drawing.Point(21, 32);
 			this.accountLoginTextBox.MaxLength = 50;
@@ -423,7 +423,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountPhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountPhoneTextBox.Depth = 0;
-			this.accountPhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPhoneTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountPhoneTextBox.LeadingIcon = null;
 			this.accountPhoneTextBox.Location = new System.Drawing.Point(21, 184);
 			this.accountPhoneTextBox.MaxLength = 50;
@@ -466,7 +466,7 @@ namespace AirTicketOffice
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.accountPassportTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.accountPassportTextBox.Depth = 0;
-			this.accountPassportTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.accountPassportTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.accountPassportTextBox.LeadingIcon = null;
 			this.accountPassportTextBox.Location = new System.Drawing.Point(21, 108);
 			this.accountPassportTextBox.MaxLength = 50;
@@ -735,6 +735,7 @@ namespace AirTicketOffice
 			this.orderTicketButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
 			this.orderTicketButton.UseAccentColor = false;
 			this.orderTicketButton.UseVisualStyleBackColor = true;
+			this.orderTicketButton.Click += new System.EventHandler(this.orderTicketButton_Click);
 			// 
 			// ticketPriceLabel
 			// 
@@ -978,15 +979,9 @@ namespace AirTicketOffice
 			// mapTabPage
 			// 
 			this.mapTabPage.BackColor = System.Drawing.Color.White;
+			this.mapTabPage.Controls.Add(this.panel1);
 			this.mapTabPage.Controls.Add(this.materialCard2);
 			this.mapTabPage.Controls.Add(this.materialLabel19);
-			this.mapTabPage.Controls.Add(this.pictureBox8);
-			this.mapTabPage.Controls.Add(this.pictureBox7);
-			this.mapTabPage.Controls.Add(this.pictureBox6);
-			this.mapTabPage.Controls.Add(this.pictureBox5);
-			this.mapTabPage.Controls.Add(this.pictureBox4);
-			this.mapTabPage.Controls.Add(this.pictureBox3);
-			this.mapTabPage.Controls.Add(this.pictureBox1);
 			this.mapTabPage.ImageKey = "map_icon.png";
 			this.mapTabPage.Location = new System.Drawing.Point(4, 39);
 			this.mapTabPage.Margin = new System.Windows.Forms.Padding(0);
@@ -995,36 +990,122 @@ namespace AirTicketOffice
 			this.mapTabPage.TabIndex = 0;
 			this.mapTabPage.Text = "Карта";
 			// 
-			// actionIconsImageList
+			// panel1
 			// 
-			this.actionIconsImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("actionIconsImageList.ImageStream")));
-			this.actionIconsImageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.actionIconsImageList.Images.SetKeyName(0, "add_icon.png");
-			this.actionIconsImageList.Images.SetKeyName(1, "delete_icon.png");
-			this.actionIconsImageList.Images.SetKeyName(2, "save_icon.png");
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel1.Controls.Add(this.pictureBox6);
+			this.panel1.Controls.Add(this.pictureBox5);
+			this.panel1.Controls.Add(this.pictureBox4);
+			this.panel1.Controls.Add(this.pictureBox3);
+			this.panel1.Controls.Add(this.pictureBox2);
+			this.panel1.Controls.Add(this.pictureBox1);
+			this.panel1.Location = new System.Drawing.Point(8, 9);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(710, 520);
+			this.panel1.TabIndex = 27;
 			// 
-			// timer1
+			// pictureBox6
 			// 
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+			this.pictureBox6.Image = global::AirTicketOffice.Properties.Resources._4th_point;
+			this.pictureBox6.Location = new System.Drawing.Point(426, 92);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox6.TabIndex = 11;
+			this.pictureBox6.TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox5.Image = global::AirTicketOffice.Properties.Resources._5th_points;
+			this.pictureBox5.Location = new System.Drawing.Point(472, 312);
+			this.pictureBox5.Name = "pictureBox5";
+			this.pictureBox5.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox5.TabIndex = 10;
+			this.pictureBox5.TabStop = false;
+			this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+			// 
+			// pictureBox4
+			// 
+			this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox4.Image = global::AirTicketOffice.Properties.Resources._2nd_point;
+			this.pictureBox4.Location = new System.Drawing.Point(299, 271);
+			this.pictureBox4.Name = "pictureBox4";
+			this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox4.TabIndex = 9;
+			this.pictureBox4.TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.Image = global::AirTicketOffice.Properties.Resources._3rd_point;
+			this.pictureBox3.Location = new System.Drawing.Point(106, 217);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox3.TabIndex = 8;
+			this.pictureBox3.TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.pictureBox2.Image = global::AirTicketOffice.Properties.Resources._1st_point;
+			this.pictureBox2.Location = new System.Drawing.Point(151, 388);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox2.TabIndex = 7;
+			this.pictureBox2.TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(710, 520);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 6;
+			this.pictureBox1.TabStop = false;
 			// 
 			// materialCard2
 			// 
+			this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.materialCard2.Controls.Add(this.pictureBox2);
+			this.materialCard2.Controls.Add(this.pictureBox7);
 			this.materialCard2.Controls.Add(this.materialLabel10);
 			this.materialCard2.Controls.Add(this.materialLabel12);
 			this.materialCard2.Controls.Add(this.materialLabel14);
 			this.materialCard2.Controls.Add(this.materialLabel15);
 			this.materialCard2.Depth = 0;
 			this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.materialCard2.Location = new System.Drawing.Point(640, 61);
+			this.materialCard2.Location = new System.Drawing.Point(726, 101);
 			this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
 			this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialCard2.Name = "materialCard2";
 			this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-			this.materialCard2.Size = new System.Drawing.Size(404, 460);
-			this.materialCard2.TabIndex = 31;
+			this.materialCard2.Size = new System.Drawing.Size(318, 428);
+			this.materialCard2.TabIndex = 26;
 			this.materialCard2.Visible = false;
+			// 
+			// pictureBox7
+			// 
+			this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+			this.pictureBox7.Location = new System.Drawing.Point(17, 49);
+			this.pictureBox7.Name = "pictureBox7";
+			this.pictureBox7.Size = new System.Drawing.Size(284, 234);
+			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox7.TabIndex = 2;
+			this.pictureBox7.TabStop = false;
 			// 
 			// materialLabel10
 			// 
@@ -1058,7 +1139,7 @@ namespace AirTicketOffice
 			this.materialLabel14.Depth = 0;
 			this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
 			this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-			this.materialLabel14.Location = new System.Drawing.Point(17, 324);
+			this.materialLabel14.Location = new System.Drawing.Point(17, 296);
 			this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel14.Name = "materialLabel14";
 			this.materialLabel14.Size = new System.Drawing.Size(63, 24);
@@ -1070,7 +1151,7 @@ namespace AirTicketOffice
 			this.materialLabel15.AutoSize = true;
 			this.materialLabel15.Depth = 0;
 			this.materialLabel15.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialLabel15.Location = new System.Drawing.Point(17, 348);
+			this.materialLabel15.Location = new System.Drawing.Point(17, 320);
 			this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel15.Name = "materialLabel15";
 			this.materialLabel15.Size = new System.Drawing.Size(156, 19);
@@ -1079,106 +1160,29 @@ namespace AirTicketOffice
 			// 
 			// materialLabel19
 			// 
+			this.materialLabel19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.materialLabel19.Depth = 0;
 			this.materialLabel19.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
 			this.materialLabel19.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-			this.materialLabel19.Location = new System.Drawing.Point(640, 8);
+			this.materialLabel19.Location = new System.Drawing.Point(749, 9);
 			this.materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
 			this.materialLabel19.Name = "materialLabel19";
-			this.materialLabel19.Size = new System.Drawing.Size(404, 51);
-			this.materialLabel19.TabIndex = 30;
+			this.materialLabel19.Size = new System.Drawing.Size(273, 90);
+			this.materialLabel19.TabIndex = 25;
 			this.materialLabel19.Text = "Выберите точку кассы на карте, чтобы узнать о ней подробнее";
 			this.materialLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// pictureBox2
+			// actionIconsImageList
 			// 
-			this.pictureBox2.Image = global::AirTicketOffice.Properties.Resources._3_Post;
-			this.pictureBox2.Location = new System.Drawing.Point(17, 41);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(370, 277);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox2.TabIndex = 2;
-			this.pictureBox2.TabStop = false;
+			this.actionIconsImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("actionIconsImageList.ImageStream")));
+			this.actionIconsImageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.actionIconsImageList.Images.SetKeyName(0, "add_icon.png");
+			this.actionIconsImageList.Images.SetKeyName(1, "delete_icon.png");
+			this.actionIconsImageList.Images.SetKeyName(2, "save_icon.png");
 			// 
-			// pictureBox8
+			// timer1
 			// 
-			this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox8.Image = global::AirTicketOffice.Properties.Resources.OfficePointSix;
-			this.pictureBox8.Location = new System.Drawing.Point(476, 394);
-			this.pictureBox8.Name = "pictureBox8";
-			this.pictureBox8.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox8.TabIndex = 29;
-			this.pictureBox8.TabStop = false;
-			// 
-			// pictureBox7
-			// 
-			this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox7.Image = global::AirTicketOffice.Properties.Resources.OfficePointFive;
-			this.pictureBox7.Location = new System.Drawing.Point(450, 223);
-			this.pictureBox7.Name = "pictureBox7";
-			this.pictureBox7.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox7.TabIndex = 28;
-			this.pictureBox7.TabStop = false;
-			// 
-			// pictureBox6
-			// 
-			this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox6.Image = global::AirTicketOffice.Properties.Resources.OfficePointFour;
-			this.pictureBox6.Location = new System.Drawing.Point(361, 343);
-			this.pictureBox6.Name = "pictureBox6";
-			this.pictureBox6.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox6.TabIndex = 27;
-			this.pictureBox6.TabStop = false;
-			// 
-			// pictureBox5
-			// 
-			this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox5.Image = global::AirTicketOffice.Properties.Resources.OfficePointOne;
-			this.pictureBox5.Location = new System.Drawing.Point(47, 205);
-			this.pictureBox5.Name = "pictureBox5";
-			this.pictureBox5.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox5.TabIndex = 26;
-			this.pictureBox5.TabStop = false;
-			// 
-			// pictureBox4
-			// 
-			this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox4.Image = global::AirTicketOffice.Properties.Resources.OfficePointTwo;
-			this.pictureBox4.Location = new System.Drawing.Point(268, 205);
-			this.pictureBox4.Name = "pictureBox4";
-			this.pictureBox4.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox4.TabIndex = 25;
-			this.pictureBox4.TabStop = false;
-			// 
-			// pictureBox3
-			// 
-			this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox3.Image = global::AirTicketOffice.Properties.Resources.OfficePointThree;
-			this.pictureBox3.Location = new System.Drawing.Point(173, 427);
-			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(45, 45);
-			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox3.TabIndex = 24;
-			this.pictureBox3.TabStop = false;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.pictureBox1.Image = global::AirTicketOffice.Properties.Resources.map;
-			this.pictureBox1.ImageLocation = "";
-			this.pictureBox1.InitialImage = null;
-			this.pictureBox1.Location = new System.Drawing.Point(8, 61);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(615, 460);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.pictureBox1.TabIndex = 17;
-			this.pictureBox1.TabStop = false;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// PassengerMainWindow
 			// 
@@ -1210,16 +1214,17 @@ namespace AirTicketOffice
 			this.propertiesCard.ResumeLayout(false);
 			this.propertiesCard.PerformLayout();
 			this.mapTabPage.ResumeLayout(false);
-			this.materialCard2.ResumeLayout(false);
-			this.materialCard2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.materialCard2.ResumeLayout(false);
+			this.materialCard2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1287,18 +1292,18 @@ namespace AirTicketOffice
 		private MaterialSkin.Controls.MaterialLabel flightNdClassEmptySeatsLabel;
 		private MaterialSkin.Controls.MaterialLabel flightStClassEmptySeatsLabel;
 		private MaterialSkin.Controls.MaterialCard materialCard2;
-		private PictureBox pictureBox2;
+		private PictureBox pictureBox7;
 		private MaterialSkin.Controls.MaterialLabel materialLabel10;
 		private MaterialSkin.Controls.MaterialLabel materialLabel12;
 		private MaterialSkin.Controls.MaterialLabel materialLabel14;
 		private MaterialSkin.Controls.MaterialLabel materialLabel15;
 		private MaterialSkin.Controls.MaterialLabel materialLabel19;
-		private PictureBox pictureBox8;
-		private PictureBox pictureBox7;
+		private Panel panel1;
 		private PictureBox pictureBox6;
 		private PictureBox pictureBox5;
 		private PictureBox pictureBox4;
 		private PictureBox pictureBox3;
+		private PictureBox pictureBox2;
 		private PictureBox pictureBox1;
 	}
 }

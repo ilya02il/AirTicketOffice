@@ -63,9 +63,9 @@ namespace AirTicketOffice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2021_06_17_16_24_33 {
+        internal static System.Drawing.Bitmap _1st_point {
             get {
-                object obj = ResourceManager.GetObject("_2021_06_17_16_24_33", resourceCulture);
+                object obj = ResourceManager.GetObject("_1st_point", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,49 @@ namespace AirTicketOffice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3_Post {
+        internal static System.Drawing.Bitmap _2nd_point {
             get {
-                object obj = ResourceManager.GetObject("_3_Post", resourceCulture);
+                object obj = ResourceManager.GetObject("_2nd_point", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3rd_point {
+            get {
+                object obj = ResourceManager.GetObject("_3rd_point", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4th_point {
+            get {
+                object obj = ResourceManager.GetObject("_4th_point", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5th_points {
+            get {
+                object obj = ResourceManager.GetObject("_5th_points", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _6th_point {
+            get {
+                object obj = ResourceManager.GetObject("_6th_point", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,16 +153,6 @@ namespace AirTicketOffice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap map {
-            get {
-                object obj = ResourceManager.GetObject("map", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap map_offices {
             get {
                 object obj = ResourceManager.GetObject("map_offices", resourceCulture);
@@ -133,59 +163,9 @@ namespace AirTicketOffice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OfficePointFive {
+        internal static System.Drawing.Bitmap office {
             get {
-                object obj = ResourceManager.GetObject("OfficePointFive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OfficePointFour {
-            get {
-                object obj = ResourceManager.GetObject("OfficePointFour", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OfficePointOne {
-            get {
-                object obj = ResourceManager.GetObject("OfficePointOne", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OfficePointSix {
-            get {
-                object obj = ResourceManager.GetObject("OfficePointSix", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OfficePointThree {
-            get {
-                object obj = ResourceManager.GetObject("OfficePointThree", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OfficePointTwo {
-            get {
-                object obj = ResourceManager.GetObject("OfficePointTwo", resourceCulture);
+                object obj = ResourceManager.GetObject("office", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

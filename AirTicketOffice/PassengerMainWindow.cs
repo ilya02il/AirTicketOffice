@@ -42,17 +42,17 @@ namespace AirTicketOffice
 			changePasswordButton.Click += (sender, args) => ChangePassword?.Invoke();
 			exitFromAccountButton.Click += (sender, args) => ExitFromAccount?.Invoke();
 
-			orderTicketButton.Click += (sender, args) =>
-			{
-				var dialogResult = MessageBox.Show(@"Распечатать билет?", @"Печать", 
-					MessageBoxButtons.YesNo);
+			pictureBox2.Parent = pictureBox1;
+			pictureBox3.Parent = pictureBox1;
+			pictureBox4.Parent = pictureBox1;
+			pictureBox5.Parent = pictureBox1;
+			pictureBox6.Parent = pictureBox1;
 
-				if (dialogResult == DialogResult.No)
-					return;
-
-				AddTicket?.Invoke();
-				PrintTicket?.Invoke();
-			};
+			pictureBox2.BackColor = Color.Transparent;
+			pictureBox3.BackColor = Color.Transparent;
+			pictureBox4.BackColor = Color.Transparent;
+			pictureBox5.BackColor = Color.Transparent;
+			pictureBox6.BackColor = Color.Transparent;
 		}
 
 		public sealed override string Text
@@ -110,12 +110,13 @@ namespace AirTicketOffice
 				var selectedFlightId = Convert.ToInt32(flightNumberLabel.Text);
 
 				var ticketPriceId = _flights.FirstOrDefault(flight => flight.Id == selectedFlightId)?.TicketPrices
-					.FirstOrDefault(tp => tp.Class.Name == selectedClassName)?.Id;
+					.FirstOrDefault(tp => tp.Class.Name == selectedClassName)?.Id ?? 0;
 
 				return new TicketEntity()
 				{
 					UserId = _currentUser.Id,
-					TicketPriceId = ticketPriceId
+					TicketPriceId = ticketPriceId,
+					OrderDate = DateTime.Now
 				};
 			}
 		}
@@ -170,13 +171,13 @@ namespace AirTicketOffice
 				{
 					Image = image,
 					Size = new Size(170, 140),
-					Location = new Point((carouselCard.Size.Width - 170) / 2, 144 * _tiles.Count + 7),
+					Location = new Point((carouselCard.Size.Width - 170) / 2, 148 * _tiles.Count + 7),
 					Anchor = AnchorStyles.None
 				});
 
 				carouselCard.Controls.Add(_tiles[arrivalAirportId]);
 
-				if (_tiles.Count == 1)
+				if (_tiles.Count == _flights.Count)
 				{
 					_topTileKey = arrivalAirportId;
 				}
@@ -282,6 +283,39 @@ namespace AirTicketOffice
 				selectedClassName = "C";
 
 			ticketPriceLabel.Text = GetTicketPrice(id, selectedClassName).ToString();
+		}
+
+		private void pictureBox5_Click(object sender, EventArgs e)
+		{
+			materialCard2.Visible = !materialCard2.Visible;
+		}
+
+		private void orderTicketButton_Click(object sender, EventArgs e)
+		{
+			var id = Convert.ToInt32(flightsDataGridView.SelectedRows[0].Cells[0].Value);
+			int amountOfEmptySeats;
+
+			if (materialRadioButton1.Checked)
+				amountOfEmptySeats = GetEmptySeatsForClass(id, "A");
+			else if (materialRadioButton2.Checked)
+				amountOfEmptySeats = GetEmptySeatsForClass(id, "B");
+			else
+				amountOfEmptySeats = GetEmptySeatsForClass(id, "C");
+
+			if (!(amountOfEmptySeats > 0))
+			{
+				MessageBox.Show(@"Свободных мест данного класса в этом рейсе не осталось.");
+				return;
+			}
+
+			var dialogResult = MessageBox.Show(@"Распечатать билет?", @"Печать",
+				MessageBoxButtons.YesNo);
+
+			if (dialogResult == DialogResult.No)
+				return;
+
+			AddTicket?.Invoke();
+			PrintTicket?.Invoke();
 		}
 	}
 }
