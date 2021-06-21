@@ -38,6 +38,8 @@ namespace AirTicketOffice
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,10 +54,12 @@ namespace AirTicketOffice
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.mainTabControlImageList = new System.Windows.Forms.ImageList(this.components);
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.amountOfEmptySeatsStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
 			this.mainTabPage = new System.Windows.Forms.TabPage();
 			this.mainTabPageTabControl = new MaterialSkin.Controls.MaterialTabControl();
@@ -69,16 +73,17 @@ namespace AirTicketOffice
 			this.usersPassportColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.usersPhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.usersAdminRightsColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.ordersTabPage = new System.Windows.Forms.TabPage();
-			this.ordersDataGridView = new System.Windows.Forms.DataGridView();
-			this.ordersNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersUserColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersFlightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersDesiredDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersRegistrationDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersOfficeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ticketsTabPage = new System.Windows.Forms.TabPage();
 			this.ticketsDataGridView = new System.Windows.Forms.DataGridView();
+			this.ticketsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketsPassengerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketsTicketPriceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketPricesTabPage = new System.Windows.Forms.TabPage();
+			this.ticketPricesDataGridView = new System.Windows.Forms.DataGridView();
+			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketPricesClassColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketPricesFlightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketPricesPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.routesTabPage = new System.Windows.Forms.TabPage();
 			this.routesDataGridView = new System.Windows.Forms.DataGridView();
 			this.routesNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,7 +158,7 @@ namespace AirTicketOffice
 			this.vacantSeatsTabPage = new System.Windows.Forms.TabPage();
 			this.vacantSeatsDataGridView = new System.Windows.Forms.DataGridView();
 			this.searchEmptySeatsPlaneNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.searchEmptySeatsRouteNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.searchEmptySeatsFlightNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.searchEmptySeatsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.searchTypeComboBox = new MaterialSkin.Controls.MaterialComboBox();
@@ -161,34 +166,46 @@ namespace AirTicketOffice
 			this.searchTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
 			this.filterTabPage = new System.Windows.Forms.TabPage();
-			this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.filterTabControl = new MaterialSkin.Controls.MaterialTabControl();
+			this.ticketFilterTabPage = new System.Windows.Forms.TabPage();
+			this.ticketFilterDataGridView = new System.Windows.Forms.DataGridView();
+			this.ticketFilterPassengerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterFlightNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterDepartureAirport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterDepartureDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterArrivalAirportColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterArrivalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketFilterClassColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.flightFilterTabPage = new System.Windows.Forms.TabPage();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+			this.filterTypeComboBox = new MaterialSkin.Controls.MaterialComboBox();
 			this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-			this.materialTextBox8 = new MaterialSkin.Controls.MaterialTextBox();
+			this.filterTextBox = new MaterialSkin.Controls.MaterialTextBox();
 			this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
 			this.printTabPage = new System.Windows.Forms.TabPage();
 			this.actionIconsImageList = new System.Windows.Forms.ImageList(this.components);
-			this.ticketsNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsPassengerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketsTicketPriceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketPricesTabPage = new System.Windows.Forms.TabPage();
-			this.ticketPricesDataGridView = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketPricesClassColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketPricesFlightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ticketPricesPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+			this.printTicketButton = new MaterialSkin.Controls.MaterialButton();
+			this.printTicketDataGridView = new System.Windows.Forms.DataGridView();
+			this.ticketPrintNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+			this.statusStrip1.SuspendLayout();
 			this.mainTabControl.SuspendLayout();
 			this.mainTabPage.SuspendLayout();
 			this.mainTabPageTabControl.SuspendLayout();
 			this.usersTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
-			this.ordersTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
 			this.ticketsTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).BeginInit();
+			this.ticketPricesTabPage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ticketPricesDataGridView)).BeginInit();
 			this.routesTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.routesDataGridView)).BeginInit();
 			this.flightsTabPage.SuspendLayout();
@@ -213,10 +230,13 @@ namespace AirTicketOffice
 			((System.ComponentModel.ISupportInitialize)(this.vacantSeatsDataGridView)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.filterTabPage.SuspendLayout();
-			this.materialTabControl1.SuspendLayout();
+			this.filterTabControl.SuspendLayout();
+			this.ticketFilterTabPage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ticketFilterDataGridView)).BeginInit();
 			this.panel2.SuspendLayout();
-			this.ticketPricesTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ticketPricesDataGridView)).BeginInit();
+			this.printTabPage.SuspendLayout();
+			this.materialCard1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.printTicketDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mainTabControlImageList
@@ -231,13 +251,29 @@ namespace AirTicketOffice
 			// 
 			// statusStrip1
 			// 
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel,
+            this.amountOfEmptySeatsStatusLabel});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 578);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.statusStrip1.Size = new System.Drawing.Size(1066, 22);
 			this.statusStrip1.SizingGrip = false;
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// StatusLabel
+			// 
+			this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.StatusLabel.Name = "StatusLabel";
+			this.StatusLabel.Size = new System.Drawing.Size(144, 17);
+			this.StatusLabel.Text = "Число записей в таблице:";
+			// 
+			// amountOfEmptySeatsStatusLabel
+			// 
+			this.amountOfEmptySeatsStatusLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.amountOfEmptySeatsStatusLabel.Name = "amountOfEmptySeatsStatusLabel";
+			this.amountOfEmptySeatsStatusLabel.Size = new System.Drawing.Size(47, 17);
+			this.amountOfEmptySeatsStatusLabel.Text = "amount";
 			// 
 			// mainTabControl
 			// 
@@ -277,7 +313,6 @@ namespace AirTicketOffice
 			// mainTabPageTabControl
 			// 
 			this.mainTabPageTabControl.Controls.Add(this.usersTabPage);
-			this.mainTabPageTabControl.Controls.Add(this.ordersTabPage);
 			this.mainTabPageTabControl.Controls.Add(this.ticketsTabPage);
 			this.mainTabPageTabControl.Controls.Add(this.ticketPricesTabPage);
 			this.mainTabPageTabControl.Controls.Add(this.routesTabPage);
@@ -410,97 +445,6 @@ namespace AirTicketOffice
 			this.usersAdminRightsColumn.Name = "usersAdminRightsColumn";
 			this.usersAdminRightsColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
-			// ordersTabPage
-			// 
-			this.ordersTabPage.Controls.Add(this.ordersDataGridView);
-			this.ordersTabPage.Location = new System.Drawing.Point(4, 22);
-			this.ordersTabPage.Name = "ordersTabPage";
-			this.ordersTabPage.Size = new System.Drawing.Size(1050, 425);
-			this.ordersTabPage.TabIndex = 2;
-			this.ordersTabPage.Text = "Заявки";
-			this.ordersTabPage.UseVisualStyleBackColor = true;
-			// 
-			// ordersDataGridView
-			// 
-			this.ordersDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.ordersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ordersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.ordersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.ordersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ordersNumberColumn,
-            this.ordersUserColumn,
-            this.ordersFlightColumn,
-            this.ordersDesiredDateColumn,
-            this.ordersRegistrationDateColumn,
-            this.ordersOfficeColumn});
-			this.ordersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ordersDataGridView.Location = new System.Drawing.Point(0, 0);
-			this.ordersDataGridView.Margin = new System.Windows.Forms.Padding(0);
-			this.ordersDataGridView.MultiSelect = false;
-			this.ordersDataGridView.Name = "ordersDataGridView";
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ordersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.ordersDataGridView.RowHeadersVisible = false;
-			this.ordersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.ordersDataGridView.Size = new System.Drawing.Size(1050, 425);
-			this.ordersDataGridView.TabIndex = 1;
-			// 
-			// ordersNumberColumn
-			// 
-			this.ordersNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersNumberColumn.FillWeight = 4F;
-			this.ordersNumberColumn.HeaderText = "№";
-			this.ordersNumberColumn.Name = "ordersNumberColumn";
-			this.ordersNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// ordersUserColumn
-			// 
-			this.ordersUserColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersUserColumn.FillWeight = 20F;
-			this.ordersUserColumn.HeaderText = "Пользователь";
-			this.ordersUserColumn.Name = "ordersUserColumn";
-			// 
-			// ordersFlightColumn
-			// 
-			this.ordersFlightColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersFlightColumn.FillWeight = 10F;
-			this.ordersFlightColumn.HeaderText = "Рейс";
-			this.ordersFlightColumn.Name = "ordersFlightColumn";
-			// 
-			// ordersDesiredDateColumn
-			// 
-			this.ordersDesiredDateColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersDesiredDateColumn.FillWeight = 15F;
-			this.ordersDesiredDateColumn.HeaderText = "Желаемая дата";
-			this.ordersDesiredDateColumn.Name = "ordersDesiredDateColumn";
-			// 
-			// ordersRegistrationDateColumn
-			// 
-			this.ordersRegistrationDateColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersRegistrationDateColumn.FillWeight = 15F;
-			this.ordersRegistrationDateColumn.HeaderText = "Дата оформления";
-			this.ordersRegistrationDateColumn.Name = "ordersRegistrationDateColumn";
-			// 
-			// ordersOfficeColumn
-			// 
-			this.ordersOfficeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ordersOfficeColumn.FillWeight = 15F;
-			this.ordersOfficeColumn.HeaderText = "Касса";
-			this.ordersOfficeColumn.Name = "ordersOfficeColumn";
-			// 
 			// ticketsTabPage
 			// 
 			this.ticketsTabPage.Controls.Add(this.ticketsDataGridView);
@@ -515,14 +459,14 @@ namespace AirTicketOffice
 			// 
 			this.ticketsDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.ticketsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ticketsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ticketsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.ticketsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.ticketsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ticketsNumberColumn,
@@ -533,6 +477,72 @@ namespace AirTicketOffice
 			this.ticketsDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.ticketsDataGridView.MultiSelect = false;
 			this.ticketsDataGridView.Name = "ticketsDataGridView";
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ticketsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.ticketsDataGridView.RowHeadersVisible = false;
+			this.ticketsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+			this.ticketsDataGridView.Size = new System.Drawing.Size(1050, 425);
+			this.ticketsDataGridView.TabIndex = 1;
+			// 
+			// ticketsNumberColumn
+			// 
+			this.ticketsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsNumberColumn.FillWeight = 4F;
+			this.ticketsNumberColumn.HeaderText = "№";
+			this.ticketsNumberColumn.Name = "ticketsNumberColumn";
+			this.ticketsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// ticketsPassengerColumn
+			// 
+			this.ticketsPassengerColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketsPassengerColumn.FillWeight = 40F;
+			this.ticketsPassengerColumn.HeaderText = "Пассажир";
+			this.ticketsPassengerColumn.Name = "ticketsPassengerColumn";
+			// 
+			// ticketsTicketPriceId
+			// 
+			this.ticketsTicketPriceId.HeaderText = "Цена";
+			this.ticketsTicketPriceId.Name = "ticketsTicketPriceId";
+			// 
+			// ticketPricesTabPage
+			// 
+			this.ticketPricesTabPage.Controls.Add(this.ticketPricesDataGridView);
+			this.ticketPricesTabPage.Location = new System.Drawing.Point(4, 22);
+			this.ticketPricesTabPage.Name = "ticketPricesTabPage";
+			this.ticketPricesTabPage.Size = new System.Drawing.Size(1050, 425);
+			this.ticketPricesTabPage.TabIndex = 9;
+			this.ticketPricesTabPage.Text = "Цены на билеты";
+			this.ticketPricesTabPage.UseVisualStyleBackColor = true;
+			// 
+			// ticketPricesDataGridView
+			// 
+			this.ticketPricesDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.ticketPricesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ticketPricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			this.ticketPricesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ticketPricesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.ticketPricesClassColumn,
+            this.ticketPricesFlightColumn,
+            this.ticketPricesPriceColumn});
+			this.ticketPricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ticketPricesDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.ticketPricesDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.ticketPricesDataGridView.MultiSelect = false;
+			this.ticketPricesDataGridView.Name = "ticketPricesDataGridView";
 			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -540,11 +550,40 @@ namespace AirTicketOffice
 			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ticketsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.ticketsDataGridView.RowHeadersVisible = false;
-			this.ticketsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.ticketsDataGridView.Size = new System.Drawing.Size(1050, 425);
-			this.ticketsDataGridView.TabIndex = 1;
+			this.ticketPricesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this.ticketPricesDataGridView.RowHeadersVisible = false;
+			this.ticketPricesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+			this.ticketPricesDataGridView.Size = new System.Drawing.Size(1050, 425);
+			this.ticketPricesDataGridView.TabIndex = 2;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn8.FillWeight = 4F;
+			this.dataGridViewTextBoxColumn8.HeaderText = "№";
+			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+			this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// ticketPricesClassColumn
+			// 
+			this.ticketPricesClassColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketPricesClassColumn.FillWeight = 20F;
+			this.ticketPricesClassColumn.HeaderText = "Класс";
+			this.ticketPricesClassColumn.Name = "ticketPricesClassColumn";
+			// 
+			// ticketPricesFlightColumn
+			// 
+			this.ticketPricesFlightColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketPricesFlightColumn.FillWeight = 20F;
+			this.ticketPricesFlightColumn.HeaderText = "Рейс";
+			this.ticketPricesFlightColumn.Name = "ticketPricesFlightColumn";
+			// 
+			// ticketPricesPriceColumn
+			// 
+			this.ticketPricesPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketPricesPriceColumn.FillWeight = 20F;
+			this.ticketPricesPriceColumn.HeaderText = "Цена";
+			this.ticketPricesPriceColumn.Name = "ticketPricesPriceColumn";
 			// 
 			// routesTabPage
 			// 
@@ -560,14 +599,14 @@ namespace AirTicketOffice
 			// 
 			this.routesDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.routesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.routesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.routesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this.routesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.routesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.routesNumberColumn,
@@ -578,14 +617,14 @@ namespace AirTicketOffice
 			this.routesDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.routesDataGridView.MultiSelect = false;
 			this.routesDataGridView.Name = "routesDataGridView";
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.routesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.routesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.routesDataGridView.RowHeadersVisible = false;
 			this.routesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.routesDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -627,14 +666,14 @@ namespace AirTicketOffice
 			// 
 			this.flightsDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.flightsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.flightsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.flightsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this.flightsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.flightsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.flightsNumberColumn,
@@ -647,14 +686,14 @@ namespace AirTicketOffice
 			this.flightsDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.flightsDataGridView.MultiSelect = false;
 			this.flightsDataGridView.Name = "flightsDataGridView";
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.flightsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.flightsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
 			this.flightsDataGridView.RowHeadersVisible = false;
 			this.flightsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.flightsDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -710,14 +749,14 @@ namespace AirTicketOffice
 			// 
 			this.planesDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.planesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.planesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.planesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this.planesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.planesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.planesNumberColumn,
@@ -731,14 +770,14 @@ namespace AirTicketOffice
 			this.planesDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.planesDataGridView.MultiSelect = false;
 			this.planesDataGridView.Name = "planesDataGridView";
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.planesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.planesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
 			this.planesDataGridView.RowHeadersVisible = false;
 			this.planesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.planesDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -801,14 +840,14 @@ namespace AirTicketOffice
 			// 
 			this.crewMembersDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.crewMembersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.crewMembersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.crewMembersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
 			this.crewMembersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.crewMembersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.crewMembersNumberColumn,
@@ -820,14 +859,14 @@ namespace AirTicketOffice
 			this.crewMembersDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.crewMembersDataGridView.MultiSelect = false;
 			this.crewMembersDataGridView.Name = "crewMembersDataGridView";
-			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.crewMembersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.crewMembersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
 			this.crewMembersDataGridView.RowHeadersVisible = false;
 			this.crewMembersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.crewMembersDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -876,14 +915,14 @@ namespace AirTicketOffice
 			// 
 			this.airportsDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.airportsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.airportsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.airportsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
 			this.airportsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.airportsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.airportsNumberColumn,
@@ -895,14 +934,14 @@ namespace AirTicketOffice
 			this.airportsDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.airportsDataGridView.MultiSelect = false;
 			this.airportsDataGridView.Name = "airportsDataGridView";
-			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.airportsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.airportsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
 			this.airportsDataGridView.RowHeadersVisible = false;
 			this.airportsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.airportsDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -1028,7 +1067,7 @@ namespace AirTicketOffice
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 332F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 482F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 482);
 			this.tableLayoutPanel1.TabIndex = 3;
 			// 
@@ -1401,14 +1440,14 @@ namespace AirTicketOffice
 			// 
 			this.passengersDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.passengersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.passengersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.passengersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
 			this.passengersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.passengersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1423,14 +1462,14 @@ namespace AirTicketOffice
 			this.passengersDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.passengersDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.passengersDataGridView.Name = "passengersDataGridView";
-			dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.passengersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.passengersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
 			this.passengersDataGridView.RowHeadersVisible = false;
 			this.passengersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.passengersDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -1515,31 +1554,31 @@ namespace AirTicketOffice
 			// 
 			this.vacantSeatsDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.vacantSeatsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.vacantSeatsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.vacantSeatsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
 			this.vacantSeatsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.vacantSeatsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.searchEmptySeatsPlaneNumColumn,
-            this.searchEmptySeatsRouteNumColumn,
+            this.searchEmptySeatsFlightNumColumn,
             this.searchEmptySeatsColumn});
 			this.vacantSeatsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.vacantSeatsDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.vacantSeatsDataGridView.Margin = new System.Windows.Forms.Padding(0);
 			this.vacantSeatsDataGridView.Name = "vacantSeatsDataGridView";
-			dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.vacantSeatsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+			dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.vacantSeatsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
 			this.vacantSeatsDataGridView.RowHeadersVisible = false;
 			this.vacantSeatsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.vacantSeatsDataGridView.Size = new System.Drawing.Size(1050, 425);
@@ -1552,12 +1591,12 @@ namespace AirTicketOffice
 			this.searchEmptySeatsPlaneNumColumn.HeaderText = "Самолет";
 			this.searchEmptySeatsPlaneNumColumn.Name = "searchEmptySeatsPlaneNumColumn";
 			// 
-			// searchEmptySeatsRouteNumColumn
+			// searchEmptySeatsFlightNumColumn
 			// 
-			this.searchEmptySeatsRouteNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.searchEmptySeatsRouteNumColumn.FillWeight = 40F;
-			this.searchEmptySeatsRouteNumColumn.HeaderText = "Маршрут";
-			this.searchEmptySeatsRouteNumColumn.Name = "searchEmptySeatsRouteNumColumn";
+			this.searchEmptySeatsFlightNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.searchEmptySeatsFlightNumColumn.FillWeight = 40F;
+			this.searchEmptySeatsFlightNumColumn.HeaderText = "Рейс";
+			this.searchEmptySeatsFlightNumColumn.Name = "searchEmptySeatsFlightNumColumn";
 			// 
 			// searchEmptySeatsColumn
 			// 
@@ -1654,7 +1693,7 @@ namespace AirTicketOffice
 			// filterTabPage
 			// 
 			this.filterTabPage.BackColor = System.Drawing.Color.White;
-			this.filterTabPage.Controls.Add(this.materialTabControl1);
+			this.filterTabPage.Controls.Add(this.filterTabControl);
 			this.filterTabPage.Controls.Add(this.panel2);
 			this.filterTabPage.Controls.Add(this.materialTabSelector3);
 			this.filterTabPage.ImageKey = "filter_icon.png";
@@ -1664,47 +1703,135 @@ namespace AirTicketOffice
 			this.filterTabPage.TabIndex = 3;
 			this.filterTabPage.Text = "Фильтрация";
 			// 
-			// materialTabControl1
+			// filterTabControl
 			// 
-			this.materialTabControl1.Controls.Add(this.tabPage1);
-			this.materialTabControl1.Controls.Add(this.tabPage2);
-			this.materialTabControl1.Depth = 0;
-			this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.materialTabControl1.Location = new System.Drawing.Point(0, 84);
-			this.materialTabControl1.Margin = new System.Windows.Forms.Padding(0);
-			this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-			this.materialTabControl1.Multiline = true;
-			this.materialTabControl1.Name = "materialTabControl1";
-			this.materialTabControl1.SelectedIndex = 0;
-			this.materialTabControl1.Size = new System.Drawing.Size(1058, 451);
-			this.materialTabControl1.TabIndex = 7;
+			this.filterTabControl.Controls.Add(this.ticketFilterTabPage);
+			this.filterTabControl.Controls.Add(this.flightFilterTabPage);
+			this.filterTabControl.Depth = 0;
+			this.filterTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.filterTabControl.Location = new System.Drawing.Point(0, 84);
+			this.filterTabControl.Margin = new System.Windows.Forms.Padding(0);
+			this.filterTabControl.MouseState = MaterialSkin.MouseState.HOVER;
+			this.filterTabControl.Multiline = true;
+			this.filterTabControl.Name = "filterTabControl";
+			this.filterTabControl.SelectedIndex = 0;
+			this.filterTabControl.Size = new System.Drawing.Size(1058, 451);
+			this.filterTabControl.TabIndex = 7;
 			// 
-			// tabPage1
+			// ticketFilterTabPage
 			// 
-			this.tabPage1.BackColor = System.Drawing.Color.White;
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Size = new System.Drawing.Size(1050, 425);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Билеты";
+			this.ticketFilterTabPage.BackColor = System.Drawing.Color.White;
+			this.ticketFilterTabPage.Controls.Add(this.ticketFilterDataGridView);
+			this.ticketFilterTabPage.Location = new System.Drawing.Point(4, 22);
+			this.ticketFilterTabPage.Margin = new System.Windows.Forms.Padding(0);
+			this.ticketFilterTabPage.Name = "ticketFilterTabPage";
+			this.ticketFilterTabPage.Size = new System.Drawing.Size(1050, 425);
+			this.ticketFilterTabPage.TabIndex = 0;
+			this.ticketFilterTabPage.Text = "Билеты";
 			// 
-			// tabPage2
+			// ticketFilterDataGridView
 			// 
-			this.tabPage2.BackColor = System.Drawing.Color.White;
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Size = new System.Drawing.Size(784, 275);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Рейсы";
+			this.ticketFilterDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.ticketFilterDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ticketFilterDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+			this.ticketFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ticketFilterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ticketFilterPassengerColumn,
+            this.ticketFilterFlightNumberColumn,
+            this.ticketFilterDepartureAirport,
+            this.ticketFilterDepartureDateColumn,
+            this.ticketFilterArrivalAirportColumn,
+            this.ticketFilterArrivalDateColumn,
+            this.ticketFilterClassColumn});
+			this.ticketFilterDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ticketFilterDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.ticketFilterDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.ticketFilterDataGridView.Name = "ticketFilterDataGridView";
+			dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.ticketFilterDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+			this.ticketFilterDataGridView.RowHeadersVisible = false;
+			this.ticketFilterDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+			this.ticketFilterDataGridView.Size = new System.Drawing.Size(1050, 425);
+			this.ticketFilterDataGridView.TabIndex = 5;
+			// 
+			// ticketFilterPassengerColumn
+			// 
+			this.ticketFilterPassengerColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterPassengerColumn.FillWeight = 40F;
+			this.ticketFilterPassengerColumn.HeaderText = "Пассажир";
+			this.ticketFilterPassengerColumn.Name = "ticketFilterPassengerColumn";
+			// 
+			// ticketFilterFlightNumberColumn
+			// 
+			this.ticketFilterFlightNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterFlightNumberColumn.FillWeight = 15F;
+			this.ticketFilterFlightNumberColumn.HeaderText = "Номер рейса";
+			this.ticketFilterFlightNumberColumn.Name = "ticketFilterFlightNumberColumn";
+			// 
+			// ticketFilterDepartureAirport
+			// 
+			this.ticketFilterDepartureAirport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterDepartureAirport.FillWeight = 20F;
+			this.ticketFilterDepartureAirport.HeaderText = "Аэропорт отправления";
+			this.ticketFilterDepartureAirport.Name = "ticketFilterDepartureAirport";
+			// 
+			// ticketFilterDepartureDateColumn
+			// 
+			this.ticketFilterDepartureDateColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterDepartureDateColumn.FillWeight = 20F;
+			this.ticketFilterDepartureDateColumn.HeaderText = "Дата отправления";
+			this.ticketFilterDepartureDateColumn.Name = "ticketFilterDepartureDateColumn";
+			// 
+			// ticketFilterArrivalAirportColumn
+			// 
+			this.ticketFilterArrivalAirportColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterArrivalAirportColumn.FillWeight = 20F;
+			this.ticketFilterArrivalAirportColumn.HeaderText = "Аэропорт прибытия";
+			this.ticketFilterArrivalAirportColumn.Name = "ticketFilterArrivalAirportColumn";
+			// 
+			// ticketFilterArrivalDateColumn
+			// 
+			this.ticketFilterArrivalDateColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterArrivalDateColumn.FillWeight = 20F;
+			this.ticketFilterArrivalDateColumn.HeaderText = "Дата прибытия";
+			this.ticketFilterArrivalDateColumn.Name = "ticketFilterArrivalDateColumn";
+			// 
+			// ticketFilterClassColumn
+			// 
+			this.ticketFilterClassColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketFilterClassColumn.FillWeight = 10F;
+			this.ticketFilterClassColumn.HeaderText = "Класс";
+			this.ticketFilterClassColumn.Name = "ticketFilterClassColumn";
+			// 
+			// flightFilterTabPage
+			// 
+			this.flightFilterTabPage.BackColor = System.Drawing.Color.White;
+			this.flightFilterTabPage.Location = new System.Drawing.Point(4, 22);
+			this.flightFilterTabPage.Margin = new System.Windows.Forms.Padding(0);
+			this.flightFilterTabPage.Name = "flightFilterTabPage";
+			this.flightFilterTabPage.Size = new System.Drawing.Size(1050, 425);
+			this.flightFilterTabPage.TabIndex = 1;
+			this.flightFilterTabPage.Text = "Рейсы";
 			// 
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.White;
-			this.panel2.Controls.Add(this.materialComboBox1);
+			this.panel2.Controls.Add(this.filterTypeComboBox);
 			this.panel2.Controls.Add(this.materialLabel9);
-			this.panel2.Controls.Add(this.materialTextBox8);
+			this.panel2.Controls.Add(this.filterTextBox);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel2.Location = new System.Drawing.Point(0, 30);
 			this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -1712,29 +1839,29 @@ namespace AirTicketOffice
 			this.panel2.Size = new System.Drawing.Size(1058, 54);
 			this.panel2.TabIndex = 6;
 			// 
-			// materialComboBox1
+			// filterTypeComboBox
 			// 
-			this.materialComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.materialComboBox1.AutoResize = false;
-			this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.materialComboBox1.Depth = 0;
-			this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-			this.materialComboBox1.DropDownHeight = 118;
-			this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.materialComboBox1.DropDownWidth = 121;
-			this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-			this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.materialComboBox1.FormattingEnabled = true;
-			this.materialComboBox1.IntegralHeight = false;
-			this.materialComboBox1.ItemHeight = 29;
-			this.materialComboBox1.Location = new System.Drawing.Point(733, 10);
-			this.materialComboBox1.MaxDropDownItems = 4;
-			this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialComboBox1.Name = "materialComboBox1";
-			this.materialComboBox1.Size = new System.Drawing.Size(317, 35);
-			this.materialComboBox1.StartIndex = 0;
-			this.materialComboBox1.TabIndex = 2;
-			this.materialComboBox1.UseTallSize = false;
+			this.filterTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.filterTypeComboBox.AutoResize = false;
+			this.filterTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.filterTypeComboBox.Depth = 0;
+			this.filterTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+			this.filterTypeComboBox.DropDownHeight = 118;
+			this.filterTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.filterTypeComboBox.DropDownWidth = 121;
+			this.filterTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.filterTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.filterTypeComboBox.FormattingEnabled = true;
+			this.filterTypeComboBox.IntegralHeight = false;
+			this.filterTypeComboBox.ItemHeight = 29;
+			this.filterTypeComboBox.Location = new System.Drawing.Point(733, 10);
+			this.filterTypeComboBox.MaxDropDownItems = 4;
+			this.filterTypeComboBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.filterTypeComboBox.Name = "filterTypeComboBox";
+			this.filterTypeComboBox.Size = new System.Drawing.Size(317, 35);
+			this.filterTypeComboBox.StartIndex = 0;
+			this.filterTypeComboBox.TabIndex = 2;
+			this.filterTypeComboBox.UseTallSize = false;
 			// 
 			// materialLabel9
 			// 
@@ -1749,29 +1876,30 @@ namespace AirTicketOffice
 			this.materialLabel9.TabIndex = 1;
 			this.materialLabel9.Text = "Фильтр по:";
 			// 
-			// materialTextBox8
+			// filterTextBox
 			// 
-			this.materialTextBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.filterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.materialTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.materialTextBox8.Depth = 0;
-			this.materialTextBox8.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.materialTextBox8.Hint = "Фильтр...";
-			this.materialTextBox8.LeadingIcon = null;
-			this.materialTextBox8.Location = new System.Drawing.Point(8, 10);
-			this.materialTextBox8.MaxLength = 50;
-			this.materialTextBox8.MouseState = MaterialSkin.MouseState.OUT;
-			this.materialTextBox8.Multiline = false;
-			this.materialTextBox8.Name = "materialTextBox8";
-			this.materialTextBox8.Size = new System.Drawing.Size(622, 36);
-			this.materialTextBox8.TabIndex = 0;
-			this.materialTextBox8.Text = "";
-			this.materialTextBox8.TrailingIcon = null;
-			this.materialTextBox8.UseTallSize = false;
+			this.filterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.filterTextBox.Depth = 0;
+			this.filterTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.filterTextBox.Hint = "Фильтр...";
+			this.filterTextBox.LeadingIcon = null;
+			this.filterTextBox.Location = new System.Drawing.Point(8, 10);
+			this.filterTextBox.MaxLength = 50;
+			this.filterTextBox.MouseState = MaterialSkin.MouseState.OUT;
+			this.filterTextBox.Multiline = false;
+			this.filterTextBox.Name = "filterTextBox";
+			this.filterTextBox.Size = new System.Drawing.Size(622, 36);
+			this.filterTextBox.TabIndex = 0;
+			this.filterTextBox.Text = "";
+			this.filterTextBox.TrailingIcon = null;
+			this.filterTextBox.UseTallSize = false;
+			this.filterTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filterTextBox_KeyDown);
 			// 
 			// materialTabSelector3
 			// 
-			this.materialTabSelector3.BaseTabControl = this.materialTabControl1;
+			this.materialTabSelector3.BaseTabControl = this.filterTabControl;
 			this.materialTabSelector3.Depth = 0;
 			this.materialTabSelector3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.materialTabSelector3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1786,9 +1914,11 @@ namespace AirTicketOffice
 			// printTabPage
 			// 
 			this.printTabPage.BackColor = System.Drawing.Color.White;
+			this.printTabPage.Controls.Add(this.materialCard1);
 			this.printTabPage.ImageKey = "print_icon.png";
 			this.printTabPage.Location = new System.Drawing.Point(4, 39);
 			this.printTabPage.Name = "printTabPage";
+			this.printTabPage.Padding = new System.Windows.Forms.Padding(14);
 			this.printTabPage.Size = new System.Drawing.Size(1058, 535);
 			this.printTabPage.TabIndex = 4;
 			this.printTabPage.Text = "Печать";
@@ -1801,100 +1931,151 @@ namespace AirTicketOffice
 			this.actionIconsImageList.Images.SetKeyName(1, "delete_icon.png");
 			this.actionIconsImageList.Images.SetKeyName(2, "save_icon.png");
 			// 
-			// ticketsNumberColumn
+			// materialCard1
 			// 
-			this.ticketsNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsNumberColumn.FillWeight = 4F;
-			this.ticketsNumberColumn.HeaderText = "№";
-			this.ticketsNumberColumn.Name = "ticketsNumberColumn";
-			this.ticketsNumberColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.materialCard1.Controls.Add(this.printTicketButton);
+			this.materialCard1.Controls.Add(this.printTicketDataGridView);
+			this.materialCard1.Controls.Add(this.materialLabel10);
+			this.materialCard1.Depth = 0;
+			this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.materialCard1.Location = new System.Drawing.Point(14, 14);
+			this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+			this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialCard1.Name = "materialCard1";
+			this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+			this.materialCard1.Size = new System.Drawing.Size(1030, 507);
+			this.materialCard1.TabIndex = 2;
 			// 
-			// ticketsPassengerColumn
+			// printTicketButton
 			// 
-			this.ticketsPassengerColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketsPassengerColumn.FillWeight = 40F;
-			this.ticketsPassengerColumn.HeaderText = "Пассажир";
-			this.ticketsPassengerColumn.Name = "ticketsPassengerColumn";
+			this.printTicketButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.printTicketButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.printTicketButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+			this.printTicketButton.Depth = 0;
+			this.printTicketButton.HighEmphasis = true;
+			this.printTicketButton.Icon = null;
+			this.printTicketButton.Location = new System.Drawing.Point(839, 456);
+			this.printTicketButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.printTicketButton.MouseState = MaterialSkin.MouseState.HOVER;
+			this.printTicketButton.Name = "printTicketButton";
+			this.printTicketButton.Size = new System.Drawing.Size(177, 36);
+			this.printTicketButton.TabIndex = 7;
+			this.printTicketButton.Text = "Распечатать билет";
+			this.printTicketButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+			this.printTicketButton.UseAccentColor = false;
+			this.printTicketButton.UseVisualStyleBackColor = true;
 			// 
-			// ticketsTicketPriceId
+			// printTicketDataGridView
 			// 
-			this.ticketsTicketPriceId.HeaderText = "Цена";
-			this.ticketsTicketPriceId.Name = "ticketsTicketPriceId";
+			this.printTicketDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.printTicketDataGridView.BackgroundColor = System.Drawing.Color.White;
+			dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.printTicketDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+			this.printTicketDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.printTicketDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ticketPrintNumberColumn,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15});
+			this.printTicketDataGridView.Location = new System.Drawing.Point(14, 49);
+			this.printTicketDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.printTicketDataGridView.MultiSelect = false;
+			this.printTicketDataGridView.Name = "printTicketDataGridView";
+			dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowFrame;
+			dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.printTicketDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+			this.printTicketDataGridView.RowHeadersVisible = false;
+			this.printTicketDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.printTicketDataGridView.Size = new System.Drawing.Size(1002, 394);
+			this.printTicketDataGridView.TabIndex = 6;
 			// 
-			// ticketPricesTabPage
+			// ticketPrintNumberColumn
 			// 
-			this.ticketPricesTabPage.Controls.Add(this.ticketPricesDataGridView);
-			this.ticketPricesTabPage.Location = new System.Drawing.Point(4, 22);
-			this.ticketPricesTabPage.Name = "ticketPricesTabPage";
-			this.ticketPricesTabPage.Size = new System.Drawing.Size(1050, 425);
-			this.ticketPricesTabPage.TabIndex = 9;
-			this.ticketPricesTabPage.Text = "Цены на билеты";
-			this.ticketPricesTabPage.UseVisualStyleBackColor = true;
+			this.ticketPrintNumberColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ticketPrintNumberColumn.FillWeight = 5F;
+			this.ticketPrintNumberColumn.HeaderText = "№";
+			this.ticketPrintNumberColumn.Name = "ticketPrintNumberColumn";
 			// 
-			// ticketPricesDataGridView
+			// dataGridViewTextBoxColumn9
 			// 
-			this.ticketPricesDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.ticketPricesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ticketPricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-			this.ticketPricesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.ticketPricesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.ticketPricesClassColumn,
-            this.ticketPricesFlightColumn,
-            this.ticketPricesPriceColumn});
-			this.ticketPricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ticketPricesDataGridView.Location = new System.Drawing.Point(0, 0);
-			this.ticketPricesDataGridView.Margin = new System.Windows.Forms.Padding(0);
-			this.ticketPricesDataGridView.MultiSelect = false;
-			this.ticketPricesDataGridView.Name = "ticketPricesDataGridView";
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowFrame;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.ticketPricesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-			this.ticketPricesDataGridView.RowHeadersVisible = false;
-			this.ticketPricesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.ticketPricesDataGridView.Size = new System.Drawing.Size(1050, 425);
-			this.ticketPricesDataGridView.TabIndex = 2;
+			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn9.FillWeight = 40F;
+			this.dataGridViewTextBoxColumn9.HeaderText = "Пассажир";
+			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
 			// 
-			// dataGridViewTextBoxColumn8
+			// dataGridViewTextBoxColumn10
 			// 
-			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn8.FillWeight = 4F;
-			this.dataGridViewTextBoxColumn8.HeaderText = "№";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn10.FillWeight = 15F;
+			this.dataGridViewTextBoxColumn10.HeaderText = "Номер рейса";
+			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
 			// 
-			// ticketPricesClassColumn
+			// dataGridViewTextBoxColumn11
 			// 
-			this.ticketPricesClassColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketPricesClassColumn.FillWeight = 20F;
-			this.ticketPricesClassColumn.HeaderText = "Класс";
-			this.ticketPricesClassColumn.Name = "ticketPricesClassColumn";
+			this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn11.FillWeight = 20F;
+			this.dataGridViewTextBoxColumn11.HeaderText = "Аэропорт отправления";
+			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
 			// 
-			// ticketPricesFlightColumn
+			// dataGridViewTextBoxColumn12
 			// 
-			this.ticketPricesFlightColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketPricesFlightColumn.FillWeight = 20F;
-			this.ticketPricesFlightColumn.HeaderText = "Рейс";
-			this.ticketPricesFlightColumn.Name = "ticketPricesFlightColumn";
+			this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn12.FillWeight = 20F;
+			this.dataGridViewTextBoxColumn12.HeaderText = "Дата отправления";
+			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
 			// 
-			// ticketPricesPriceColumn
+			// dataGridViewTextBoxColumn13
 			// 
-			this.ticketPricesPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.ticketPricesPriceColumn.FillWeight = 20F;
-			this.ticketPricesPriceColumn.HeaderText = "Цена";
-			this.ticketPricesPriceColumn.Name = "ticketPricesPriceColumn";
+			this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn13.FillWeight = 20F;
+			this.dataGridViewTextBoxColumn13.HeaderText = "Аэропорт прибытия";
+			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+			// 
+			// dataGridViewTextBoxColumn14
+			// 
+			this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn14.FillWeight = 20F;
+			this.dataGridViewTextBoxColumn14.HeaderText = "Дата прибытия";
+			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+			// 
+			// dataGridViewTextBoxColumn15
+			// 
+			this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn15.FillWeight = 10F;
+			this.dataGridViewTextBoxColumn15.HeaderText = "Класс";
+			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+			// 
+			// materialLabel10
+			// 
+			this.materialLabel10.AutoSize = true;
+			this.materialLabel10.Depth = 0;
+			this.materialLabel10.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+			this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+			this.materialLabel10.Location = new System.Drawing.Point(17, 14);
+			this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+			this.materialLabel10.Name = "materialLabel10";
+			this.materialLabel10.Size = new System.Drawing.Size(270, 24);
+			this.materialLabel10.TabIndex = 0;
+			this.materialLabel10.Text = "Выберите билет для печати:";
 			// 
 			// AdminMainWindow
 			// 
@@ -1908,16 +2089,18 @@ namespace AirTicketOffice
 			this.Name = "AdminMainWindow";
 			this.Padding = new System.Windows.Forms.Padding(0);
 			this.Text = "Form1";
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.mainTabControl.ResumeLayout(false);
 			this.mainTabPage.ResumeLayout(false);
 			this.mainTabPage.PerformLayout();
 			this.mainTabPageTabControl.ResumeLayout(false);
 			this.usersTabPage.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
-			this.ordersTabPage.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).EndInit();
 			this.ticketsTabPage.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).EndInit();
+			this.ticketPricesTabPage.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.ticketPricesDataGridView)).EndInit();
 			this.routesTabPage.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.routesDataGridView)).EndInit();
 			this.flightsTabPage.ResumeLayout(false);
@@ -1947,11 +2130,15 @@ namespace AirTicketOffice
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.filterTabPage.ResumeLayout(false);
-			this.materialTabControl1.ResumeLayout(false);
+			this.filterTabControl.ResumeLayout(false);
+			this.ticketFilterTabPage.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.ticketFilterDataGridView)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			this.ticketPricesTabPage.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.ticketPricesDataGridView)).EndInit();
+			this.printTabPage.ResumeLayout(false);
+			this.materialCard1.ResumeLayout(false);
+			this.materialCard1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.printTicketDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1984,13 +2171,13 @@ namespace AirTicketOffice
 		private MaterialSkin.Controls.MaterialLabel materialLabel8;
 		private MaterialSkin.Controls.MaterialTextBox searchTextBox;
 		private DataGridView vacantSeatsDataGridView;
-		private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-		private TabPage tabPage1;
-		private TabPage tabPage2;
+		private MaterialSkin.Controls.MaterialTabControl filterTabControl;
+		private TabPage ticketFilterTabPage;
+		private TabPage flightFilterTabPage;
 		private Panel panel2;
-		private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+		private MaterialSkin.Controls.MaterialComboBox filterTypeComboBox;
 		private MaterialSkin.Controls.MaterialLabel materialLabel9;
-		private MaterialSkin.Controls.MaterialTextBox materialTextBox8;
+		private MaterialSkin.Controls.MaterialTextBox filterTextBox;
 		private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
 		private ImageList actionIconsImageList;
 		private MaterialSkin.Controls.MaterialTabControl mainTabPageTabControl;
@@ -2004,14 +2191,6 @@ namespace AirTicketOffice
 		private DataGridViewTextBoxColumn usersPassportColumn;
 		private DataGridViewTextBoxColumn usersPhoneColumn;
 		private DataGridViewCheckBoxColumn usersAdminRightsColumn;
-		private TabPage ordersTabPage;
-		private DataGridView ordersDataGridView;
-		private DataGridViewTextBoxColumn ordersNumberColumn;
-		private DataGridViewTextBoxColumn ordersUserColumn;
-		private DataGridViewTextBoxColumn ordersFlightColumn;
-		private DataGridViewTextBoxColumn ordersDesiredDateColumn;
-		private DataGridViewTextBoxColumn ordersRegistrationDateColumn;
-		private DataGridViewTextBoxColumn ordersOfficeColumn;
 		private TabPage ticketsTabPage;
 		private DataGridView ticketsDataGridView;
 		private TabPage routesTabPage;
@@ -2053,9 +2232,6 @@ namespace AirTicketOffice
 		private Panel panel3;
 		private MaterialSkin.Controls.MaterialButton exitFromAccountButton;
 		private MaterialSkin.Controls.MaterialButton saveAccountChangesButton;
-		private DataGridViewTextBoxColumn searchEmptySeatsPlaneNumColumn;
-		private DataGridViewTextBoxColumn searchEmptySeatsRouteNumColumn;
-		private DataGridViewTextBoxColumn searchEmptySeatsColumn;
 		private DataGridViewTextBoxColumn planesNumberColumn;
 		private DataGridViewTextBoxColumn planesNumColumn;
 		private DataGridViewTextBoxColumn planesTypeColumn;
@@ -2084,6 +2260,31 @@ namespace AirTicketOffice
 		private DataGridViewTextBoxColumn ticketPricesClassColumn;
 		private DataGridViewTextBoxColumn ticketPricesFlightColumn;
 		private DataGridViewTextBoxColumn ticketPricesPriceColumn;
+		private ToolStripStatusLabel StatusLabel;
+		private ToolStripStatusLabel amountOfEmptySeatsStatusLabel;
+		private DataGridViewTextBoxColumn searchEmptySeatsPlaneNumColumn;
+		private DataGridViewTextBoxColumn searchEmptySeatsFlightNumColumn;
+		private DataGridViewTextBoxColumn searchEmptySeatsColumn;
+		private DataGridView ticketFilterDataGridView;
+		private DataGridViewTextBoxColumn ticketFilterPassengerColumn;
+		private DataGridViewTextBoxColumn ticketFilterFlightNumberColumn;
+		private DataGridViewTextBoxColumn ticketFilterDepartureAirport;
+		private DataGridViewTextBoxColumn ticketFilterDepartureDateColumn;
+		private DataGridViewTextBoxColumn ticketFilterArrivalAirportColumn;
+		private DataGridViewTextBoxColumn ticketFilterArrivalDateColumn;
+		private DataGridViewTextBoxColumn ticketFilterClassColumn;
+		private MaterialSkin.Controls.MaterialCard materialCard1;
+		private MaterialSkin.Controls.MaterialButton printTicketButton;
+		private DataGridView printTicketDataGridView;
+		private DataGridViewTextBoxColumn ticketPrintNumberColumn;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+		private MaterialSkin.Controls.MaterialLabel materialLabel10;
 	}
 }
 

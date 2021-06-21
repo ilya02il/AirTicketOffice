@@ -13,7 +13,6 @@ namespace AirTicketOffice.Presentations.Views
 		//event SaveAllEntitiesEventHandler<IEntity> SaveAllEntities;
 
 		event Action GetAllUsers;
-		event Action GetAllOrders;
 		event Action GetAllTickets;
 		event Action GetAllTicketPrices;
 		event Action GetAllRoutes;
@@ -23,7 +22,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action GetAllAirports;
 
 		event Action DeleteUser;
-		event Action DeleteOrder;
 		event Action DeleteTicket;
 		event Action DeleteTicketPrice;
 		event Action DeleteRoute;
@@ -33,7 +31,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action DeleteAirport;
 
 		event Action SaveAllUsersChanges;
-		event Action SaveAllOrdersChanges;
 		event Action SaveAllTicketsChanges;
 		event Action SaveAllTicketPricesChanges;
 		event Action SaveAllRoutesChanges;
@@ -43,7 +40,6 @@ namespace AirTicketOffice.Presentations.Views
 		event Action SaveAllAirportsChanges;
 
 		event Action SaveUserChanges;
-		event Action SaveOrderChanges;
 		event Action SaveTicketChanges;
 		event Action SaveTicketPriceChanges;
 		event Action SaveRouteChanges;
@@ -56,12 +52,15 @@ namespace AirTicketOffice.Presentations.Views
 		event Action ChangePassword;
 		event Action ExitFromAccount;
 
+		event Action PrintTicket;
+		event Action PrintReport;
+
 		int SelectedId { get; set; }
 		string HelloMessage { set; }
 		UserEntity CurrentUser { get; set; }
+		TicketEntity Ticket { get; }
 
 		ICollection<UserEntity> Users { get; set; }
-		ICollection<OrderEntity> Orders { get; set; }
 		ICollection<TicketEntity> Tickets { get; set; }
 		ICollection<TicketPriceEntity> TicketPrices { get; set; }
 		ICollection<RouteEntity> Routes { get; set; }

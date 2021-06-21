@@ -73,7 +73,7 @@ namespace AirTicketOffice.Presentations.Presenters
 				return;
 			}
 
-			if (!_registrationService.VerifyLogin(user.Login))
+			if (_registrationService.VerifyLogin(user.Login))
 			{
 				View.GetMessage("Введенный Вами логин уже занят.");
 

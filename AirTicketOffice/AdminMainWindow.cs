@@ -17,7 +17,6 @@ namespace AirTicketOffice
 		//public event SaveAllEntitiesEventHandler<IEntity> SaveAllEntities;
 
 		public event Action GetAllUsers;
-		public event Action GetAllOrders;
 		public event Action GetAllTickets;
 		public event Action GetAllTicketPrices;
 		public event Action GetAllRoutes;
@@ -27,7 +26,6 @@ namespace AirTicketOffice
 		public event Action GetAllAirports;
 
 		public event Action DeleteUser;
-		public event Action DeleteOrder;
 		public event Action DeleteTicket;
 		public event Action DeleteTicketPrice;
 		public event Action DeleteRoute;
@@ -37,7 +35,6 @@ namespace AirTicketOffice
 		public event Action DeleteAirport;
 
 		public event Action SaveAllUsersChanges;
-		public event Action SaveAllOrdersChanges;
 		public event Action SaveAllTicketsChanges;
 		public event Action SaveAllTicketPricesChanges;
 		public event Action SaveAllRoutesChanges;
@@ -47,7 +44,6 @@ namespace AirTicketOffice
 		public event Action SaveAllAirportsChanges;
 
 		public event Action SaveUserChanges;
-		public event Action SaveOrderChanges;
 		public event Action SaveTicketChanges;
 		public event Action SaveTicketPriceChanges;
 		public event Action SaveRouteChanges;
@@ -60,11 +56,18 @@ namespace AirTicketOffice
 		public event Action ChangePassword;
 		public event Action ExitFromAccount;
 
+		public event Action PrintTicket;
+		public event Action PrintReport;
+
+		private ICollection<TicketEntity> _tickets;
+		//private ICollection<FlightEntity> _flights;
 		private readonly ApplicationContext _context;
 
 		public AdminMainWindow(ApplicationContext context, MaterialSkinManager manager)
 		{
 			_context = context;
+			//_tickets = new List<TicketEntity>();
+			//_flights = new List<FlightEntity>();
 
 			InitializeComponent();
 
@@ -73,26 +76,114 @@ namespace AirTicketOffice
 			mainTabControl.SelectedIndex = 0;
 			Text = @"	 " + mainTabControl.SelectedTab.Text;
 
-			usersTabPage.Enter += (sender, args) => GetAllUsers?.Invoke();
+			Load += (sender, args) =>
+			{
+				GetAllUsers?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = usersDataGridView.RowCount.ToString();
+			};
+
+			usersTabPage.Enter += (sender, args) =>
+			{
+				GetAllUsers?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = usersDataGridView.RowCount.ToString();
+			};
 			searchPassengersTabPage.Enter += (sender, args) =>
 			{
 				GetAllUsers?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = passengersDataGridView.RowCount.ToString();
+
 				searchTypeComboBox.Items.Clear();
 				searchTypeComboBox.Items.Add("ФИО");
 				searchTypeComboBox.Items.Add("номеру паспорта");
 			};
-			ordersTabPage.Enter += (sender, args) => GetAllOrders?.Invoke();
-			ticketsTabPage.Enter += (sender, args) => GetAllTickets?.Invoke();
-			ticketPricesTabPage.Enter += (sender, args) => GetAllTicketPrices?.Invoke();
-			routesTabPage.Enter += (sender, args) => GetAllRoutes?.Invoke();
-			flightsTabPage.Enter += (sender, args) => GetAllFlights?.Invoke();
-			planesTabPage.Enter += (sender, args) => GetAllPlanes?.Invoke();
-			crewTabPage.Enter += (sender, args) => GetAllCrewMembers?.Invoke();
-			airportsTabPage.Enter += (sender, args) => GetAllAirports?.Invoke();
+			ticketsTabPage.Enter += (sender, args) =>
+			{
+				GetAllTickets?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = ticketsDataGridView.RowCount.ToString();
+			};
+			ticketFilterTabPage.Enter += (sender, args) =>
+			{
+				GetAllTickets?.Invoke();
+
+				ticketFilterDataGridView.Rows.Clear();
+
+				foreach (var ticket in _tickets)
+				{
+					ticketFilterDataGridView.Rows.Add(
+						ticket.User.Surname + " " + ticket.User.Name + " " + ticket.User.Patronymic,
+						ticket.TicketPrice.FlightId,
+						ticket.TicketPrice.Flight.Route.DepartureAirport.Name,
+						ticket.TicketPrice.Flight.DateFrom,
+						ticket.TicketPrice.Flight.Route.ArrivalAirport.Name,
+						ticket.TicketPrice.Flight.DateTo,
+						ticket.TicketPrice.Class.Name
+					);
+				}
+
+				amountOfEmptySeatsStatusLabel.Text = ticketFilterDataGridView.RowCount.ToString();
+
+				filterTypeComboBox.Items.Clear();
+				filterTypeComboBox.Items.Add("номеру рейса");
+				filterTypeComboBox.Items.Add("дате вылета");
+				filterTypeComboBox.Items.Add("аэропорту прибытия");
+				filterTypeComboBox.Items.Add("классу авиабилета");
+			};
+			printTabPage.Enter += (sender, args) =>
+			{
+				GetAllTickets?.Invoke();
+
+				printTicketDataGridView.Rows.Clear();
+
+				foreach (var ticket in _tickets)
+				{
+					printTicketDataGridView.Rows.Add(
+						ticket.Id,
+						ticket.User.Surname + " " + ticket.User.Name + " " + ticket.User.Patronymic,
+						ticket.TicketPrice.FlightId,
+						ticket.TicketPrice.Flight.Route.DepartureAirport.Name,
+						ticket.TicketPrice.Flight.DateFrom,
+						ticket.TicketPrice.Flight.Route.ArrivalAirport.Name,
+						ticket.TicketPrice.Flight.DateTo,
+						ticket.TicketPrice.Class.Name
+					);
+				}
+			};
+			ticketPricesTabPage.Enter += (sender, args) =>
+			{
+				GetAllTicketPrices?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = ticketPricesDataGridView.RowCount.ToString();
+			};
+			routesTabPage.Enter += (sender, args) =>
+			{
+				GetAllRoutes?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = routesDataGridView.RowCount.ToString();
+			};
+			flightsTabPage.Enter += (sender, args) =>
+			{
+				GetAllFlights?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = flightsDataGridView.RowCount.ToString();
+			};
+			planesTabPage.Enter += (sender, args) =>
+			{
+				GetAllPlanes?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = planesDataGridView.RowCount.ToString();
+			};
+			crewTabPage.Enter += (sender, args) =>
+			{
+				GetAllCrewMembers?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = crewMembersDataGridView.RowCount.ToString();
+			};
+			airportsTabPage.Enter += (sender, args) =>
+			{
+				GetAllAirports?.Invoke();
+				amountOfEmptySeatsStatusLabel.Text = airportsDataGridView.RowCount.ToString();
+			};
 
 			saveAccountChangesButton.Click += (sender, args) => SaveCurrentUserInfo?.Invoke();
 			changePasswordButton.Click += (sender, args) => ChangePassword?.Invoke();
 			exitFromAccountButton.Click += (sender, args) => ExitFromAccount?.Invoke();
+
+			printTicketButton.Click += (sender, args) => PrintTicket?.Invoke();
 		}
 
 		public sealed override string Text
@@ -130,6 +221,17 @@ namespace AirTicketOffice
 				accountLoginTextBox.Text = value.Login;
 				accountPassportTextBox.Text = value.PassportNumber;
 				accountPhoneTextBox.Text = value.PhoneNumber;
+			}
+		}
+
+		public TicketEntity Ticket
+		{
+			get
+			{
+				var selectedRowIndex = printTicketDataGridView.CurrentCell.RowIndex;
+				var selectedId = Convert.ToInt32(printTicketDataGridView.Rows[selectedRowIndex].Cells[0].Value);
+
+				return _tickets.FirstOrDefault(ticket => ticket.Id == selectedId);
 			}
 		}
 
@@ -198,54 +300,6 @@ namespace AirTicketOffice
 			}
 		}
 
-		public ICollection<OrderEntity> Orders
-		{
-			get
-			{
-				var orderList = new List<OrderEntity>();
-
-				for (int i = 0; i < ordersDataGridView.RowCount - 1; i++)
-				{
-					var id = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[0].Value);
-					var userId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[1].Value);
-					var flightId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[2].Value);
-					var desiredDate = Convert.ToDateTime(ordersDataGridView.Rows[i].Cells[3].Value);
-					var orderDate = Convert.ToDateTime(ordersDataGridView.Rows[i].Cells[4].Value);
-					var officeId = Convert.ToInt32(ordersDataGridView.Rows[i].Cells[5].Value);
-
-					var order = new OrderEntity()
-					{
-						Id = id,
-						UserId = userId,
-						FlightId = flightId,
-						DesiredDate = desiredDate,
-						OrderDate = orderDate,
-						OfficeId = officeId
-					};
-
-					orderList.Add(order);
-				}
-
-				return orderList;
-			}
-			set
-			{
-				ordersDataGridView.Rows.Clear();
-
-				foreach (var order in value)
-				{
-					ordersDataGridView.Rows.Add(
-						order.Id,
-						order.UserId,
-						order.FlightId,
-						order.DesiredDate,
-						order.OrderDate,
-						order.OfficeId
-					);
-				}
-			}
-		}
-
 		public ICollection<TicketEntity> Tickets
 		{
 			get
@@ -272,6 +326,8 @@ namespace AirTicketOffice
 			}
 			set
 			{
+				_tickets = value;
+
 				ticketsDataGridView.Rows.Clear();
 
 				foreach (var ticket in value)
@@ -396,6 +452,8 @@ namespace AirTicketOffice
 			}
 			set
 			{
+				//_flights = value;
+
 				flightsDataGridView.Rows.Clear();
 
 				foreach (var flight in value)
@@ -603,6 +661,47 @@ namespace AirTicketOffice
 			}
 		}
 
+		private void filterTextBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode != Keys.Enter) return;
+
+
+			var filterText = filterTextBox.Text;
+
+			if (filterTabControl.SelectedTab == ticketFilterTabPage)
+			{
+				ticketFilterDataGridView.CurrentCell = null;
+
+				for (int i = 0; i < ticketFilterDataGridView.Rows.Count - 1; i++)
+				{
+					if (filterTypeComboBox.StartIndex == 0)
+					{
+						ticketFilterDataGridView.Rows[i].Visible =
+							ticketFilterDataGridView[1, i].Value.ToString().ToLower().Contains(filterText.ToLower())
+							|| ticketFilterDataGridView[1, i].Value.ToString() == filterText;
+					}
+					else if (filterTypeComboBox.StartIndex == 0)
+					{
+						ticketFilterDataGridView.Rows[i].Visible =
+							ticketFilterDataGridView[3, i].Value.ToString().ToLower().Contains(filterText.ToLower())
+							|| ticketFilterDataGridView[3, i].Value.ToString() == filterText;
+					}
+					else if (filterTypeComboBox.StartIndex == 0)
+					{
+						ticketFilterDataGridView.Rows[i].Visible =
+							ticketFilterDataGridView[4, i].Value.ToString().ToLower().Contains(filterText.ToLower())
+							|| ticketFilterDataGridView[4, i].Value.ToString() == filterText;
+					}
+					else
+					{
+						ticketFilterDataGridView.Rows[i].Visible =
+							ticketFilterDataGridView[6, i].Value.ToString().ToLower().Contains(filterText.ToLower())
+							|| ticketFilterDataGridView[6, i].Value.ToString() == filterText;
+					}
+				}
+			}
+		}
+
 		private void saveSingleToolStripButton_Click(object sender, EventArgs e)
 		{
 			switch (mainTabPageTabControl.SelectedTab.Name)
@@ -610,10 +709,6 @@ namespace AirTicketOffice
 				case "usersTabPage":
 					SelectedId = GetSelectedId(usersDataGridView);
 					SaveUserChanges?.Invoke();
-					break;
-				case "ordersTabPage":
-					SelectedId = GetSelectedId(ordersDataGridView);
-					SaveOrderChanges?.Invoke();
 					break;
 				case "ticketsTabPage":
 					SelectedId = GetSelectedId(ticketsDataGridView);
@@ -652,9 +747,6 @@ namespace AirTicketOffice
 			{
 				case "usersTabPage":
 					SaveAllUsersChanges?.Invoke();
-					break;
-				case "ordersTabPage":
-					SaveAllOrdersChanges?.Invoke();
 					break;
 				case "ticketsTabPage":
 					SaveAllTicketsChanges?.Invoke();
@@ -695,13 +787,6 @@ namespace AirTicketOffice
 
 					usersDataGridView.Rows.Remove(usersDataGridView.Rows[selectedRowIndex]);
 					DeleteUser?.Invoke();
-					break;
-				case "ordersTabPage":
-					selectedRowIndex = ordersDataGridView.CurrentCell.RowIndex;
-					SelectedId = (int)ordersDataGridView.Rows[selectedRowIndex].Cells[0].Value;
-
-					ordersDataGridView.Rows.Remove(ordersDataGridView.Rows[selectedRowIndex]);
-					DeleteOrder?.Invoke();
 					break;
 				case "ticketsTabPage":
 					selectedRowIndex = ticketsDataGridView.CurrentCell.RowIndex;

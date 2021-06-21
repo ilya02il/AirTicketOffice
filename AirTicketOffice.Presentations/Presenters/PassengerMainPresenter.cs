@@ -5,6 +5,7 @@ using Aspose.Words.Loading;
 using Aspose.Words.Replacing;
 using Model.Contracts;
 using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Document = Aspose.Words.Document;
@@ -14,7 +15,7 @@ namespace AirTicketOffice.Presentations.Presenters
 	public class PassengerMainPresenter : BasePresenter<IPassengerMainView, UserEntity>
 	{
 		private UserEntity _user;
-		private IPassengerService _service;
+		private readonly IPassengerService _service;
 
 		public PassengerMainPresenter(IApplicationController controller, IPassengerMainView view, IPassengerService service) : base(controller, view)
 		{
@@ -103,7 +104,14 @@ namespace AirTicketOffice.Presentations.Presenters
 				document.Range.Replace("[order_date]", orderDate, findReplaceOptions);
 				document.Range.Replace("[price]", price, findReplaceOptions);
 
-				var fileName = Application.StartupPath + @"\tickets\ticket_number_" + ticket.Id + ".doc";
+				var myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+				if (Directory.Exists(myDocPath + "\\AirTicketOffice\\tickets") == false)
+				{
+					Directory.CreateDirectory(myDocPath + "\\AirTicketOffice\\tickets");
+				}
+
+				var fileName = myDocPath + "\\AirTicketOffice\\tickets\\ticket_number_" + ticket.Id + ".doc";
 
 				document.Save(fileName);
 

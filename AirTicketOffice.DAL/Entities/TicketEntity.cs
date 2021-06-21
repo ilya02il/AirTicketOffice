@@ -12,6 +12,6 @@ namespace AirTicketOffice.DAL.Entities
         public virtual UserEntity User { get; set; }
 
         public int TicketPriceId { get; set; }
-        public TicketPriceEntity TicketPrice { get; set; }
+        public virtual TicketPriceEntity TicketPrice { get; set; }
     }
 }

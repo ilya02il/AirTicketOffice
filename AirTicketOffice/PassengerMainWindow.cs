@@ -304,17 +304,18 @@ namespace AirTicketOffice
 
 			if (!(amountOfEmptySeats > 0))
 			{
-				MessageBox.Show(@"Свободных мест данного класса в этом рейсе не осталось.");
+				MessageBox.Show(@"Свободных мест данного класса на этом рейсе не осталось.");
 				return;
 			}
 
 			var dialogResult = MessageBox.Show(@"Распечатать билет?", @"Печать",
 				MessageBoxButtons.YesNo);
 
+			AddTicket?.Invoke();
+
 			if (dialogResult == DialogResult.No)
 				return;
 
-			AddTicket?.Invoke();
 			PrintTicket?.Invoke();
 		}
 	}

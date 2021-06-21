@@ -3,7 +3,12 @@ using AirTicketOffice.Presentations.Common;
 using AirTicketOffice.Presentations.Views;
 using Model.Contracts;
 using System;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
+using Aspose.Words;
+using Aspose.Words.Loading;
+using Aspose.Words.Replacing;
 
 namespace AirTicketOffice.Presentations.Presenters
 {
@@ -14,7 +19,6 @@ namespace AirTicketOffice.Presentations.Presenters
         public AdminMainPresenter(IApplicationController controller, IAdminMainView view, IAdminService service) : base(controller, view)
         {
 			View.GetAllUsers += () => View.Users = service.GetAll<UserEntity>().ToList();
-			View.GetAllOrders += () => View.Orders = service.GetAll<OrderEntity>().ToList();
 			View.GetAllTickets += () => View.Tickets = service.GetAll<TicketEntity>().ToList();
 			View.GetAllTicketPrices += () => View.TicketPrices = service.GetAll<TicketPriceEntity>().ToList();
 			View.GetAllRoutes += () => View.Routes = service.GetAll<RouteEntity>().ToList();
@@ -24,7 +28,6 @@ namespace AirTicketOffice.Presentations.Presenters
 			View.GetAllAirports += () => View.Airports = service.GetAll<AirportEntity>().ToList();
 
 			View.DeleteUser += () => service.Delete<UserEntity>(View.SelectedId);
-			View.DeleteOrder += () => service.Delete<OrderEntity>(View.SelectedId);
 			View.DeleteTicket += () => service.Delete<TicketEntity>(View.SelectedId);
 			View.DeleteTicketPrice += () => service.Delete<TicketPriceEntity>(View.SelectedId);
 			View.DeleteRoute += () => service.Delete<RouteEntity>(View.SelectedId);
@@ -34,7 +37,6 @@ namespace AirTicketOffice.Presentations.Presenters
 			View.DeleteAirport += () => service.Delete<AirportEntity>(View.SelectedId);
 
 			View.SaveAllUsersChanges += () => service.EditAllAsync(View.Users);
-			View.SaveAllOrdersChanges += () => service.EditAllAsync(View.Orders);
 			View.SaveAllTicketsChanges += () => service.EditAllAsync(View.Tickets);
 			View.SaveAllTicketPricesChanges += () => service.EditAllAsync(View.TicketPrices);
 			View.SaveAllRoutesChanges += () => service.EditAllAsync(View.Routes);
@@ -44,7 +46,6 @@ namespace AirTicketOffice.Presentations.Presenters
 			View.SaveAllAirportsChanges += () => service.EditAllAsync(View.Airports);
 
 			View.SaveUserChanges += () => service.Edit(View.Users.FirstOrDefault(u => u.Id == View.SelectedId));
-			View.SaveOrderChanges += () => service.Edit(View.Orders.FirstOrDefault(o => o.Id == View.SelectedId));
 	        View.SaveTicketChanges += () => service.Edit(View.Tickets.FirstOrDefault(t => t.Id == View.SelectedId));
 	        View.SaveTicketPriceChanges += () => service.Edit(View.TicketPrices.FirstOrDefault(t => t.Id == View.SelectedId));
 			View.SaveRouteChanges += () => service.Edit(View.Routes.FirstOrDefault(r => r.Id == View.SelectedId));
@@ -62,6 +63,8 @@ namespace AirTicketOffice.Presentations.Presenters
 			};
 			View.ExitFromAccount += ExitFromAccount;
 			View.ChangePassword += () => ChangePassword(_user);
+
+			View.PrintTicket += PrintTicket;
         }
 
         public override void Run(UserEntity argument)
@@ -86,7 +89,74 @@ namespace AirTicketOffice.Presentations.Presenters
 			//change password
         }
 
-        private void Hello()
+		private void PrintTicket()
+		{
+			try
+			{
+				var ticket = View.Ticket;
+
+				if (ticket == null)
+					throw new NullReferenceException("Ticket is null.");
+
+				var refFileName = Application.StartupPath + @"\ticket_template.docx";
+
+				var document = new Document(refFileName, new LoadOptions());
+				var findReplaceOptions = new FindReplaceOptions();
+
+				var ticketNumber = ticket.Id.ToString();
+				var passengerInitials = ticket.User.Surname + " " + ticket.User.Name + " " + ticket.User.Patronymic;
+				var ticketClass = ticket.TicketPrice.Class.Name;
+				var passengerPassport = ticket.User.PassportNumber;
+				var passengerPhone = ticket.User.PhoneNumber;
+				var flightNumber = ticket.TicketPrice.FlightId.ToString();
+				var departureCity = ticket.TicketPrice.Flight.Route.DepartureAirport.City;
+				var departureAirport = ticket.TicketPrice.Flight.Route.DepartureAirport.Name;
+				var departureDate = ticket.TicketPrice.Flight.DateFrom.ToLongDateString();
+				var arrivalCity = ticket.TicketPrice.Flight.Route.ArrivalAirport.City;
+				var arrivalAirport = ticket.TicketPrice.Flight.Route.ArrivalAirport.Name;
+				var arrivalDate = ticket.TicketPrice.Flight.DateTo.ToLongDateString();
+				var orderDate = ticket.OrderDate.ToLongDateString();
+				var price = ticket.TicketPrice.Price.ToString();
+
+
+				document.Range.Replace("[ticket_number]", ticketNumber, findReplaceOptions);
+				document.Range.Replace("[initials]", passengerInitials, findReplaceOptions);
+				document.Range.Replace("[class_name]", ticketClass, findReplaceOptions);
+				document.Range.Replace("[passport_number]", passengerPassport, findReplaceOptions);
+				document.Range.Replace("[phone_number]", passengerPhone, findReplaceOptions);
+				document.Range.Replace("[flight_number]", flightNumber, findReplaceOptions);
+				document.Range.Replace("[departure_city]", departureCity, findReplaceOptions);
+				document.Range.Replace("[departure_airport]", departureAirport, findReplaceOptions);
+				document.Range.Replace("[departure_date]", departureDate, findReplaceOptions);
+				document.Range.Replace("[arrival_city]", arrivalCity, findReplaceOptions);
+				document.Range.Replace("[arrival_airport]", arrivalAirport, findReplaceOptions);
+				document.Range.Replace("[arrival_date]", arrivalDate, findReplaceOptions);
+				document.Range.Replace("[order_date]", orderDate, findReplaceOptions);
+				document.Range.Replace("[price]", price, findReplaceOptions);
+
+				var myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+				if (Directory.Exists(myDocPath + "\\AirTicketOffice\\tickets") == false)
+				{
+					Directory.CreateDirectory(myDocPath + "\\AirTicketOffice\\tickets");
+				}
+
+				var fileName = myDocPath + "\\AirTicketOffice\\tickets\\ticket_number_" + ticket.Id + ".doc";
+
+				document.Save(fileName);
+
+				var app = new Microsoft.Office.Interop.Word.Application();
+
+				app.Documents.Open(fileName);
+				app.Visible = true;
+			}
+			catch (Exception exp)
+			{
+				View.SendMessage(exp.Message);
+			}
+		}
+
+		private void Hello()
         {
             var gender = _user.Gender;
             var name = _user.Name;
