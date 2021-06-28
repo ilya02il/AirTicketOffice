@@ -2285,6 +2285,7 @@ namespace AirTicketOffice
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
 		private MaterialSkin.Controls.MaterialLabel materialLabel10;
+
 	}
 }
 

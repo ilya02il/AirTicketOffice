@@ -198,10 +198,7 @@ namespace AirTicketOffice
 						foreach (var t in _tiles)
 						{
 							if (t.Value == o && t.Key == arrAirportId)
-								//flightsDataGridView.Rows[i].Visible = true;
 								flightsDataGridView.Rows[i].Selected = true;
-							//else
-								//flightsDataGridView.Rows[i].Visible = false;
 						}
 					}
 				};

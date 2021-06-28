@@ -42,7 +42,6 @@ namespace AirTicketOffice.Presentations.Presenters
 			_user = argument;
 			View.CurrentUser = argument;
 
-
 			View.Show();
 
 			Hello();

@@ -57,11 +57,6 @@ namespace AirTicketOffice.Presentations.Presenters
 				View.GetMessage("Заполните поле с отчеством.");
 				return;
 			}
-			//if (user.Gender == string.Empty)
-			//{
-			//	View.GetMessage("Выберите пол.");
-			//	return;
-			//}
 			if (user.PassportNumber == string.Empty)
 			{
 				View.GetMessage("Заполните поле с номером паспорта.");

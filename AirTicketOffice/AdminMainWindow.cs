@@ -57,7 +57,7 @@ namespace AirTicketOffice
 		public event Action ExitFromAccount;
 
 		public event Action PrintTicket;
-		public event Action PrintReport;
+		//public event Action PrintReport;
 
 		private ICollection<TicketEntity> _tickets;
 		//private ICollection<FlightEntity> _flights;

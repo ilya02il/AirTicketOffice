@@ -89,7 +89,7 @@ namespace AirTicketOffice.Presentations.Presenters
 			//change password
         }
 
-		private void PrintTicket()
+        private void PrintTicket()
 		{
 			try
 			{

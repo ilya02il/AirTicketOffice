@@ -53,7 +53,7 @@ namespace AirTicketOffice.Presentations.Views
 		event Action ExitFromAccount;
 
 		event Action PrintTicket;
-		event Action PrintReport;
+		//event Action PrintReport;
 
 		int SelectedId { get; set; }
 		string HelloMessage { set; }
@@ -70,9 +70,5 @@ namespace AirTicketOffice.Presentations.Views
 		ICollection<AirportEntity> Airports { get; set; }
 
 		void SendMessage(string message);
-
-	    //void SetUsers(ICollection<UserEntity> users);
-
-	    //void SetUserInfo(UserEntity userInfo);
 	}
 }
